@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#f7f7f5" />
+
+    <!--
+      Applies the stored theme before first paint. Without this the page would
+      render light for a frame and then snap to dark for returning visitors.
+      Defaults to light when nothing is stored.
+    -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('bt:theme')
+          var theme = t === 'dark' || t === 'light' ? t : 'light'
+          document.documentElement.dataset.theme = theme
+          var m = document.querySelector('meta[name="theme-color"]')
+          if (m) m.content = theme === 'dark' ? '#08090b' : '#f7f7f5'
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light'
+        }
+      })()
+    </script>
+
+    <title>BeginTech — Digital Product & Technology Studio</title>
+    <meta
+      name="description"
+      content="BeginTech is a software house and creative technology studio. We design and engineer web platforms, mobile apps, AI systems and digital products for ambitious companies worldwide."
+    />
+    <link rel="canonical" href="https://begintech.studio/" />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="BeginTech" />
+    <meta property="og:title" content="BeginTech — Digital Product & Technology Studio" />
+    <meta
+      property="og:description"
+      content="We design and engineer web platforms, mobile apps, AI systems and digital products for ambitious companies worldwide."
+    />
+    <meta property="og:url" content="https://begintech.studio/" />
+    <meta property="og:image" content="/og.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="BeginTech — Digital Product & Technology Studio" />
+    <meta
+      name="twitter:description"
+      content="We design and engineer web platforms, mobile apps, AI systems and digital products for ambitious companies worldwide."
+    />
+    <meta name="twitter:image" content="/og.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "BeginTech",
+        "url": "https://begintech.studio/",
+        "description": "Software house and creative technology studio building web platforms, mobile apps, AI systems and digital products.",
+        "email": "hello@begintech.studio",
+        "sameAs": [
+          "https://www.linkedin.com/",
+          "https://www.instagram.com/",
+          "https://www.facebook.com/",
+          "https://x.com/"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
