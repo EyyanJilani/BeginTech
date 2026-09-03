@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef } from 'react'
 import { gsap } from '../../lib/gsap'
 import { revealLines } from '../../animations/presets'
 import { ButtonLink } from '../ui/Button'
-import { LazyScene } from '../three/LazyScene'
+import { ShardField } from '../visual/ShardField'
 import { Marquee } from '../ui/Marquee'
 import { capabilitiesSummary } from '../../data/site'
 import { prefersReducedMotion } from '../../lib/utils'
@@ -81,8 +81,10 @@ export function Hero() {
         data-hero-scene
         className="pointer-events-none absolute inset-0 lg:left-auto lg:right-[-8%] lg:w-[58%]"
       >
-        <div className="h-full w-full opacity-25 md:opacity-35 lg:opacity-100">
-          <LazyScene variant="hero" />
+        {/* Below lg the field sits full-bleed behind the copy, so it has to stay
+            faint. From lg up it moves into its own column and can be full strength. */}
+        <div className="h-full w-full opacity-[0.13] md:opacity-[0.18] lg:opacity-100">
+          <ShardField />
         </div>
       </div>
 

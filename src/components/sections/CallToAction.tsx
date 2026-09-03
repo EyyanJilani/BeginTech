@@ -3,7 +3,7 @@ import { gsap } from '../../lib/gsap'
 import { revealLines } from '../../animations/presets'
 import { ButtonLink } from '../ui/Button'
 import { Reveal } from '../ui/Reveal'
-import { LazyScene } from '../three/LazyScene'
+import { ShardField } from '../visual/ShardField'
 import { site } from '../../data/site'
 
 export function CallToAction() {
@@ -26,8 +26,8 @@ export function CallToAction() {
       aria-labelledby="cta-heading"
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 opacity-60">
-          <LazyScene variant="field" />
+        <div className="absolute inset-0 opacity-45">
+          <ShardField density="sparse" rings={false} />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/45 to-ink" />
         <div className="grid-lines absolute inset-0 opacity-30" />

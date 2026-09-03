@@ -51,8 +51,7 @@
   --bt-scrollbar: #c9ced8;
   --bt-scrollbar-hover: #aeb5c2;
   --bt-panel-shadow: rgba(16, 32, 56, 0.2);
-  --bt-grain-blend: multiply;
-  --bt-grain-opacity: 0.026;
+  --bt-grain-opacity: 0.02;
   --bt-cursor-ring: rgba(19, 78, 144, 0.45);
 }
 
@@ -86,8 +85,7 @@ html[data-theme='dark'] {
   --bt-scrollbar: #232b35;
   --bt-scrollbar-hover: #333d4a;
   --bt-panel-shadow: rgba(0, 0, 0, 0.9);
-  --bt-grain-blend: soft-light;
-  --bt-grain-opacity: 0.038;
+  --bt-grain-opacity: 0.03;
   --bt-cursor-ring: rgba(255, 255, 255, 0.38);
 }
 
@@ -377,6 +375,45 @@ html[data-theme='dark'] .brand-logo {
   100% {
     transform: translateY(800%);
     opacity: 0;
+  }
+}
+
+/*
+  Hero element. transform/opacity only, so these run on the compositor and
+  cost the main thread nothing — which is the whole point of replacing the
+  WebGL scene. The global prefers-reduced-motion rule already stops them.
+*/
+.bt-shard {
+  transform-origin: 50% 50%;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  animation-name: bt-shard-float;
+  animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+@keyframes bt-shard-float {
+  0%,
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(var(--bt-rot)) scale(1);
+  }
+  50% {
+    transform: translate3d(calc(-50% + var(--bt-drift)), calc(-50% - 10px), 0)
+      rotate(calc(var(--bt-rot) + 22deg)) scale(1.07);
+  }
+}
+
+.bt-orbit {
+  animation: bt-orbit-spin 52s linear infinite;
+  will-change: transform;
+}
+
+@keyframes bt-orbit-spin {
+  from {
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  to {
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
   }
 }
 

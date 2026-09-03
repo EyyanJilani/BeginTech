@@ -36,14 +36,20 @@ export function TechEcosystem() {
         },
       )
 
-      // Alternating drift keeps the cloud alive without a permanently running ticker.
+      /*
+        Alternating drift. One scrubbed timeline drives all 24 names rather than
+        24 separate scrub ScrollTriggers — every scrub trigger is re-evaluated
+        on each scroll frame, so collapsing them to one is a straight saving.
+      */
+      const drift = gsap.timeline({
+        scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: 1.2 },
+      })
       items.forEach((item, i) => {
-        gsap.to(item, {
-          y: i % 2 === 0 ? -34 : 26,
-          x: i % 3 === 0 ? 14 : -10,
-          ease: 'none',
-          scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: 1.2 },
-        })
+        drift.to(
+          item,
+          { y: i % 2 === 0 ? -34 : 26, x: i % 3 === 0 ? 14 : -10, ease: 'none', duration: 1 },
+          0,
+        )
       })
     }, el)
 

@@ -12,16 +12,6 @@ export function isTouchDevice(): boolean {
   return window.matchMedia('(hover: none), (pointer: coarse)').matches
 }
 
-/** Rough device tier used to scale down WebGL work on weak hardware. */
-export function deviceTier(): 'low' | 'mid' | 'high' {
-  if (typeof window === 'undefined') return 'mid'
-  const cores = navigator.hardwareConcurrency ?? 4
-  const narrow = window.innerWidth < 768
-  if (narrow || cores <= 4) return 'low'
-  if (cores <= 8) return 'mid'
-  return 'high'
-}
-
 export function clamp(value: number, min: number, max: number): number {
   return Math.min(Math.max(value, min), max)
 }
