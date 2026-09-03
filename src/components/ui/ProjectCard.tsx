@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 import { gsap } from '../../lib/gsap'
-import { ProjectVisual } from './ProjectVisual'
+import { ProjectMedia } from './ProjectMedia'
 import { imageReveal, parallax } from '../../animations/presets'
 import type { Project } from '../../data/projects'
 import { cn } from '../../lib/utils'
@@ -63,7 +63,7 @@ export function ProjectCard({
             data-media
             className="absolute inset-[-12%] transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
           >
-            <ProjectVisual art={project.art} label={project.name} />
+            <ProjectMedia project={project} label={project.name} />
           </div>
 
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-70 transition-opacity duration-700 group-hover:opacity-40" />

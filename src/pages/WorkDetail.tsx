@@ -5,6 +5,7 @@ import { gsap } from '../lib/gsap'
 import { imageReveal } from '../animations/presets'
 import { PageHero } from '../components/sections/PageHero'
 import { CallToAction } from '../components/sections/CallToAction'
+import { ProjectMedia } from '../components/ui/ProjectMedia'
 import { ProjectVisual } from '../components/ui/ProjectVisual'
 import { ProjectCard } from '../components/ui/ProjectCard'
 import { Reveal } from '../components/ui/Reveal'
@@ -60,7 +61,7 @@ export default function WorkDetail() {
           className="aspect-16/9 overflow-hidden rounded-xl border border-line bg-surface"
         >
           <div className="h-full w-full">
-            <ProjectVisual art={project.art} label={project.name} />
+            <ProjectMedia project={project} label={project.name} />
           </div>
         </div>
       </div>
@@ -131,19 +132,27 @@ export default function WorkDetail() {
               </div>
 
               <Reveal className="aspect-4/3 overflow-hidden rounded-lg border border-line">
-                <ProjectVisual
-                  art={{ ...project.art, pattern: project.art.pattern === 'grid' ? 'mesh' : 'grid' }}
-                  label={`${project.name} — system detail`}
-                />
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={`${project.name} — further down the page`}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover object-bottom"
+                  />
+                ) : (
+                  <ProjectVisual
+                    art={{ ...project.art, pattern: project.art.pattern === 'grid' ? 'mesh' : 'grid' }}
+                    label={`${project.name} — system detail`}
+                  />
+                )}
               </Reveal>
 
               <div>
                 <p className="eyebrow mb-6">Result</p>
                 <Reveal>
                   <p className="text-[0.9375rem] leading-relaxed text-mute">
-                    {project.outcome.map((o) => `${o.label.toLowerCase()} ${o.value}`).join(', ')} —
-                    measured against the baseline we agreed in discovery, reported by the client&apos;s
-                    own analytics rather than ours.
+                    Delivered and live, covering {project.outcome.map((o) => o.label.toLowerCase()).join(', ')}.
                   </p>
                 </Reveal>
               </div>

@@ -18,7 +18,7 @@ export function FeaturedWork() {
           index="/ 02"
           eyebrow="Selected work"
           title={<span id="work-heading">Selected work</span>}
-          description="Six engagements that show the range — a treasury platform, a mobility app, a retrieval system, a luxury storefront, a control room and an identity."
+          description="Six live builds that show the range — food ordering, fashion e-commerce, a manufacturer's storefront, an electrical contractor, a French street-food kitchen and a backflow testing service."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-16 md:mt-24 md:grid-cols-12 md:gap-y-24">
@@ -71,7 +71,7 @@ export function FeaturedWork() {
 
         <Reveal className="mt-24 flex flex-col items-start gap-6 border-t border-line pt-10 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-md text-sm text-mute">
-            Twelve more case studies, filterable by discipline.
+            More case studies, filterable by discipline.
           </p>
           <ButtonLink to="/work" variant="outline">
             View all work

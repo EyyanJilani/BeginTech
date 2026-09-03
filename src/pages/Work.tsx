@@ -15,9 +15,11 @@ export default function Work() {
   useSeo({
     title: 'Work — BeginTech',
     description:
-      'Selected case studies from BeginTech: fintech platforms, mobility apps, AI retrieval systems, luxury commerce, enterprise dashboards and identity systems.',
+      'Case studies from BeginTech: food ordering platforms, fashion e-commerce, and trade services websites for clients across Pakistan, the US, France and Australia.',
     path: '/work',
   })
+
+  const sectorCount = useMemo(() => new Set(projects.map((p) => p.sector)).size, [])
 
   const visible = useMemo(
     () => (filter === 'All' ? projects : projects.filter((p) => p.category === filter)),
@@ -64,11 +66,11 @@ export default function Work() {
             <span className="accent-em">proud</span> to sign.
           </>
         }
-        lede="Twelve engagements across fintech, mobility, AI, commerce, energy and health. Each one is a real problem someone had to solve — the numbers are the ones our clients report."
+        lede="Live sites for real clients across food, fashion, retail and trade services — shipped, in production, and doing the job they were built for."
         meta={[
           { label: 'Case studies', value: String(projects.length) },
-          { label: 'Sectors', value: '9' },
-          { label: 'Countries', value: '18' },
+          { label: 'Sectors', value: String(sectorCount) },
+          { label: 'Countries', value: '4' },
           { label: 'Since', value: '2016' },
         ]}
       />

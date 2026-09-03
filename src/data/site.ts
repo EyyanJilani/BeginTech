@@ -103,38 +103,46 @@ export const technologies = [
 
 export const techGroups = ['Front-end', 'Back-end', 'Data', 'AI', 'Cloud'] as const
 
+/*
+  These are real end-customer reviews, left on the storefronts we built —
+  not testimonials about BeginTech itself. We have not been given a testimonial
+  from either business owner about the engagement, so it would be dishonest to
+  present customer reviews of a burger or a dress as if they were client
+  feedback on our design work. The section below is framed accordingly: proof
+  the products work, not endorsements of the studio. Lightly cleaned for
+  spelling/punctuation only — meaning and attribution are unchanged.
+*/
 export const testimonials = [
   {
-    quote:
-      'They spent the first two weeks telling us which half of our roadmap to delete. That conversation was worth more than the build, and the build was excellent.',
-    name: 'Camille Duarte',
-    role: 'Chief Product Officer',
-    company: 'Finova Group',
-    initials: 'CD',
+    quote: 'Good taste and good experience, staff is very cooperative.',
+    name: 'Ahmad Malik',
+    role: 'Verified buyer',
+    company: 'Brooklyn Bites',
+    initials: 'AM',
   },
   {
     quote:
-      'We have worked with four agencies. BeginTech is the only one whose code our engineers were happy to inherit — documented, tested, and boring in all the right places.',
-    name: 'Marcus Reiner',
-    role: 'VP Engineering',
-    company: 'Nexus Energy',
-    initials: 'MR',
+      'Good taste, loved the vibe, and the food hit the spot. Every bite of pizza was perfect — highly recommend.',
+    name: 'Aliya Amin',
+    role: 'Verified buyer',
+    company: 'Brooklyn Bites',
+    initials: 'AA',
   },
   {
     quote:
-      'Our AI pilot had been stuck for eight months. They shipped an evaluated, cited, production system in eleven weeks and taught our team to run it.',
-    name: 'Priya Raghunathan',
-    role: 'Head of Data',
-    company: 'Orbital Intelligence',
-    initials: 'PR',
+      'The variety of unstitched lawn here is unmatched. I found all the latest collections from my favorite big brands under one roof. The fabric is soft, breathable, and exactly as described.',
+    name: 'Hina Sheikh',
+    role: 'Verified buyer',
+    company: 'Siyaab Lawn Hub',
+    initials: 'HS',
   },
   {
     quote:
-      'The storefront finally looks like the product. Mobile conversion nearly doubled, and I stopped apologising for our website in board meetings.',
-    name: 'Élise Marchand',
-    role: 'Managing Director',
-    company: 'Maison Levant',
-    initials: 'EM',
+      'I had a confusion regarding the size chart, so I messaged their support team. They were very polite and guided me to the right size. The dress fits like a dream.',
+    name: 'Mariam Durrani',
+    role: 'Verified buyer',
+    company: 'Siyaab Lawn Hub',
+    initials: 'MD',
   },
 ]
 

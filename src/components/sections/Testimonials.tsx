@@ -17,9 +17,9 @@ export function Testimonials() {
       <div className="shell">
         <SectionHeading
           index="/ 05"
-          eyebrow="Clients"
-          title={<span id="clients-heading">What partners say</span>}
-          description="We work with a small number of clients at a time. These are the people who have lived through an engagement with us."
+          eyebrow="Real reviews"
+          title={<span id="clients-heading">What their customers say</span>}
+          description="Real reviews, left by real customers, on the storefronts we built. Not testimonials about us — proof the products work."
         />
 
         <div className="mt-16 grid gap-12 md:mt-24 lg:grid-cols-12 lg:gap-16">
@@ -84,7 +84,7 @@ export function Testimonials() {
               ))}
             </ul>
             <p className="mt-6 text-xs text-mute-dim">
-              Select a client to read their account of the work.
+              Select a project to read the review.
             </p>
           </Reveal>
         </div>

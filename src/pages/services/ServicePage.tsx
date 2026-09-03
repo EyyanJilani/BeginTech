@@ -7,6 +7,7 @@ import { SectionHeading } from '../../components/ui/SectionHeading'
 import { Reveal } from '../../components/ui/Reveal'
 import { TextReveal } from '../../components/ui/TextReveal'
 import { ProjectVisual } from '../../components/ui/ProjectVisual'
+import { ProjectMedia } from '../../components/ui/ProjectMedia'
 import { ButtonLink } from '../../components/ui/Button'
 import { serviceBySlug, services } from '../../data/services'
 import { projects } from '../../data/projects'
@@ -194,7 +195,7 @@ export default function ServicePage() {
                 <Link to={`/work/${p.slug}`} className="group block" data-cursor="hover" data-cursor-label="View">
                   <div className="aspect-16/10 overflow-hidden rounded-lg border border-line">
                     <div className="h-full w-full transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105">
-                      <ProjectVisual art={p.art} label={p.name} />
+                      <ProjectMedia project={p} label={p.name} />
                     </div>
                   </div>
                   <div className="mt-5 flex items-start justify-between gap-6">
