@@ -99,7 +99,7 @@ export function Loader({ onDone }: { onDone: () => void }) {
       <div className="grid-lines pointer-events-none absolute inset-0 opacity-30" />
 
       <div data-intro-item className="relative flex items-center">
-        <LogoLockup className="h-10" />
+        <LogoLockup className="h-12 md:h-14" />
       </div>
 
       <div className="relative flex items-end justify-between gap-6">

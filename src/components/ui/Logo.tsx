@@ -17,19 +17,19 @@ import { cn } from '../../lib/utils'
   artwork is close to illegible there.
 */
 
-const LOCKUP = { w: 960, h: 270 }
+const LOCKUP = { w: 960, h: 450 }
 
 /** Square sprinter mark, no wordmark. For tight spots and square containers. */
 export function LogoMark({ className }: { className?: string }) {
   return (
     <img
       src={markSrc}
-      width={512}
-      height={512}
+      width={720}
+      height={720}
       alt=""
       aria-hidden="true"
       decoding="async"
-      className={cn('brand-logo h-7 w-7 object-contain', className)}
+      className={cn('brand-logo h-10 w-10 object-contain', className)}
     />
   )
 }
@@ -56,7 +56,7 @@ export function Logo({ className, to = '/' }: { className?: string; to?: string 
       aria-label="BeginTech — home"
       data-cursor="hover"
     >
-      <LogoLockup className="h-9 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03] md:h-10" />
+      <LogoLockup className="h-11 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03] md:h-12" />
     </Link>
   )
 }

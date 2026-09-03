@@ -79,7 +79,7 @@ export function Hero() {
       {/* WebGL stage sits behind the type on mobile, beside it on desktop */}
       <div
         data-hero-scene
-        className="pointer-events-none absolute inset-0 lg:left-auto lg:right-[-6%] lg:w-[62%]"
+        className="pointer-events-none absolute inset-0 lg:left-auto lg:right-[-8%] lg:w-[58%]"
       >
         <div className="h-full w-full opacity-25 md:opacity-35 lg:opacity-100">
           <LazyScene variant="hero" />

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { AdaptiveDpr, Preload } from '@react-three/drei'
-import { NexusCore } from './NexusCore'
+import { ShardCore } from './ShardCore'
 import { deviceTier } from '../../lib/utils'
 import { useTheme } from '../../hooks/useTheme'
 
@@ -72,7 +72,7 @@ export default function HeroCanvas() {
           setReady(true)
         }}
       >
-        <NexusCore tier={tier} theme={theme} drive={drive} />
+        <ShardCore tier={tier} theme={theme} drive={drive} />
         <AdaptiveDpr pixelated={false} />
         <Preload all />
       </Canvas>

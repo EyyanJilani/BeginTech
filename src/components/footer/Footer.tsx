@@ -75,7 +75,7 @@ export function Footer() {
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Link to="/" className="inline-flex items-center" aria-label="BeginTech — home">
-              <LogoLockup className="h-11" />
+              <LogoLockup className="h-14" />
             </Link>
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-mute">
               A software house and creative technology studio. We design, engineer and grow digital
