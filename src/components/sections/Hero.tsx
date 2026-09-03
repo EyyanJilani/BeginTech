@@ -81,7 +81,7 @@ export function Hero() {
         data-hero-scene
         className="pointer-events-none absolute inset-0 lg:left-auto lg:right-[-6%] lg:w-[62%]"
       >
-        <div className="h-full w-full opacity-35 md:opacity-50 lg:opacity-100">
+        <div className="h-full w-full opacity-25 md:opacity-35 lg:opacity-100">
           <LazyScene variant="hero" />
         </div>
       </div>
@@ -99,7 +99,7 @@ export function Hero() {
             the digital
             <br />
             <span className="text-mute-dim">future,</span>{' '}
-            <span className="accent-serif text-bone">deliberately.</span>
+            <span className="accent-em">deliberately.</span>
           </h1>
 
           <p data-hero data-hero-lede className="lede mt-6 max-w-md">
@@ -134,9 +134,9 @@ export function Hero() {
                 <p className="mt-1 font-display text-lg tracking-tight text-bone">120+</p>
               </div>
               <div data-hero data-hero-meta className="hidden sm:block">
-                <p className="text-[0.6875rem] uppercase tracking-[0.2em] text-mute-dim">Studios</p>
+                <p className="text-[0.6875rem] uppercase tracking-[0.2em] text-mute-dim">Studio</p>
                 <p className="mt-1 font-display text-lg tracking-tight text-bone">
-                  Lisbon · London · Singapore
+                  Karachi, Pakistan
                 </p>
               </div>
             </div>

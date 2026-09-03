@@ -5,6 +5,12 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  // Vite defaults to 5173 and does not read PORT on its own, so a host that
+  // assigns a free port has no way to hand it over. Honour PORT when set and
+  // fall back to Vite's own default otherwise.
+  server: {
+    port: process.env.PORT ? Number(process.env.PORT) : undefined,
+  },
   plugins: [
     react(),
     babel({ presets: [reactCompilerPreset()] }),

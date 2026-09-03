@@ -60,7 +60,7 @@ export default function Contact() {
   useSeo({
     title: 'Contact — BeginTech',
     description:
-      "Tell us what you're building. BeginTech replies within one business day. Available for projects worldwide from Lisbon, London and Singapore.",
+      "Tell us what you're building. BeginTech replies within one business day. Based in Karachi, Pakistan and available for projects worldwide.",
     path: '/contact',
   })
 
@@ -126,14 +126,14 @@ export default function Contact() {
           <>
             Let&apos;s build something
             <br />
-            <span className="accent-serif text-accent">extraordinary.</span>
+            <span className="accent-em">extraordinary.</span>
           </>
         }
         lede="Tell us what you are working on. We read every enquiry ourselves and reply within one business day — including the ones we are not the right studio for."
         meta={[
           { label: 'Email', value: site.email },
           { label: 'Phone', value: site.phone },
-          { label: 'Studios', value: site.location },
+          { label: 'Studio', value: site.location },
           { label: 'Hours', value: site.hours },
         ]}
       />

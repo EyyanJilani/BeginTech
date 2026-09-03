@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://begintech.studio/sitemap.xml
+Sitemap: https://begintech.org/sitemap.xml

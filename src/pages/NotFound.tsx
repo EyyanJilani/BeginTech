@@ -18,7 +18,7 @@ export default function NotFound() {
           <>
             This page
             <br />
-            <span className="accent-serif text-accent">does not</span> exist.
+            <span className="accent-em">does not</span> exist.
           </>
         }
         lede="The link may be out of date, or the page may have moved. Everything else is where you left it."

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowUp } from 'lucide-react'
-import { LogoMark } from '../ui/Logo'
+import { LogoLockup } from '../ui/Logo'
 import { Magnetic } from '../ui/Magnetic'
 import { Marquee } from '../ui/Marquee'
 import { site } from '../../data/site'
@@ -31,14 +31,14 @@ const navColumns = [
 export function Footer() {
   const [clock, setClock] = useState('')
 
-  /* Lisbon time — a small live detail that signals a real studio. */
+  /* Karachi time — a small live detail that signals a real studio. */
   useEffect(() => {
     const tick = () => {
       setClock(
         new Intl.DateTimeFormat('en-GB', {
           hour: '2-digit',
           minute: '2-digit',
-          timeZone: 'Europe/Lisbon',
+          timeZone: 'Asia/Karachi',
         }).format(new Date()),
       )
     }
@@ -74,9 +74,8 @@ export function Footer() {
       <div className="shell py-16 md:py-20">
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Link to="/" className="inline-flex items-center gap-3 text-bone" aria-label="BeginTech — home">
-              <LogoMark className="h-9 w-9" />
-              <span className="font-display text-lg font-semibold tracking-[0.17em]">BEGINTECH</span>
+            <Link to="/" className="inline-flex items-center" aria-label="BeginTech — home">
+              <LogoLockup className="h-11" />
             </Link>
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-mute">
               A software house and creative technology studio. We design, engineer and grow digital
@@ -129,7 +128,7 @@ export function Footer() {
               </li>
               <li className="text-mute">{site.hq}</li>
               <li className="text-mute-dim">
-                {site.hours} · <span className="tabular-nums text-mute">{clock} Lisbon</span>
+                {site.hours} · <span className="tabular-nums text-mute">{clock} Karachi</span>
               </li>
             </ul>
 
@@ -152,7 +151,7 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col-reverse items-start justify-between gap-6 border-t border-line pt-8 sm:flex-row sm:items-center">
           <p className="text-xs text-mute-dim">
-            © {new Date().getFullYear()} BeginTech Studio. All rights reserved. · Registered in Portugal.
+            © {new Date().getFullYear()} BeginTech Studio. All rights reserved. · Registered in Pakistan.
           </p>
 
           <Magnetic strength={0.45}>

@@ -48,7 +48,7 @@ export function CallToAction() {
           >
             Have an idea?
             <br />
-            <span className="accent-serif text-accent">Let&apos;s</span> build it.
+            <span className="accent-em">Let&apos;s</span> build it.
           </h2>
 
           <Reveal className="mt-10 max-w-xl" delay={0.1}>

@@ -2,9 +2,11 @@
 <html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#f7f7f5" />
+    <meta name="theme-color" content="#f6f7f9" />
 
     <!--
       Applies the stored theme before first paint. Without this the page would
@@ -18,7 +20,7 @@
           var theme = t === 'dark' || t === 'light' ? t : 'light'
           document.documentElement.dataset.theme = theme
           var m = document.querySelector('meta[name="theme-color"]')
-          if (m) m.content = theme === 'dark' ? '#08090b' : '#f7f7f5'
+          if (m) m.content = theme === 'dark' ? '#070a0f' : '#f6f7f9'
         } catch (e) {
           document.documentElement.dataset.theme = 'light'
         }
@@ -30,7 +32,7 @@
       name="description"
       content="BeginTech is a software house and creative technology studio. We design and engineer web platforms, mobile apps, AI systems and digital products for ambitious companies worldwide."
     />
-    <link rel="canonical" href="https://begintech.studio/" />
+    <link rel="canonical" href="https://begintech.org/" />
     <meta name="robots" content="index, follow" />
 
     <meta property="og:type" content="website" />
@@ -40,20 +42,20 @@
       property="og:description"
       content="We design and engineer web platforms, mobile apps, AI systems and digital products for ambitious companies worldwide."
     />
-    <meta property="og:url" content="https://begintech.studio/" />
-    <meta property="og:image" content="/og.svg" />
+    <meta property="og:url" content="https://begintech.org/" />
+    <meta property="og:image" content="/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="BeginTech — Digital Product & Technology Studio" />
     <meta
       name="twitter:description"
       content="We design and engineer web platforms, mobile apps, AI systems and digital products for ambitious companies worldwide."
     />
-    <meta name="twitter:image" content="/og.svg" />
+    <meta name="twitter:image" content="/og.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
 
@@ -62,14 +64,20 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "BeginTech",
-        "url": "https://begintech.studio/",
+        "url": "https://begintech.org/",
         "description": "Software house and creative technology studio building web platforms, mobile apps, AI systems and digital products.",
-        "email": "hello@begintech.studio",
+        "email": "info@begintech.org",
+        "telephone": "+92 319 4889779",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Karachi",
+          "addressRegion": "Sindh",
+          "addressCountry": "PK"
+        },
         "sameAs": [
-          "https://www.linkedin.com/",
-          "https://www.instagram.com/",
-          "https://www.facebook.com/",
-          "https://x.com/"
+          "https://www.linkedin.com/company/begintech00/",
+          "https://www.instagram.com/begin_tech/?hl=en",
+          "https://www.facebook.com/BeginTech/"
         ]
       }
     </script>

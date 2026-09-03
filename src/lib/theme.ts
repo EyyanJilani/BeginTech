@@ -4,8 +4,8 @@ export const THEME_KEY = 'bt:theme'
 export const DEFAULT_THEME: Theme = 'light'
 
 const THEME_COLOR: Record<Theme, string> = {
-  light: '#f7f7f5',
-  dark: '#08090b',
+  light: '#f6f7f9',
+  dark: '#070a0f',
 }
 
 function read(): Theme {

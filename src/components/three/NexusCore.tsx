@@ -2,6 +2,7 @@ import { useMemo, useRef } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
 import { Environment, Lightformer, MeshTransmissionMaterial } from '@react-three/drei'
 import * as THREE from 'three'
+import { brand, brandOnDark } from '../../data/brand'
 
 type Tier = 'low' | 'mid' | 'high'
 type Theme = 'light' | 'dark'
@@ -14,13 +15,14 @@ type Theme = 'light' | 'dark'
 */
 const PALETTE = {
   dark: {
-    accent: '#7c8cff',
+    accent: brandOnDark.blue,
     structure: '#ffffff',
     structureOpacity: 0.09,
     shellOpacity: 0.16,
     ringOpacity: 0.22,
     dustOpacity: 0.7,
     dustBlending: THREE.AdditiveBlending,
+    nucleus: brandOnDark.magenta,
     core: '#c9cfe8',
     glass: '#dfe3ff',
     fill: '#404860',
@@ -35,11 +37,11 @@ const PALETTE = {
     useTransmission: true,
   },
   light: {
-    accent: '#4b57e0',
+    accent: brand.blue,
     structure: '#0b0c0e',
-    structureOpacity: 0.28,
-    shellOpacity: 0.45,
-    ringOpacity: 0.4,
+    structureOpacity: 0.16,
+    shellOpacity: 0.26,
+    ringOpacity: 0.28,
     dustOpacity: 0.5,
     dustBlending: THREE.NormalBlending,
     /*
@@ -48,7 +50,8 @@ const PALETTE = {
       a diffuse mid indigo instead — clearly an object against the page, and
       still ~5.5:1 behind the headline where the two overlap.
     */
-    core: '#7d87bf',
+    nucleus: brand.magenta,
+    core: '#5d72a6',
     glass: '#c7cdf5',
     fill: '#ffffff',
     /* A diffuse surface blows out under the rig the glass core needed, so the
@@ -131,7 +134,7 @@ export function NexusCore({
       <Environment resolution={tier === 'high' ? 256 : 128}>
         <Lightformer
           form="rect"
-          intensity={theme === 'light' ? 5 : 3.2}
+          intensity={theme === 'light' ? 3 : 3.2}
           position={[3, 4, 4]}
           scale={[8, 8, 1]}
           color="#ffffff"
@@ -172,9 +175,10 @@ export function NexusCore({
         </mesh>
 
         {/* Inner emissive nucleus, visible through the refraction. */}
+        {/* Nucleus carries the second brand colour so both primaries appear. */}
         <mesh scale={0.42}>
           <icosahedronGeometry args={[1, 1]} />
-          <meshBasicMaterial color={p.accent} transparent opacity={0.55} />
+          <meshBasicMaterial color={p.nucleus} transparent opacity={0.6} />
         </mesh>
 
         {/* Faceted wireframe shell */}

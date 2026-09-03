@@ -7,18 +7,19 @@ import { ProjectVisual } from '../ui/ProjectVisual'
 import { ButtonLink } from '../ui/Button'
 import { services } from '../../data/services'
 import type { ArtPattern } from '../../data/projects'
+import { brandOnDark } from '../../data/brand'
 import { cn } from '../../lib/utils'
 
 /** Each service carries its own artwork so the hover preview feels art-directed. */
 const art: Record<string, { pattern: ArtPattern; from: string; to: string; ink: string }> = {
-  'web-development': { pattern: 'grid', from: '#111826', to: '#0A0C12', ink: '#7C8CFF' },
-  'mobile-development': { pattern: 'stack', from: '#101A17', to: '#080C0B', ink: '#5FE3C0' },
-  'ui-ux-design': { pattern: 'arc', from: '#1A1410', to: '#0D0A08', ink: '#E0A868' },
-  'ai-development': { pattern: 'orbit', from: '#141020', to: '#0A080F', ink: '#A78BFF' },
-  'software-development': { pattern: 'mesh', from: '#0E1620', to: '#080B0F', ink: '#5AA9FF' },
-  branding: { pattern: 'waves', from: '#161514', to: '#0A0A09', ink: '#D8D2C6' },
-  ecommerce: { pattern: 'arc', from: '#151217', to: '#0A090C', ink: '#C08BFF' },
-  'digital-marketing': { pattern: 'waves', from: '#0C1A18', to: '#080D0C', ink: '#8FE388' },
+  'web-development': { pattern: 'grid', from: '#0d2440', to: '#07131f', ink: brandOnDark.blue },
+  'mobile-development': { pattern: 'stack', from: '#0f2416', to: '#07120b', ink: brandOnDark.green },
+  'ui-ux-design': { pattern: 'arc', from: '#2b1122', to: '#150810', ink: brandOnDark.magenta },
+  'ai-development': { pattern: 'orbit', from: '#1d1030', to: '#0d0718', ink: brandOnDark.purple },
+  'software-development': { pattern: 'mesh', from: '#0d2440', to: '#07131f', ink: brandOnDark.blue },
+  branding: { pattern: 'waves', from: '#2b1122', to: '#150810', ink: brandOnDark.magenta },
+  ecommerce: { pattern: 'arc', from: '#2b2408', to: '#141105', ink: brandOnDark.yellow },
+  'digital-marketing': { pattern: 'waves', from: '#0f2416', to: '#07120b', ink: brandOnDark.green },
 }
 
 /**
@@ -45,7 +46,7 @@ export function ServicesRows() {
           eyebrow="What we do"
           title={
             <span id="services-heading">
-              Eight disciplines, <span className="accent-serif text-mute">one team.</span>
+              Eight disciplines, <span className="accent-em">one team.</span>
             </span>
           }
           description="We are deliberately full-stack as a studio: the people who define the strategy sit beside the people who ship the code. Nothing gets lost in a handover that never happens."

@@ -38,18 +38,38 @@ const disciplines = [
 ]
 
 const timeline = [
-  { year: '2016', title: 'Founded in Lisbon', body: 'Three people, one client, and a stubborn preference for finishing things properly.' },
-  { year: '2019', title: 'London studio', body: 'A second base opened to sit closer to our financial services and commerce clients.' },
-  { year: '2022', title: 'Engineering practice doubled', body: 'Platform and data engineering became a discipline in its own right rather than a service line.' },
-  { year: '2024', title: 'Applied AI practice', body: 'Formed after two years of building retrieval systems and deciding they warranted a dedicated team.' },
-  { year: '2026', title: 'Singapore studio', body: 'Opened to serve clients across APAC in their own working hours.' },
+  {
+    year: '2016',
+    title: 'Founded in Karachi',
+    body: 'Three people, one client, and a stubborn preference for finishing things properly.',
+  },
+  {
+    year: '2019',
+    title: 'First international clients',
+    body: 'Work began arriving from the Gulf, the UK and Australia — delivered from Karachi, on their working hours.',
+  },
+  {
+    year: '2022',
+    title: 'Engineering practice doubled',
+    body: 'Platform and data engineering became a discipline in its own right rather than a service line.',
+  },
+  {
+    year: '2024',
+    title: 'Applied AI practice',
+    body: 'Formed after two years of building retrieval systems and deciding they warranted a dedicated team.',
+  },
+  {
+    year: '2026',
+    title: 'Shahrah-e-Faisal studio',
+    body: 'Moved into a larger space to bring design, engineering and growth under one roof.',
+  },
 ]
 
 export default function About() {
   useSeo({
     title: 'About — BeginTech',
     description:
-      'BeginTech is a senior team of strategists, designers and engineers across Lisbon, London and Singapore. We design, build and transform digital products.',
+      'BeginTech is a senior team of strategists, designers and engineers based in Karachi, Pakistan. We design, build and transform digital products for clients worldwide.',
     path: '/about',
   })
 
@@ -61,13 +81,13 @@ export default function About() {
           <>
             We design. We build.
             <br />
-            We <span className="accent-serif text-accent">transform.</span>
+            We <span className="accent-em">transform.</span>
           </>
         }
-        lede="BeginTech is a software house and creative technology studio. We combine strategy, design, engineering, AI and growth in one senior team — small enough to stay accountable, deep enough to ship serious systems."
+        lede="BeginTech is a software house and creative technology studio based in Karachi. We combine strategy, design, engineering, AI and growth in one senior team — small enough to stay accountable, deep enough to ship serious systems."
         meta={[
           { label: 'Founded', value: String(site.founded) },
-          { label: 'Studios', value: 'Lisbon · London · Singapore' },
+          { label: 'Studio', value: 'Karachi, Pakistan' },
           { label: 'Team', value: '34 specialists' },
           { label: 'Engagements', value: 'Seed to enterprise' },
         ]}
@@ -92,14 +112,14 @@ export default function About() {
             <div className="space-y-7 lg:col-span-6 lg:col-start-7">
               <Reveal>
                 <p className="lede">
-                  We started in 2016 because the choice on the table was unappealing: agencies that
+                  We started in Karachi in 2016 because the choice on the table was unappealing: agencies that
                   designed beautifully and could not build, or development shops that built quickly
                   and had no opinion about what they were building.
                 </p>
               </Reveal>
               <Reveal delay={0.06}>
                 <p className="text-[0.9375rem] leading-relaxed text-mute">
-                  Ten years later we are thirty-four people across three cities. The structure has
+                  Ten years later we are thirty-four people in one Karachi studio. The structure has
                   not changed much: a small senior team per engagement, the person who scoped the
                   work still in the room when it ships, and no layer of account management between
                   you and the people building your product.
@@ -182,7 +202,7 @@ export default function About() {
                 <div className="mt-10 aspect-4/3 overflow-hidden rounded-lg border border-line">
                   <ProjectVisual
                     art={{ pattern: 'orbit', from: '#111826', to: '#0A0C12', ink: '#7C8CFF' }}
-                    label="BeginTech studio"
+                    label="BeginTech studio, Karachi"
                   />
                 </div>
               </div>

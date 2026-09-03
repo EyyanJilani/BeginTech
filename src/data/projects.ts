@@ -1,3 +1,5 @@
+import { brandOnDark } from './brand'
+
 export type ProjectCategory = 'Web' | 'Mobile' | 'SaaS' | 'Branding' | 'AI'
 
 export type ArtPattern = 'orbit' | 'grid' | 'waves' | 'stack' | 'mesh' | 'arc'
@@ -45,7 +47,7 @@ export const projects: Project[] = [
     ],
     services: ['Product Design', 'Platform Engineering', 'Design System'],
     stack: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Redis', 'AWS'],
-    art: { pattern: 'grid', from: '#111826', to: '#0A0C12', ink: '#7C8CFF' },
+    art: { pattern: 'grid', from: '#0d2440', to: '#07131f', ink: brandOnDark.blue },
     featured: true,
   },
   {
@@ -70,7 +72,7 @@ export const projects: Project[] = [
     ],
     services: ['UX Research', 'Mobile Engineering', 'Design System'],
     stack: ['React Native', 'Expo', 'Kotlin', 'GraphQL', 'Mapbox'],
-    art: { pattern: 'waves', from: '#0C1A18', to: '#080D0C', ink: '#5FE3C0' },
+    art: { pattern: 'waves', from: '#0f2416', to: '#07120b', ink: brandOnDark.green },
     featured: true,
   },
   {
@@ -95,7 +97,7 @@ export const projects: Project[] = [
     ],
     services: ['AI Engineering', 'Evaluation Infrastructure', 'Product Design'],
     stack: ['Python', 'Claude', 'pgvector', 'PostgreSQL', 'LangGraph', 'Modal'],
-    art: { pattern: 'orbit', from: '#141020', to: '#0A080F', ink: '#A78BFF' },
+    art: { pattern: 'orbit', from: '#1d1030', to: '#0d0718', ink: brandOnDark.purple },
     featured: true,
   },
   {
@@ -120,7 +122,7 @@ export const projects: Project[] = [
     ],
     services: ['Art Direction', 'Headless Commerce', 'Performance'],
     stack: ['Next.js', 'Shopify Hydrogen', 'Sanity', 'Stripe', 'Vercel'],
-    art: { pattern: 'arc', from: '#1A1410', to: '#0D0A08', ink: '#E0A868' },
+    art: { pattern: 'arc', from: '#2b2408', to: '#141105', ink: brandOnDark.yellow },
     featured: true,
   },
   {
@@ -145,7 +147,7 @@ export const projects: Project[] = [
     ],
     services: ['UX Research', 'Data Visualisation', 'Platform Engineering'],
     stack: ['React', 'WebGL', 'TypeScript', '.NET', 'TimescaleDB', 'Kubernetes'],
-    art: { pattern: 'mesh', from: '#0E1620', to: '#080B0F', ink: '#5AA9FF' },
+    art: { pattern: 'mesh', from: '#0d2440', to: '#07131f', ink: brandOnDark.blue },
     featured: true,
   },
   {
@@ -170,7 +172,7 @@ export const projects: Project[] = [
     ],
     services: ['Positioning', 'Identity System', 'Product Design'],
     stack: ['Figma', 'After Effects', 'React', 'Design Tokens'],
-    art: { pattern: 'stack', from: '#101A17', to: '#080C0B', ink: '#8FE388' },
+    art: { pattern: 'stack', from: '#0f2416', to: '#07120b', ink: brandOnDark.green },
     featured: true,
   },
   {
@@ -195,7 +197,7 @@ export const projects: Project[] = [
     ],
     services: ['Product Design', 'Platform Engineering', 'Integrations'],
     stack: ['React', 'Node.js', 'PostgreSQL', 'Docker', 'AWS'],
-    art: { pattern: 'grid', from: '#151217', to: '#0A090C', ink: '#C08BFF' },
+    art: { pattern: 'grid', from: '#0d2440', to: '#07131f', ink: brandOnDark.blue },
     featured: false,
   },
   {
@@ -220,7 +222,7 @@ export const projects: Project[] = [
     ],
     services: ['UX Research', 'Mobile Engineering', 'Brand Extension'],
     stack: ['React Native', 'Swift', 'TypeScript', 'Supabase', 'Plaid'],
-    art: { pattern: 'arc', from: '#101722', to: '#080B10', ink: '#6FA8FF' },
+    art: { pattern: 'arc', from: '#2b1122', to: '#150810', ink: brandOnDark.magenta },
     featured: false,
   },
   {
@@ -245,7 +247,7 @@ export const projects: Project[] = [
     ],
     services: ['AI Engineering', 'Workflow Design', 'Integrations'],
     stack: ['Python', 'Claude', 'FastAPI', 'PostgreSQL', 'Zendesk API'],
-    art: { pattern: 'mesh', from: '#181119', to: '#0B080C', ink: '#FF8FB1' },
+    art: { pattern: 'mesh', from: '#2b1122', to: '#150810', ink: brandOnDark.magenta },
     featured: false,
   },
   {
@@ -270,7 +272,7 @@ export const projects: Project[] = [
     ],
     services: ['Identity System', 'Type Direction', 'Web Design'],
     stack: ['Figma', 'Illustrator', 'Next.js', 'Sanity'],
-    art: { pattern: 'stack', from: '#161514', to: '#0A0A09', ink: '#D8D2C6' },
+    art: { pattern: 'stack', from: '#0d2440', to: '#07131f', ink: brandOnDark.blue },
     featured: false,
   },
   {
@@ -295,7 +297,7 @@ export const projects: Project[] = [
     ],
     services: ['Platform Engineering', 'Mobile', 'Optimisation'],
     stack: ['TypeScript', 'Node.js', 'React Native', 'PostgreSQL', 'Kubernetes'],
-    art: { pattern: 'waves', from: '#0F1418', to: '#08090C', ink: '#88C6FF' },
+    art: { pattern: 'waves', from: '#0f2416', to: '#07120b', ink: brandOnDark.green },
     featured: false,
   },
   {
@@ -320,7 +322,7 @@ export const projects: Project[] = [
     ],
     services: ['Art Direction', 'WebGL', 'Platform Engineering'],
     stack: ['React', 'Three.js', 'Node.js', 'Cloudflare', 'PostgreSQL'],
-    art: { pattern: 'orbit', from: '#101314', to: '#080909', ink: '#9FF2E0' },
+    art: { pattern: 'orbit', from: '#2b0f0d', to: '#150706', ink: brandOnDark.red },
     featured: false,
   },
 ]

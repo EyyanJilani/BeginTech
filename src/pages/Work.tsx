@@ -61,7 +61,7 @@ export default function Work() {
           <>
             Products we were
             <br />
-            <span className="accent-serif text-accent">proud</span> to sign.
+            <span className="accent-em">proud</span> to sign.
           </>
         }
         lede="Twelve engagements across fintech, mobility, AI, commerce, energy and health. Each one is a real problem someone had to solve — the numbers are the ones our clients report."

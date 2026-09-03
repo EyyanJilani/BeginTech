@@ -2,9 +2,10 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { deviceTier } from '../../lib/utils'
+import { brand, brandOnDark } from '../../data/brand'
 import { useTheme } from '../../hooks/useTheme'
 
-const ACCENT = { dark: new THREE.Color('#7c8cff'), light: new THREE.Color('#4b57e0') }
+const ACCENT = { dark: new THREE.Color(brandOnDark.blue), light: new THREE.Color(brand.blue) }
 
 type Theme = 'light' | 'dark'
 

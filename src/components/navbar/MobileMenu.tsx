@@ -165,7 +165,7 @@ export function MobileMenu({ open, onClose }: Props) {
                 </a>
               </div>
               <div>
-                <p className="eyebrow mb-2">Studios</p>
+                <p className="eyebrow mb-2">Studio</p>
                 <p className="text-bone">{site.location}</p>
               </div>
             </div>

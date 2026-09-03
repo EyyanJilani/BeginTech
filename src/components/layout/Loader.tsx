@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef, useState } from 'react'
 import { gsap } from '../../lib/gsap'
-import { LogoMark } from '../ui/Logo'
+import { LogoLockup } from '../ui/Logo'
 import { markIntroSeen } from './intro'
 
 /**
@@ -98,16 +98,15 @@ export function Loader({ onDone }: { onDone: () => void }) {
     >
       <div className="grid-lines pointer-events-none absolute inset-0 opacity-30" />
 
-      <div data-intro-item className="relative flex items-center gap-3 text-bone">
-        <LogoMark className="h-8 w-8" />
-        <span className="font-display text-sm font-semibold tracking-[0.2em]">BEGINTECH</span>
+      <div data-intro-item className="relative flex items-center">
+        <LogoLockup className="h-10" />
       </div>
 
       <div className="relative flex items-end justify-between gap-6">
         <p data-intro-item className="max-w-xs text-xs leading-relaxed text-mute-dim md:text-sm">
           Digital product &amp; technology studio.
           <br />
-          Lisbon · London · Singapore
+          Karachi, Pakistan
         </p>
         <span
           data-intro-item

@@ -39,7 +39,7 @@ export function Statement() {
             keeping it an h2 preserves the document outline. */}
         <h2 id="statement-heading" data-statement className="display-lg max-w-[22ch] text-bone" style={{ opacity: 0 }}>
           Technology should not only work. It should make people{' '}
-          <span className="accent-serif text-accent">feel</span> something.
+          <span className="accent-em">feel</span> something.
         </h2>
 
         <Reveal className="mt-14 max-w-2xl md:mt-20" delay={0.1}>

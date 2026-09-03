@@ -31,7 +31,7 @@ export function Testimonials() {
                   className="font-display text-[clamp(1.4rem,3.2vw,2.6rem)] leading-[1.18] tracking-tight text-bone"
                   style={{ animation: 'bt-quote-in 0.7s cubic-bezier(0.16,1,0.3,1) both' }}
                 >
-                  <span aria-hidden="true" className="accent-serif mr-1 text-accent">
+                  <span aria-hidden="true" className="accent-em mr-1 text-accent">
                     “
                   </span>
                   {active.quote}

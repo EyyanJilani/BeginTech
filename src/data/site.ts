@@ -1,17 +1,17 @@
 export const site = {
   name: 'BeginTech',
   tagline: 'Digital Product & Technology Studio',
-  email: 'hello@begintech.studio',
-  phone: '+1 (415) 555 0142',
-  location: 'Lisbon · London · Singapore',
-  hq: 'Rua da Prata 80, 1100-420 Lisbon, Portugal',
-  hours: 'Mon – Fri, 09:00 – 18:00 WET',
+  email: 'info@begintech.org',
+  phone: '+92 319 4889779',
+  location: 'Karachi, Pakistan.',
+  hq: 'Karachi, Sindh, Pakistan',
+  hours: 'Mon – Sat, 10:00 – 19:00 PKT',
   availability: 'Available for projects worldwide.',
   founded: 2016,
   socials: [
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/' },
-    { label: 'Instagram', href: 'https://www.instagram.com/' },
-    { label: 'Facebook', href: 'https://www.facebook.com/' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/begintech00/' },
+    { label: 'Instagram', href: 'https://www.instagram.com/begin_tech/?hl=en' },
+    { label: 'Facebook', href: 'https://www.facebook.com/BeginTech/' },
     { label: 'X', href: 'https://x.com/' },
   ],
 }
@@ -26,7 +26,7 @@ export const stats = [
   { value: 10, suffix: '+', label: 'Years building', detail: 'Since 2016' },
   { value: 120, suffix: '+', label: 'Products delivered', detail: 'Web, mobile, AI' },
   { value: 45, suffix: '+', label: 'Clients partnered', detail: 'Seed to enterprise' },
-  { value: 18, suffix: '', label: 'Countries reached', detail: 'Four continents' },
+  { value: 18, suffix: '', label: 'Countries reached', detail: 'Serving clients worldwide' },
 ]
 
 export const process = [
