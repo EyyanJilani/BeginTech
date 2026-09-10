@@ -76,6 +76,14 @@ export function Navbar() {
 
   const onServices = location.pathname.startsWith('/services')
 
+  /* The homepage hero is a fixed dark video regardless of theme (see Hero.tsx),
+     so while the bar floats transparently over it — not yet scrolled, no glass
+     panel behind it — nav text has to stay light-on-dark even in light theme.
+     Once scrolled (or a panel opens) the bar gets its own glass background and
+     can go back to the normal theme-reactive tokens. Inner pages don't force a
+     dark hero, so they never need this override. */
+  const overDarkHero = location.pathname === '/' && !scrolled && !mobileOpen && !servicesOpen
+
   return (
     <>
       <a
@@ -118,7 +126,13 @@ export function Navbar() {
                   onFocus={openServices}
                   className={cn(
                     'flex items-center gap-1.5 rounded-full px-4 py-2 text-sm transition-colors duration-300',
-                    onServices || servicesOpen ? 'text-bone' : 'text-mute hover:text-bone',
+                    overDarkHero
+                      ? onServices
+                        ? 'text-white'
+                        : 'text-white/70 hover:text-white'
+                      : onServices || servicesOpen
+                        ? 'text-bone'
+                        : 'text-mute hover:text-bone',
                   )}
                 >
                   Services
@@ -139,7 +153,13 @@ export function Navbar() {
                   className={({ isActive }) =>
                     cn(
                       'rounded-full px-4 py-2 text-sm transition-colors duration-300',
-                      isActive ? 'text-bone' : 'text-mute hover:text-bone',
+                      overDarkHero
+                        ? isActive
+                          ? 'text-white'
+                          : 'text-white/70 hover:text-white'
+                        : isActive
+                          ? 'text-bone'
+                          : 'text-mute hover:text-bone',
                     )
                   }
                 >
@@ -149,17 +169,30 @@ export function Navbar() {
             </nav>
 
             <div className="flex items-center gap-2">
-              <ThemeToggle className="h-10 w-10 lg:h-11 lg:w-11" />
+              <ThemeToggle
+                className={cn(
+                  'h-10 w-10 lg:h-11 lg:w-11',
+                  overDarkHero && 'border-white/25 text-white/80 hover:border-white/40 hover:text-white',
+                )}
+              />
 
               <div className="hidden lg:block">
-                <ButtonLink to="/contact" size="md" variant="outline">
+                <ButtonLink
+                  to="/contact"
+                  size="md"
+                  variant="outline"
+                  className={overDarkHero ? 'border-white/30 text-white' : undefined}
+                >
                   Start a Project
                 </ButtonLink>
               </div>
 
               <button
                 type="button"
-                className="relative -mr-1 flex h-11 w-11 items-center justify-center rounded-full border border-line lg:hidden"
+                className={cn(
+                  'relative -mr-1 flex h-11 w-11 items-center justify-center rounded-full border lg:hidden',
+                  overDarkHero ? 'border-white/25' : 'border-line',
+                )}
                 aria-expanded={mobileOpen}
                 aria-controls="mobile-navigation"
                 aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
@@ -169,13 +202,15 @@ export function Navbar() {
                 <span aria-hidden="true" className="relative block h-3 w-4.5">
                   <span
                     className={cn(
-                      'absolute left-0 h-px w-full bg-bone transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]',
+                      'absolute left-0 h-px w-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]',
+                      overDarkHero ? 'bg-white' : 'bg-bone',
                       mobileOpen ? 'top-1.5 rotate-45' : 'top-0',
                     )}
                   />
                   <span
                     className={cn(
-                      'absolute left-0 h-px w-full bg-bone transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]',
+                      'absolute left-0 h-px w-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]',
+                      overDarkHero ? 'bg-white' : 'bg-bone',
                       mobileOpen ? 'top-1.5 -rotate-45' : 'top-3',
                     )}
                   />
