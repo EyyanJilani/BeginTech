@@ -36,13 +36,12 @@ export function ServicesRows() {
 
   return (
     <section
-      className="relative border-t border-line py-24 md:py-32"
+      className="force-dark relative border-t border-line bg-ink py-24 md:py-32"
       aria-labelledby="services-heading"
       onPointerLeave={() => setActive(null)}
     >
       <div className="shell">
         <SectionHeading
-          index="/ 01"
           eyebrow="What we do"
           title={
             <span id="services-heading">

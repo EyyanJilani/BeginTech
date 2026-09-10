@@ -22,11 +22,17 @@ export const primaryNav = [
   { label: 'Contact', to: '/contact' },
 ]
 
+/*
+  Every number here has to be true and checkable against the real portfolio in
+  data/projects.ts — the brief this was written against is explicit that
+  invented stats are worse than no stats at all. If the portfolio grows, these
+  should grow with it rather than being padded ahead of the evidence.
+*/
 export const stats = [
   { value: 10, suffix: '+', label: 'Years building', detail: 'Since 2016' },
-  { value: 120, suffix: '+', label: 'Products delivered', detail: 'Web, mobile, AI' },
-  { value: 45, suffix: '+', label: 'Clients partnered', detail: 'Seed to enterprise' },
-  { value: 18, suffix: '', label: 'Countries reached', detail: 'Serving clients worldwide' },
+  { value: 8, suffix: '', label: 'Live projects', detail: 'Shipped and in production' },
+  { value: 4, suffix: '', label: 'Countries served', detail: 'Pakistan, France, US, Australia' },
+  { value: 7, suffix: '', label: 'Sectors covered', detail: 'Food, fashion, retail, trades' },
 ]
 
 export const process = [
@@ -78,7 +84,6 @@ export const technologies = [
   { name: 'React', group: 'Front-end' },
   { name: 'Next.js', group: 'Front-end' },
   { name: 'TypeScript', group: 'Front-end' },
-  { name: 'Three.js', group: 'Front-end' },
   { name: 'GSAP', group: 'Front-end' },
   { name: 'Tailwind', group: 'Front-end' },
   { name: 'Node.js', group: 'Back-end' },
@@ -167,13 +172,4 @@ export const principles = [
     title: 'Built to be inherited',
     body: 'Every engagement ends with your team able to run it without us. Documentation, runbooks, and the code in your repository.',
   },
-]
-
-export const capabilitiesSummary = [
-  'Strategy',
-  'Product Design',
-  'Engineering',
-  'Applied AI',
-  'Commerce',
-  'Growth',
 ]

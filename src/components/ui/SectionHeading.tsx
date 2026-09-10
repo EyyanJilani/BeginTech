@@ -4,7 +4,6 @@ import { TextReveal } from './TextReveal'
 import { Reveal } from './Reveal'
 
 type Props = {
-  index?: string
   eyebrow: string
   title: ReactNode
   description?: ReactNode
@@ -14,7 +13,6 @@ type Props = {
 }
 
 export function SectionHeading({
-  index,
   eyebrow,
   title,
   description,
@@ -32,9 +30,6 @@ export function SectionHeading({
     >
       <div className="max-w-3xl">
         <Reveal className="mb-6 flex items-center gap-3">
-          {index && (
-            <span className="text-[0.6875rem] font-medium tabular-nums text-accent">{index}</span>
-          )}
           <span className="h-px w-8 bg-line-strong" />
           <span className="eyebrow">{eyebrow}</span>
         </Reveal>

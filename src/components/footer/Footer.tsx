@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowUp } from 'lucide-react'
+import { ArrowUp, ArrowUpRight } from 'lucide-react'
 import { LogoLockup } from '../ui/Logo'
 import { Magnetic } from '../ui/Magnetic'
 import { Marquee } from '../ui/Marquee'
@@ -57,19 +57,28 @@ export function Footer() {
     <footer className="relative overflow-hidden border-t border-line bg-ink">
       <div className="pointer-events-none absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-accent/45 to-transparent" />
 
-      <div className="border-b border-line py-8">
-        <Marquee speed={46}>
+      <Link
+        to="/contact"
+        aria-label="Start a project — go to contact"
+        className="group block border-b border-line py-10 transition-colors duration-500 hover:bg-surface md:py-14"
+      >
+        <Marquee speed={42}>
           {[0, 1, 2, 3].map((i) => (
             <span
               key={i}
-              className="flex items-center gap-8 pr-8 font-display text-[clamp(1.75rem,4vw,3.25rem)] tracking-tight text-bone/[0.09]"
+              className="flex items-center gap-8 pr-8 font-display text-[clamp(2.25rem,7vw,5.5rem)] tracking-tight text-bone transition-opacity duration-500 group-hover:opacity-70"
             >
               Let&apos;s build something extraordinary
-              <span className="text-accent/40">✳</span>
+              <span
+                aria-hidden="true"
+                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent text-ink md:h-16 md:w-16"
+              >
+                <ArrowUpRight className="h-5 w-5 md:h-6 md:w-6" />
+              </span>
             </span>
           ))}
         </Marquee>
-      </div>
+      </Link>
 
       <div className="shell py-16 md:py-20">
         <div className="grid gap-14 lg:grid-cols-12">
@@ -151,7 +160,7 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col-reverse items-start justify-between gap-6 border-t border-line pt-8 sm:flex-row sm:items-center">
           <p className="text-xs text-mute-dim">
-            © {new Date().getFullYear()} BeginTech Studio. All rights reserved. · Registered in Pakistan.
+            © {new Date().getFullYear()} BeginTech. All rights reserved. · Registered in Pakistan.
           </p>
 
           <Magnetic strength={0.45}>

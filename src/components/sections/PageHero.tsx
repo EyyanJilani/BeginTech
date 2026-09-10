@@ -40,13 +40,15 @@ export function PageHero({ eyebrow, title, lede, meta, breadcrumb, children }: P
 
   return (
     <section ref={root} className="relative overflow-hidden pb-16 pt-36 md:pb-24 md:pt-48">
+      {/*
+        No accent-glow blob here on purpose — Hero already owns that motif on
+        the homepage. Repeating it identically behind every inner page (About,
+        Work, Contact, all 8 service pages, every case study) is exactly the
+        kind of sameness that makes a site feel templated rather than designed.
+      */}
       <div
         aria-hidden="true"
         className="grid-lines pointer-events-none absolute inset-0 opacity-40 mask-fade-b"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-1/3 left-1/2 h-[55vh] w-[100vw] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,var(--color-accent-glow),transparent_62%)] blur-3xl"
       />
 
       <div className="shell relative">

@@ -15,7 +15,6 @@ export function FeaturedWork() {
     <section className="relative border-t border-line py-24 md:py-32" aria-labelledby="work-heading">
       <div className="shell">
         <SectionHeading
-          index="/ 02"
           eyebrow="Selected work"
           title={<span id="work-heading">Selected work</span>}
           description="Six live builds that show the range — food ordering, fashion e-commerce, a manufacturer's storefront, an electrical contractor, a French street-food kitchen and a backflow testing service."

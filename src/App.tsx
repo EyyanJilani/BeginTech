@@ -1,12 +1,10 @@
-import { Suspense, lazy, useCallback, useEffect, useState } from 'react'
+import { Suspense, lazy, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { ScrollTrigger } from './lib/gsap'
 import { Navbar } from './components/navbar/Navbar'
 import { Footer } from './components/footer/Footer'
 import { Cursor } from './components/ui/Cursor'
 import { Noise } from './components/ui/Noise'
-import { Loader } from './components/layout/Loader'
-import { shouldShowIntro } from './components/layout/intro'
 import { PageTransition } from './components/layout/PageTransition'
 import { useSmoothScroll } from './hooks/useSmoothScroll'
 import Home from './pages/Home'
@@ -32,8 +30,6 @@ function RouteFallback() {
 }
 
 export default function App() {
-  const [intro, setIntro] = useState(shouldShowIntro)
-
   useSmoothScroll()
 
   /* Layout settles after fonts land — otherwise every trigger is measured
@@ -42,16 +38,10 @@ export default function App() {
     document.fonts?.ready.then(() => ScrollTrigger.refresh())
   }, [])
 
-  const finishIntro = useCallback(() => {
-    setIntro(false)
-    ScrollTrigger.refresh()
-  }, [])
-
   return (
     <>
       <Cursor />
       <Noise />
-      {intro && <Loader onDone={finishIntro} />}
 
       <Navbar />
 

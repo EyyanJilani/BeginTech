@@ -16,7 +16,6 @@ export function Testimonials() {
     <section className="relative border-t border-line py-24 md:py-32" aria-labelledby="clients-heading">
       <div className="shell">
         <SectionHeading
-          index="/ 05"
           eyebrow="Real reviews"
           title={<span id="clients-heading">What their customers say</span>}
           description="Real reviews, left by real customers, on the storefronts we built. Not testimonials about us — proof the products work."

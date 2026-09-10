@@ -53,7 +53,6 @@ export function Process() {
     <section ref={root} className="relative border-t border-line py-24 md:py-32" aria-labelledby="process-heading">
       <div className="shell">
         <SectionHeading
-          index="/ 03"
           eyebrow="How we work"
           title={<span id="process-heading">A process you can audit</span>}
           description="Six phases, each with a defined output and a decision point. You always know what is happening, what it costs, and what happens next."

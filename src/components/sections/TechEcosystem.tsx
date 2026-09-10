@@ -65,9 +65,8 @@ export function TechEcosystem() {
 
       <div className="shell relative">
         <SectionHeading
-          index="/ 04"
           eyebrow="Technology"
-          title={<span id="tech-heading">The stack behind the work</span>}
+          title={<span id="tech-heading">Tools we build with</span>}
           description="We are not religious about tools. We are deliberate about them — chosen for the problem, the team who will maintain it, and the decade it has to survive."
         />
 

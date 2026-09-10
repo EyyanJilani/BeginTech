@@ -1,7 +1,10 @@
 import { useLayoutEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
+import { ArrowUpRight } from 'lucide-react'
 import { gsap } from '../../lib/gsap'
 import { revealWords } from '../../animations/presets'
 import { Reveal } from '../ui/Reveal'
+import { ButtonLink } from '../ui/Button'
 import { principles } from '../../data/site'
 
 export function Statement() {
@@ -49,6 +52,22 @@ export function Statement() {
             first screen paints, what happens when the network drops, whether an error message
             respects the person reading it. We are unusually interested in those decisions.
           </p>
+        </Reveal>
+
+        <Reveal className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4" delay={0.15}>
+          <ButtonLink to="/about" size="md">
+            About BeginTech
+          </ButtonLink>
+          <Link
+            to="/contact"
+            className="group inline-flex items-center gap-2 text-sm text-mute transition-colors duration-300 hover:text-bone"
+          >
+            Talk to the team
+            <ArrowUpRight
+              aria-hidden="true"
+              className="h-4 w-4 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+          </Link>
         </Reveal>
 
         <div className="mt-20 grid gap-px border border-line bg-line md:mt-28 md:grid-cols-2 xl:grid-cols-4">

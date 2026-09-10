@@ -1,4 +1,5 @@
 import { Hero } from '../components/sections/Hero'
+import { DiagonalRibbon } from '../components/sections/DiagonalRibbon'
 import { Statement } from '../components/sections/Statement'
 import { ServicesRows } from '../components/sections/ServicesRows'
 import { FeaturedWork } from '../components/sections/FeaturedWork'
@@ -23,6 +24,7 @@ export default function Home() {
       <Hero />
       <Statement />
       <ServicesRows />
+      <DiagonalRibbon />
       <FeaturedWork />
       <Process />
 

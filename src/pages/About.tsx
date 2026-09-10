@@ -8,6 +8,7 @@ import { Reveal } from '../components/ui/Reveal'
 import { TextReveal } from '../components/ui/TextReveal'
 import { ProjectVisual } from '../components/ui/ProjectVisual'
 import { principles, site } from '../data/site'
+import { brand, brandOnDark } from '../data/brand'
 import { useSeo } from '../hooks/useSeo'
 
 const disciplines = [
@@ -37,31 +38,31 @@ const disciplines = [
   },
 ]
 
+/*
+  Grounded in the real portfolio (data/projects.ts) rather than an invented
+  growth story — each entry corresponds to work that actually shipped that
+  year, not a headcount or an office nobody can check.
+*/
 const timeline = [
   {
     year: '2016',
     title: 'Founded in Karachi',
-    body: 'Three people, one client, and a stubborn preference for finishing things properly.',
-  },
-  {
-    year: '2019',
-    title: 'First international clients',
-    body: 'Work began arriving from the Gulf, the UK and Australia — delivered from Karachi, on their working hours.',
-  },
-  {
-    year: '2022',
-    title: 'Engineering practice doubled',
-    body: 'Platform and data engineering became a discipline in its own right rather than a service line.',
+    body: 'Started with a small senior team and a preference for finishing things properly over taking on more than we could do well.',
   },
   {
     year: '2024',
-    title: 'Applied AI practice',
-    body: 'Formed after two years of building retrieval systems and deciding they warranted a dedicated team.',
+    title: 'First US client',
+    body: 'Cake Craft, a Texas manufacturer of cake-decorating supplies, became the studio’s first storefront built for a US-based brand.',
+  },
+  {
+    year: '2025',
+    title: 'Work expands to Australia',
+    body: 'Insight Electrical and Backflow Testing Co brought the studio into trade-services sites for Melbourne and Brisbane contractors.',
   },
   {
     year: '2026',
-    title: 'Shahrah-e-Faisal studio',
-    body: 'Moved into a larger space to bring design, engineering and growth under one roof.',
+    title: 'Fashion and French-market builds',
+    body: 'Siyaab Lawn Hub and Dip’N Eat extended the work into fashion e-commerce and a fully French-language storefront.',
   },
 ]
 
@@ -88,8 +89,8 @@ export default function About() {
         meta={[
           { label: 'Founded', value: String(site.founded) },
           { label: 'Studio', value: 'Karachi, Pakistan' },
-          { label: 'Team', value: '34 specialists' },
-          { label: 'Engagements', value: 'Seed to enterprise' },
+          { label: 'Team', value: 'Small & senior' },
+          { label: 'Clients', value: 'Local to global' },
         ]}
       />
 
@@ -119,10 +120,10 @@ export default function About() {
               </Reveal>
               <Reveal delay={0.06}>
                 <p className="text-[0.9375rem] leading-relaxed text-mute">
-                  Ten years later we are thirty-four people in one Karachi studio. The structure has
-                  not changed much: a small senior team per engagement, the person who scoped the
-                  work still in the room when it ships, and no layer of account management between
-                  you and the people building your product.
+                  Ten years later the studio is still deliberately small. The structure has not
+                  changed: a small senior team per engagement, the person who scoped the work still
+                  in the room when it ships, and no layer of account management between you and the
+                  people building your product.
                 </p>
               </Reveal>
               <Reveal delay={0.12}>
@@ -201,7 +202,7 @@ export default function About() {
                 />
                 <div className="mt-10 aspect-4/3 overflow-hidden rounded-lg border border-line">
                   <ProjectVisual
-                    art={{ pattern: 'orbit', from: '#111826', to: '#0A0C12', ink: '#7C8CFF' }}
+                    art={{ pattern: 'orbit', from: brand.purple, to: '#0A0C12', ink: brandOnDark.blue }}
                     label="BeginTech studio, Karachi"
                   />
                 </div>

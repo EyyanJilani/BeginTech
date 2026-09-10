@@ -93,6 +93,29 @@ html[data-theme='dark'] .brand-logo {
   filter: brightness(1.5) saturate(1.06);
 }
 
+/*
+  Scoped dark section — the same token values as html[data-theme='dark'],
+  reapplied on a class instead of the root so one section can sit on a fixed
+  black background regardless of which theme the visitor has chosen, while
+  every token-based class inside it (text-bone, border-line, ...) still just
+  works without being touched individually.
+*/
+.force-dark {
+  color-scheme: dark;
+  --color-ink: #000000;
+  --color-ink-soft: #0a0e14;
+  --color-surface: #0d1218;
+  --color-surface-2: #131a22;
+  --color-line: rgba(255, 255, 255, 0.1);
+  --color-line-strong: rgba(255, 255, 255, 0.2);
+  --color-bone: #eef1f5;
+  --color-mute: #8b95a5;
+  --color-mute-dim: #5c6672;
+  --color-accent: #5b93d6;
+  --color-accent-2: #e8629b;
+  --color-accent-glow: rgba(91, 147, 214, 0.26);
+}
+
 @layer base {
   *,
   *::before,
@@ -129,6 +152,12 @@ html[data-theme='dark'] .brand-logo {
   h2,
   h3,
   h4 {
+    /*
+      Explicit, not just inherited — a heading nested inside a scoped
+      re-theme (e.g. .force-dark) needs to re-read --color-bone locally
+      rather than reuse body's already-resolved color.
+    */
+    color: var(--color-bone);
     font-family: var(--font-display);
     font-weight: 500;
     letter-spacing: -0.035em;
@@ -326,15 +355,8 @@ html[data-theme='dark'] .brand-logo {
   }
 }
 
-/*
-  The hero is exactly one screen tall, so on short viewports the decorative
-  capability marquee is dropped rather than squeezing the headline further.
-*/
+/* The hero is exactly one screen tall; reclaim headroom on short/landscape windows. */
 @media (max-height: 50rem) {
-  .hero-marquee {
-    display: none;
-  }
-  /* Reclaim headroom on short/landscape windows. */
   .hero-copy {
     padding-top: 6.5rem;
   }
