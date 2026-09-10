@@ -40,12 +40,7 @@ export function CallToAction() {
             <span className="eyebrow">Next step</span>
           </Reveal>
 
-          <h2
-            id="cta-heading"
-            data-cta-title
-            className="display-lg text-bone"
-            style={{ opacity: 0 }}
-          >
+          <h2 id="cta-heading" data-cta-title className="display-lg text-bone">
             Have an idea?
             <br />
             <span className="accent-em">Let&apos;s</span> build it.

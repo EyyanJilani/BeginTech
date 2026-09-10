@@ -38,8 +38,13 @@ export function TextReveal({
   // See Reveal — a concrete intrinsic keeps the polymorphic props resolvable.
   const Tag = asTag as 'p'
 
+  // No inline opacity:0 — revealLines()/revealWords() set opacity:1 on this
+  // element as their first synchronous action and hide the split lines/words
+  // instead, so the text stays visible by default if the reveal animation
+  // never runs (blocked script, thrown error upstream, ...) rather than
+  // being invisible forever.
   return (
-    <Tag ref={ref as React.Ref<HTMLParagraphElement>} className={className} style={{ opacity: 0 }}>
+    <Tag ref={ref as React.Ref<HTMLParagraphElement>} className={className}>
       {children}
     </Tag>
   )

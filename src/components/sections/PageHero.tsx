@@ -72,7 +72,7 @@ export function PageHero({ eyebrow, title, lede, meta, breadcrumb, children }: P
           {eyebrow}
         </p>
 
-        <h1 data-page-title className="display-lg max-w-[16ch] text-bone" style={{ opacity: 0 }}>
+        <h1 data-page-title className="display-lg max-w-[16ch] text-bone">
           {title}
         </h1>
 

@@ -40,7 +40,7 @@ export function Statement() {
 
         {/* This oversized line is the section's heading, not decoration —
             keeping it an h2 preserves the document outline. */}
-        <h2 id="statement-heading" data-statement className="display-lg max-w-[22ch] text-bone" style={{ opacity: 0 }}>
+        <h2 id="statement-heading" data-statement className="display-lg max-w-[22ch] text-bone">
           Technology should not only work. It should make people{' '}
           <span className="accent-em">feel</span> something.
         </h2>

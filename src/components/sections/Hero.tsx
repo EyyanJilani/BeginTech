@@ -95,12 +95,14 @@ export function Hero() {
             Digital product &amp; technology studio
           </p>
 
+          {/* No inline opacity:0 here — the line-mask reveal in revealLines()
+              hides its own split lines, so the heading never depends on JS
+              running successfully just to become visible in the first place. */}
           <h1
             id="hero-title"
             data-hero
             data-hero-title
             className="display-xl text-white [text-wrap:normal]"
-            style={{ opacity: 0 }}
           >
             Websites and
             <br />
