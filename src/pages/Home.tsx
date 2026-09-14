@@ -15,7 +15,7 @@ export default function Home() {
   useSeo({
     title: 'BeginTech — Website Design & Social Media Marketing Agency, Pakistan',
     description:
-      'BeginTech is a Karachi-based website design and social media marketing agency serving clients across Pakistan — websites, online stores and social media growth, built and run by one senior team.',
+      'BeginTech is a Karachi-based website design and social media marketing agency, building websites, online stores and social growth for clients across Pakistan.',
     path: '/',
   })
 
