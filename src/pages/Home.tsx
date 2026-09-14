@@ -13,9 +13,9 @@ import { useSeo } from '../hooks/useSeo'
 
 export default function Home() {
   useSeo({
-    title: 'BeginTech — Digital Product & Technology Studio',
+    title: 'BeginTech — Website Design & Social Media Marketing Agency, Pakistan',
     description:
-      'BeginTech is a software house and creative technology studio building web platforms, mobile apps, AI systems and digital products for ambitious companies worldwide.',
+      'BeginTech is a Karachi-based website design and social media marketing agency serving clients across Pakistan — websites, online stores and social media growth, built and run by one senior team.',
     path: '/',
   })
 

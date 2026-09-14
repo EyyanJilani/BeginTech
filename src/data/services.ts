@@ -57,7 +57,6 @@ export const services: ServiceDetail[] = [
     stack: ['React', 'Next.js', 'Astro', 'TypeScript', 'Tailwind', 'GSAP', 'Sanity', 'Vercel'],
     engagement: [
       { label: 'Typical timeline', value: '6 – 12 weeks' },
-      { label: 'Starting from', value: '$18,000' },
       { label: 'Team', value: 'Designer, 2 engineers, PM' },
     ],
     faqs: [
@@ -112,7 +111,6 @@ export const services: ServiceDetail[] = [
     stack: ['React Native', 'Expo', 'Swift', 'Kotlin', 'TypeScript', 'Firebase', 'Supabase'],
     engagement: [
       { label: 'Typical timeline', value: '10 – 20 weeks' },
-      { label: 'Starting from', value: '$35,000' },
       { label: 'Team', value: 'Designer, 3 engineers, QA, PM' },
     ],
     faqs: [
@@ -167,7 +165,6 @@ export const services: ServiceDetail[] = [
     stack: ['Figma', 'Storybook', 'Framer', 'Maze', 'Design Tokens', 'WCAG 2.2'],
     engagement: [
       { label: 'Typical timeline', value: '4 – 10 weeks' },
-      { label: 'Starting from', value: '$14,000' },
       { label: 'Team', value: 'Lead designer, researcher, PM' },
     ],
     faqs: [
@@ -222,7 +219,6 @@ export const services: ServiceDetail[] = [
     stack: ['Claude', 'OpenAI', 'Python', 'LangGraph', 'pgvector', 'Postgres', 'Modal', 'AWS'],
     engagement: [
       { label: 'Typical timeline', value: '6 – 16 weeks' },
-      { label: 'Starting from', value: '$28,000' },
       { label: 'Team', value: 'AI engineer, backend engineer, PM' },
     ],
     faqs: [
@@ -277,7 +273,6 @@ export const services: ServiceDetail[] = [
     stack: ['TypeScript', 'Node.js', '.NET', 'Python', 'PostgreSQL', 'Redis', 'Prisma', 'Docker'],
     engagement: [
       { label: 'Typical timeline', value: '12 – 26 weeks' },
-      { label: 'Starting from', value: '$45,000' },
       { label: 'Team', value: '4 – 6 specialists' },
     ],
     faqs: [
@@ -332,7 +327,6 @@ export const services: ServiceDetail[] = [
     stack: ['Figma', 'Illustrator', 'After Effects', 'Blender', 'Type Design'],
     engagement: [
       { label: 'Typical timeline', value: '5 – 10 weeks' },
-      { label: 'Starting from', value: '$16,000' },
       { label: 'Team', value: 'Creative director, designer, writer' },
     ],
     faqs: [
@@ -387,7 +381,6 @@ export const services: ServiceDetail[] = [
     stack: ['Shopify Hydrogen', 'Next.js', 'Stripe', 'Algolia', 'Sanity', 'Vercel'],
     engagement: [
       { label: 'Typical timeline', value: '8 – 16 weeks' },
-      { label: 'Starting from', value: '$26,000' },
       { label: 'Team', value: 'Designer, 2 engineers, PM' },
     ],
     faqs: [
@@ -405,12 +398,12 @@ export const services: ServiceDetail[] = [
   {
     slug: 'digital-marketing',
     index: '08',
-    title: 'Digital Marketing & Growth',
+    title: 'Social Media Marketing & Digital Growth',
     navTitle: 'Digital Marketing',
     category: 'Growth',
-    tagline: 'Growth programmes accountable to pipeline, not impressions.',
+    tagline: 'Social media marketing and growth programmes accountable to pipeline, not impressions.',
     summary:
-      'SEO, performance media, lifecycle and social, run as one measured system with the product it promotes.',
+      'Social media marketing, SEO, performance media and lifecycle — run as one measured system with the product it promotes.',
     statement:
       'Marketing that is disconnected from the product it sells generates traffic and little else. Because we build the product, we can close the loop: the landing page, the onboarding, the instrumentation and the campaign are designed together.',
     capabilities: [
@@ -442,7 +435,6 @@ export const services: ServiceDetail[] = [
     stack: ['GA4', 'Google Ads', 'Meta Ads', 'LinkedIn Ads', 'HubSpot', 'Klaviyo', 'Ahrefs'],
     engagement: [
       { label: 'Typical timeline', value: '3-month minimum' },
-      { label: 'Starting from', value: '$4,500 / month' },
       { label: 'Team', value: 'Strategist, media buyer, designer' },
     ],
     faqs: [

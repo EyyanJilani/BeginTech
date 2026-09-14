@@ -92,7 +92,7 @@ export function Hero() {
             className="mb-5 flex items-center gap-3 text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-white/70"
           >
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
-            Digital product &amp; technology studio
+            Website design &amp; social media marketing agency — Karachi, Pakistan
           </p>
 
           {/* No inline opacity:0 here — the line-mask reveal in revealLines()
