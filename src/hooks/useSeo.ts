@@ -6,7 +6,7 @@ type Seo = {
   path?: string
 }
 
-const ORIGIN = 'https://begintech.org'
+const ORIGIN = 'https://begintech.co'
 
 function setMeta(selector: string, attr: 'name' | 'property', key: string, content: string) {
   let tag = document.head.querySelector<HTMLMetaElement>(selector)

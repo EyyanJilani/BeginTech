@@ -13,6 +13,7 @@ import { serviceBySlug, services } from '../../data/services'
 import { projects } from '../../data/projects'
 import type { ArtPattern } from '../../data/projects'
 import { useSeo } from '../../hooks/useSeo'
+import { useJsonLd } from '../../hooks/useJsonLd'
 import { brandOnDark } from '../../data/brand'
 import { cn } from '../../lib/utils'
 
@@ -37,6 +38,24 @@ export default function ServicePage() {
     description: service?.summary ?? 'Services',
     path: service ? `/services/${service.slug}` : '/services',
   })
+
+  /* The FAQ accordion below is real, unique per-service content — FAQPage
+     schema makes it eligible for rich results / People Also Ask and gives
+     AI answer engines a structured, directly-citable Q&A pair. */
+  useJsonLd(
+    'service-faq-jsonld',
+    service
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: service.faqs.map((faq) => ({
+            '@type': 'Question',
+            name: faq.q,
+            acceptedAnswer: { '@type': 'Answer', text: faq.a },
+          })),
+        }
+      : null,
+  )
 
   if (!service) return <Navigate to="/" replace />
 

@@ -1,7 +1,7 @@
 export const site = {
   name: 'BeginTech',
   tagline: 'Digital Product & Technology Studio',
-  email: 'info@begintech.org',
+  email: 'info@begintech.co',
   phone: '+92 319 4889779',
   location: 'Karachi, Pakistan.',
   hq: 'Karachi, Sindh, Pakistan',
