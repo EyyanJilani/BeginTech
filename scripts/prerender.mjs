@@ -13,9 +13,35 @@
 // This list mirrors public/sitemap.xml — keep the two in sync when routes
 // are added or removed.
 import { preview } from 'vite'
-import puppeteer from 'puppeteer'
 import { mkdir, writeFile } from 'node:fs/promises'
 import path from 'node:path'
+
+/*
+  Two different Chromiums, because "puppeteer" (which bundles a full desktop
+  Chrome build) can't launch on Vercel's build image — it's missing shared
+  libraries (libnspr4.so and friends) that desktop Chrome expects and a
+  minimal Linux build image doesn't ship. @sparticuz/chromium is a Chromium
+  build compiled specifically for serverless/CI environments like this one,
+  paired with puppeteer-core (no bundled browser of its own). Locally, the
+  full "puppeteer" package's bundled Chrome just works, so we use that
+  instead of fighting sparticuz's Lambda-oriented packaging on a dev machine.
+*/
+async function launchBrowser() {
+  if (process.env.VERCEL) {
+    const [{ default: puppeteer }, { default: chromium }] = await Promise.all([
+      import('puppeteer-core'),
+      import('@sparticuz/chromium'),
+    ])
+    return puppeteer.launch({
+      args: chromium.args,
+      executablePath: await chromium.executablePath(),
+      headless: true,
+    })
+  }
+
+  const { default: puppeteer } = await import('puppeteer')
+  return puppeteer.launch({ headless: true })
+}
 
 const ROUTES = [
   '/',
@@ -46,7 +72,7 @@ async function main() {
   const server = await preview({ preview: { port: 4173, strictPort: false } })
   const base = server.resolvedUrls.local[0].replace(/\/$/, '')
 
-  const browser = await puppeteer.launch({ headless: true })
+  const browser = await launchBrowser()
 
   try {
     for (const route of ROUTES) {
