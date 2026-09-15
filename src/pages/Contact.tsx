@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
-import { Check, Loader2 } from 'lucide-react'
+import { AlertTriangle, Check, Loader2 } from 'lucide-react'
 import { PageHero } from '../components/sections/PageHero'
 import { Reveal } from '../components/ui/Reveal'
 import { Button } from '../components/ui/Button'
@@ -8,6 +8,7 @@ import { services } from '../data/services'
 import { site } from '../data/site'
 import { cn } from '../lib/utils'
 import { useSeo } from '../hooks/useSeo'
+import { sendEnquiryEmail } from '../lib/email'
 
 const budgets = ['$1k – $5k', '$5k – $10k', '$10k – $25k', '$25k+', "Let's discuss"]
 
@@ -55,7 +56,8 @@ export default function Contact() {
   const [values, setValues] = useState<Fields>(empty)
   const [errors, setErrors] = useState<Errors>({})
   const [touched, setTouched] = useState<Partial<Record<keyof Fields, boolean>>>({})
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle')
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
+  const [sendError, setSendError] = useState<string | null>(null)
 
   useSeo({
     title: 'Contact — BeginTech',
@@ -79,7 +81,7 @@ export default function Contact() {
     setErrors((e) => ({ ...e, [key]: validate(values)[key] }))
   }
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const found = validate(values)
     setErrors(found)
@@ -106,10 +108,18 @@ export default function Contact() {
       return
     }
 
-    // No backend is wired up in this build; the submission is acknowledged
-    // locally so the flow can be reviewed end to end.
     setStatus('sending')
-    window.setTimeout(() => setStatus('sent'), 900)
+    setSendError(null)
+    try {
+      await sendEnquiryEmail(values)
+      setStatus('sent')
+    } catch (err) {
+      console.error('Contact form send failed:', err)
+      setSendError(
+        "That didn't go through. Please try again, or email us directly — the address is on the right.",
+      )
+      setStatus('error')
+    }
   }
 
   const fieldClass = (key: keyof Fields) =>
@@ -172,6 +182,7 @@ export default function Contact() {
                       setErrors({})
                       setTouched({})
                       setStatus('idle')
+                      setSendError(null)
                     }}
                     className="link-underline mt-8 text-sm text-bone"
                   >
@@ -359,6 +370,16 @@ export default function Contact() {
                       We reply within one business day. Your details are never shared or sold.
                     </p>
                   </div>
+
+                  {status === 'error' && sendError && (
+                    <p
+                      role="alert"
+                      className="flex items-start gap-2.5 rounded-lg border border-red-400/30 bg-red-400/[0.06] p-4 text-sm text-red-300"
+                    >
+                      <AlertTriangle aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0" />
+                      {sendError}
+                    </p>
+                  )}
                 </form>
               )}
             </div>

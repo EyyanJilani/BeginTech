@@ -1,0 +1,38 @@
+# BeginTech
+
+> BeginTech is a website design and social media marketing agency based in Karachi, Pakistan. We design and build websites, online stores, mobile apps and custom software, and run social media marketing and growth programmes — for clients across Pakistan and worldwide.
+
+BeginTech is a small, senior studio (operating since 2016) that designs, builds and grows digital products. The portfolio below is real, shipped client work — not fabricated case studies.
+
+## Company
+
+- [Homepage](https://begintech.co/): overview, services and featured work.
+- [About](https://begintech.co/about): who BeginTech is, principles and history.
+- [Contact](https://begintech.co/contact): get in touch, based in Karachi, Pakistan.
+
+## Services
+
+- [Website Design & Development](https://begintech.co/services/web-development)
+- [Mobile App Development](https://begintech.co/services/mobile-development)
+- [UI/UX Design](https://begintech.co/services/ui-ux-design)
+- [AI Development](https://begintech.co/services/ai-development)
+- [Custom Software Development](https://begintech.co/services/software-development)
+- [Branding & Identity](https://begintech.co/services/branding)
+- [E-Commerce Development](https://begintech.co/services/ecommerce)
+- [Social Media Marketing & Digital Growth](https://begintech.co/services/digital-marketing)
+
+## Work
+
+- [All work](https://begintech.co/work): full portfolio, filterable by discipline.
+- [Brooklyn Bites](https://begintech.co/work/brooklyn-bites): food ordering platform.
+- [Siyaab Lawn Hub](https://begintech.co/work/siyaab-lawn-hub): fashion e-commerce.
+- [Dip'N Eat](https://begintech.co/work/dip-n-eat): French-language street-food ordering site.
+- [Cake Craft](https://begintech.co/work/cake-craft): baking-supplies e-commerce.
+- [Insight Electrical](https://begintech.co/work/insight-electrical): trade services website.
+- [Backflow Testing Co](https://begintech.co/work/backflow-testing-co): trade services website.
+- [Solidification Solutions](https://begintech.co/work/solidification-solutions): trade services website.
+- [Signatures Plus](https://begintech.co/work/signatures-plus): auction marketplace.
+
+## Optional
+
+- [Sitemap](https://begintech.co/sitemap.xml): full list of indexable URLs.
