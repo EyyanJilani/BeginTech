@@ -13,7 +13,7 @@
 // This list mirrors public/sitemap.xml — keep the two in sync when routes
 // are added or removed.
 import { preview } from 'vite'
-import { mkdir, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 
 /*
@@ -67,15 +67,42 @@ const ROUTES = [
 ]
 
 const OUT_DIR = path.resolve(import.meta.dirname, '..', 'dist')
+const ORIGIN = 'https://begintech.co'
+
+/*
+  Rendered from a path no route matches, then written to dist/404.html.
+  vercel.json has no SPA catch-all rewrite, so Vercel serves this file with a
+  real 404 status for any unknown URL — instead of a 200 homepage shell that
+  Google would report as a soft 404.
+*/
+const NOT_FOUND_PROBE = '/__prerender-404__'
+
+/** Fails the build if public/sitemap.xml and ROUTES drift apart. */
+async function checkSitemap() {
+  const xml = await readFile(path.join(OUT_DIR, 'sitemap.xml'), 'utf8')
+  const inSitemap = new Set([...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim()))
+  const expected = new Set(ROUTES.map((r) => ORIGIN + r))
+  const missing = [...expected].filter((u) => !inSitemap.has(u))
+  const extra = [...inSitemap].filter((u) => !expected.has(u))
+  if (missing.length || extra.length) {
+    throw new Error(
+      `sitemap.xml is out of sync with ROUTES.
+  missing: ${missing.join(', ') || '-'}
+  extra: ${extra.join(', ') || '-'}`,
+    )
+  }
+}
 
 async function main() {
+  await checkSitemap()
+
   const server = await preview({ preview: { port: 4173, strictPort: false } })
   const base = server.resolvedUrls.local[0].replace(/\/$/, '')
 
   const browser = await launchBrowser()
 
   try {
-    for (const route of ROUTES) {
+    for (const route of [...ROUTES, NOT_FOUND_PROBE]) {
       const page = await browser.newPage()
       await page.goto(base + route, { waitUntil: 'networkidle0', timeout: 30_000 })
 
@@ -88,9 +115,11 @@ async function main() {
       await page.close()
 
       const outPath =
-        route === '/'
-          ? path.join(OUT_DIR, 'index.html')
-          : path.join(OUT_DIR, route, 'index.html')
+        route === NOT_FOUND_PROBE
+          ? path.join(OUT_DIR, '404.html')
+          : route === '/'
+            ? path.join(OUT_DIR, 'index.html')
+            : path.join(OUT_DIR, route, 'index.html')
 
       await mkdir(path.dirname(outPath), { recursive: true })
       await writeFile(outPath, html, 'utf8')

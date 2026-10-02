@@ -6,6 +6,10 @@ export type ServiceDetail = {
   category: 'Development' | 'Design' | 'Technology' | 'Growth'
   tagline: string
   summary: string
+  /** <title> for the service page — keyword-led, kept under ~60 characters. */
+  seoTitle: string
+  /** Meta description — written for the search snippet, ~150–160 characters. */
+  seoDescription: string
   /** Long-form positioning statement used on the service page hero. */
   statement: string
   capabilities: { title: string; body: string }[]
@@ -26,6 +30,9 @@ export const services: ServiceDetail[] = [
     tagline: 'Marketing sites and web platforms engineered for speed and story.',
     summary:
       'We build the site your company deserves — art-directed, measurably fast, and structured so your team can keep shipping without waiting on us.',
+    seoTitle: 'Web Development Services in Karachi, Pakistan | BeginTech',
+    seoDescription:
+      'Custom website design and web development from a Karachi-based agency: fast React and Next.js sites, headless CMS, SEO-ready builds and code you own.',
     statement:
       'A website is the first product most customers ever use. We treat it that way: design systems instead of page mockups, component libraries instead of templates, and performance budgets agreed before the first line of code.',
     capabilities: [
@@ -80,6 +87,9 @@ export const services: ServiceDetail[] = [
     tagline: 'iOS and Android products people open every day.',
     summary:
       'From first prototype to store release and the release cadence after it — native-feeling apps built on React Native, Swift and Kotlin.',
+    seoTitle: 'Mobile App Development Company in Pakistan | BeginTech',
+    seoDescription:
+      'iOS and Android app development from Karachi, Pakistan — React Native, Swift and Kotlin apps taken from prototype to App Store and Play Store release.',
     statement:
       'Mobile punishes the unconsidered. Every extra tap, every dropped frame, every permission prompt asked too early costs retention. We design for the thumb, engineer for the network you actually have, and instrument everything so the second release is smarter than the first.',
     capabilities: [
@@ -134,6 +144,9 @@ export const services: ServiceDetail[] = [
     tagline: 'Research-led interfaces that make complex products feel obvious.',
     summary:
       'Discovery, information architecture, interaction design and a design system your engineers can actually build from.',
+    seoTitle: 'UI/UX Design Services in Karachi, Pakistan | BeginTech',
+    seoDescription:
+      'Research-led UI/UX and product design from Karachi: user flows, high-fidelity interfaces, prototypes and design systems your engineers can build from.',
     statement:
       'Good design is not decoration applied late. It is the argument about what the product should be, made visible early enough to change course cheaply. We work in the open — flows before pixels, prototypes before promises.',
     capabilities: [
@@ -188,6 +201,9 @@ export const services: ServiceDetail[] = [
     tagline: 'Applied AI that survives contact with production.',
     summary:
       'Retrieval systems, agents, copilots and workflow automation — evaluated, monitored and costed before they reach your customers.',
+    seoTitle: 'AI Development & Automation Services, Pakistan | BeginTech',
+    seoDescription:
+      'AI development from a Karachi software house: retrieval systems, AI agents, copilots and workflow automation — evaluated, monitored and costed for production.',
     statement:
       'Most AI pilots fail for unglamorous reasons: no evaluation set, no guardrails, no cost ceiling, no owner. We build the boring infrastructure that makes the impressive part dependable, and we say no to the use cases that do not warrant a model at all.',
     capabilities: [
@@ -242,6 +258,9 @@ export const services: ServiceDetail[] = [
     tagline: 'Platforms, internal tools and SaaS products built to be maintained.',
     summary:
       'Multi-tenant architecture, billing, permissions and the unglamorous infrastructure that decides whether a product scales.',
+    seoTitle: 'Custom Software Development Company in Pakistan | BeginTech',
+    seoDescription:
+      'Custom software and SaaS development from a Karachi software house: multi-tenant platforms, internal tools, billing, permissions and legacy modernisation.',
     statement:
       'The interesting problems in custom software are rarely the features. They are tenancy, permissions, migrations, audit trails and the second year of maintenance. We design for that year from the first sprint.',
     capabilities: [
@@ -296,6 +315,9 @@ export const services: ServiceDetail[] = [
     tagline: 'Identity systems built for screens first.',
     summary:
       'Positioning, naming, logo, typography, motion and the guidelines that keep it coherent as the company grows.',
+    seoTitle: 'Branding & Logo Design Agency in Karachi | BeginTech',
+    seoDescription:
+      'Brand identity and logo design from Karachi, Pakistan: positioning, logo systems, typography, colour, motion identity and practical brand guidelines.',
     statement:
       'A brand that only works on a business card is a liability. We design identities that hold up at 16 pixels in a browser tab and at three metres on a conference wall, with motion and interface behaviour treated as part of the identity rather than an afterthought.',
     capabilities: [
@@ -350,6 +372,9 @@ export const services: ServiceDetail[] = [
     tagline: 'Storefronts where the experience matches the product.',
     summary:
       'Headless commerce on Shopify and custom stacks — merchandising, checkout and conversion, engineered end to end.',
+    seoTitle: 'E-Commerce Website Development in Pakistan | BeginTech',
+    seoDescription:
+      'E-commerce website development from Karachi: Shopify and custom online stores with fast product pages, optimised checkout and catalogue migration.',
     statement:
       'Luxury and considered-purchase brands lose more revenue to a slow product page than to any pricing decision. We build storefronts where craft and conversion are the same conversation: art-directed merchandising on top of a checkout tuned to the millisecond.',
     capabilities: [
@@ -404,6 +429,9 @@ export const services: ServiceDetail[] = [
     tagline: 'Social media marketing and growth programmes accountable to pipeline, not impressions.',
     summary:
       'Social media marketing, SEO, performance media and lifecycle — run as one measured system with the product it promotes.',
+    seoTitle: 'Digital & Social Media Marketing Agency, Karachi | BeginTech',
+    seoDescription:
+      'Social media marketing, SEO, paid media and lifecycle email from a Karachi agency — run as one measured system and reported against pipeline, not impressions.',
     statement:
       'Marketing that is disconnected from the product it sells generates traffic and little else. Because we build the product, we can close the loop: the landing page, the onboarding, the instrumentation and the campaign are designed together.',
     capabilities: [

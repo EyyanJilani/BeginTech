@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef } from 'react'
-import { Link, Navigate, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 import { gsap } from '../lib/gsap'
 import { imageReveal } from '../animations/presets'
@@ -12,6 +12,15 @@ import { Reveal } from '../components/ui/Reveal'
 import { TextReveal } from '../components/ui/TextReveal'
 import { projectBySlug, projects } from '../data/projects'
 import { useSeo } from '../hooks/useSeo'
+import { useJsonLd } from '../hooks/useJsonLd'
+import { ORG_ID, ORIGIN, breadcrumbSchema } from '../lib/schema'
+import NotFound from './NotFound'
+
+/** Keeps the title near Google's ~60-character display width. */
+function caseStudyTitle(name: string, discipline: string) {
+  const full = `${name} — ${discipline} Case Study | BeginTech`
+  return full.length <= 62 ? full : `${name} — ${discipline} | BeginTech`
+}
 
 export default function WorkDetail() {
   const { slug } = useParams<{ slug: string }>()
@@ -19,10 +28,44 @@ export default function WorkDetail() {
   const frameRef = useRef<HTMLDivElement>(null)
 
   useSeo({
-    title: project ? `${project.name} — BeginTech` : 'Work — BeginTech',
-    description: project?.summary ?? 'Case study',
-    path: project ? `/work/${project.slug}` : '/work',
+    title: project ? caseStudyTitle(project.name, project.discipline) : 'Page not found — BeginTech',
+    description: project?.summary ?? 'The page you were looking for does not exist.',
+    path: project ? `/work/${project.slug}` : undefined,
+    type: project ? 'article' : 'website',
+    noindex: !project,
   })
+
+  useJsonLd(
+    'project-jsonld',
+    project
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'CreativeWork',
+          '@id': `${ORIGIN}/work/${project.slug}#casestudy`,
+          name: `${project.name} — ${project.discipline}`,
+          headline: project.headline,
+          description: project.summary,
+          url: `${ORIGIN}/work/${project.slug}`,
+          ...(project.image ? { image: `${ORIGIN}${project.image}` } : {}),
+          dateCreated: project.year,
+          genre: project.category,
+          keywords: project.services.join(', '),
+          creator: { '@id': ORG_ID },
+          about: { '@type': 'Organization', name: project.client },
+        }
+      : null,
+  )
+
+  useJsonLd(
+    'breadcrumb-jsonld',
+    project
+      ? breadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Work', path: '/work' },
+          { name: project.name, path: `/work/${project.slug}` },
+        ])
+      : null,
+  )
 
   useLayoutEffect(() => {
     const el = frameRef.current
@@ -33,15 +76,19 @@ export default function WorkDetail() {
     return () => ctx.revert()
   }, [slug])
 
-  if (!project) return <Navigate to="/work" replace />
+  if (!project) return <NotFound />
 
-  const related = projects.filter((p) => p.slug !== project.slug).slice(0, 3)
+  /* The next three projects, wrapping around — every case study is linked
+     from three others instead of all of them pointing at the first three. */
+  const at = projects.findIndex((p) => p.slug === project.slug)
+  const related = [1, 2, 3].map((n) => projects[(at + n) % projects.length])
 
   return (
     <>
       <PageHero
         eyebrow={project.discipline}
         breadcrumb={[
+          { label: 'Home', to: '/' },
           { label: 'Work', to: '/work' },
           { label: project.name, to: `/work/${project.slug}` },
         ]}
@@ -135,7 +182,7 @@ export default function WorkDetail() {
                 {project.image ? (
                   <img
                     src={project.image}
-                    alt={`${project.name} — further down the page`}
+                    alt={`${project.name} website by BeginTech — ${project.discipline.toLowerCase()} page design`}
                     loading="lazy"
                     decoding="async"
                     className="h-full w-full object-cover object-bottom"

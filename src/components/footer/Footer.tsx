@@ -87,8 +87,8 @@ export function Footer() {
               <LogoLockup className="h-14" />
             </Link>
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-mute">
-              A software house and creative technology studio. We design, engineer and grow digital
-              products for companies that intend to last.
+              A software house and web development agency in Karachi, Pakistan. We design, engineer
+              and grow digital products for companies that intend to last.
             </p>
             <p className="mt-8 flex items-center gap-2.5 text-sm text-mute">
               <span className="relative flex h-2 w-2">

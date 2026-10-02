@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, Navigate, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { ArrowUpRight, Check, Minus, Plus } from 'lucide-react'
 import { PageHero } from '../../components/sections/PageHero'
 import { CallToAction } from '../../components/sections/CallToAction'
@@ -16,6 +16,8 @@ import { useSeo } from '../../hooks/useSeo'
 import { useJsonLd } from '../../hooks/useJsonLd'
 import { brandOnDark } from '../../data/brand'
 import { cn } from '../../lib/utils'
+import { ORG_ID, ORIGIN, breadcrumbSchema } from '../../lib/schema'
+import NotFound from '../NotFound'
 
 const art: Record<string, { pattern: ArtPattern; from: string; to: string; ink: string }> = {
   'web-development': { pattern: 'grid', from: '#0d2440', to: '#07131f', ink: brandOnDark.blue },
@@ -34,10 +36,42 @@ export default function ServicePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0)
 
   useSeo({
-    title: service ? `${service.title} — BeginTech` : 'Services — BeginTech',
-    description: service?.summary ?? 'Services',
-    path: service ? `/services/${service.slug}` : '/services',
+    title: service?.seoTitle ?? 'Page not found — BeginTech',
+    description: service?.seoDescription ?? 'The page you were looking for does not exist.',
+    path: service ? `/services/${service.slug}` : undefined,
+    noindex: !service,
   })
+
+  useJsonLd(
+    'service-jsonld',
+    service
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          '@id': `${ORIGIN}/services/${service.slug}#service`,
+          name: service.title,
+          serviceType: service.navTitle,
+          description: service.summary,
+          url: `${ORIGIN}/services/${service.slug}`,
+          provider: { '@id': ORG_ID },
+          areaServed: [
+            { '@type': 'City', name: 'Karachi' },
+            { '@type': 'Country', name: 'Pakistan' },
+            'Worldwide',
+          ],
+        }
+      : null,
+  )
+
+  useJsonLd(
+    'breadcrumb-jsonld',
+    service
+      ? breadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: service.navTitle, path: `/services/${service.slug}` },
+        ])
+      : null,
+  )
 
   /* The FAQ accordion below is real, unique per-service content — FAQPage
      schema makes it eligible for rich results / People Also Ask and gives
@@ -57,7 +91,7 @@ export default function ServicePage() {
       : null,
   )
 
-  if (!service) return <Navigate to="/" replace />
+  if (!service) return <NotFound />
 
   const visual = art[service.slug] ?? art['web-development']
   const related = service.related

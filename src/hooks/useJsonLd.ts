@@ -16,10 +16,13 @@ export function useJsonLd(id: string, data: object | null) {
       tag.type = 'application/ld+json'
       document.head.appendChild(tag)
     }
-    tag.textContent = JSON.stringify(data)
+    const json = JSON.stringify(data)
+    tag.textContent = json
 
     return () => {
-      tag?.remove()
+      // During a route transition the incoming page may already have taken
+      // over this id; only remove the tag if it still holds our content.
+      if (tag?.textContent === json) tag.remove()
     }
   }, [id, data])
 }

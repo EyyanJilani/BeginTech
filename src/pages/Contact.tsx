@@ -8,6 +8,8 @@ import { services } from '../data/services'
 import { site } from '../data/site'
 import { cn } from '../lib/utils'
 import { useSeo } from '../hooks/useSeo'
+import { useJsonLd } from '../hooks/useJsonLd'
+import { breadcrumbSchema } from '../lib/schema'
 import { sendEnquiryEmail } from '../lib/email'
 
 const budgets = ['$1k – $5k', '$5k – $10k', '$10k – $25k', '$25k+', "Let's discuss"]
@@ -60,11 +62,19 @@ export default function Contact() {
   const [sendError, setSendError] = useState<string | null>(null)
 
   useSeo({
-    title: 'Contact — BeginTech',
+    title: 'Contact BeginTech — Web Development Agency, Karachi',
     description:
-      "Tell us what you're building. BeginTech replies within one business day. Based in Karachi, Pakistan and available for projects worldwide.",
+      "Start a web, mobile or software project with BeginTech in Karachi, Pakistan. Tell us what you're building — we reply within one business day.",
     path: '/contact',
   })
+
+  useJsonLd(
+    'breadcrumb-jsonld',
+    breadcrumbSchema([
+      { name: 'Home', path: '/' },
+      { name: 'Contact', path: '/contact' },
+    ]),
+  )
 
   const set = (key: keyof Fields, value: string) => {
     setValues((v) => ({ ...v, [key]: value }))

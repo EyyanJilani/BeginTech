@@ -10,9 +10,8 @@ export const site = {
   founded: 2016,
   socials: [
     { label: 'LinkedIn', href: 'https://www.linkedin.com/company/begintech00/' },
-    { label: 'Instagram', href: 'https://www.instagram.com/begin_tech/?hl=en' },
+    { label: 'Instagram', href: 'https://www.instagram.com/begin_tech/' },
     { label: 'Facebook', href: 'https://www.facebook.com/BeginTech/' },
-    { label: 'X', href: 'https://x.com/' },
   ],
 }
 

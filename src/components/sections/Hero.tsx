@@ -92,7 +92,7 @@ export function Hero() {
             className="mb-5 flex items-center gap-3 text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-white/70"
           >
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
-            Website design &amp; social media marketing agency — Karachi, Pakistan
+            Web development company &amp; software house — Karachi, Pakistan
           </p>
 
           {/* No inline opacity:0 here — the line-mask reveal in revealLines()
@@ -112,8 +112,9 @@ export function Hero() {
           </h1>
 
           <p data-hero data-hero-lede className="lede mt-6 max-w-md text-white/75">
-            BeginTech is a small studio in Karachi. We design and build websites, online stores
-            and product interfaces for businesses that care how their work looks and runs.
+            BeginTech is a web development agency in Karachi. We design and build websites,
+            online stores, apps and custom software for businesses that care how their work
+            looks and runs.
           </p>
 
           <div data-hero data-hero-cta className="mt-7 flex flex-wrap items-center justify-center gap-3">

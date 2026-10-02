@@ -10,6 +10,8 @@ import { ProjectVisual } from '../components/ui/ProjectVisual'
 import { principles, site } from '../data/site'
 import { brand, brandOnDark } from '../data/brand'
 import { useSeo } from '../hooks/useSeo'
+import { useJsonLd } from '../hooks/useJsonLd'
+import { breadcrumbSchema } from '../lib/schema'
 
 const disciplines = [
   {
@@ -68,11 +70,19 @@ const timeline = [
 
 export default function About() {
   useSeo({
-    title: 'About — BeginTech',
+    title: 'About BeginTech — Software House in Karachi, Pakistan',
     description:
-      'BeginTech is a senior team of strategists, designers and engineers based in Karachi, Pakistan. We design, build and transform digital products for clients worldwide.',
+      'BeginTech is a software house and web development agency founded in Karachi in 2016 — a small senior team of strategists, designers and engineers.',
     path: '/about',
   })
+
+  useJsonLd(
+    'breadcrumb-jsonld',
+    breadcrumbSchema([
+      { name: 'Home', path: '/' },
+      { name: 'About', path: '/about' },
+    ]),
+  )
 
   return (
     <>

@@ -7,17 +7,27 @@ import { projectCategories, projects } from '../data/projects'
 import type { ProjectCategory } from '../data/projects'
 import { cn, prefersReducedMotion } from '../lib/utils'
 import { useSeo } from '../hooks/useSeo'
+import { useJsonLd } from '../hooks/useJsonLd'
+import { breadcrumbSchema } from '../lib/schema'
 
 export default function Work() {
   const [filter, setFilter] = useState<ProjectCategory | 'All'>('All')
   const gridRef = useRef<HTMLDivElement>(null)
 
   useSeo({
-    title: 'Work — BeginTech',
+    title: 'Portfolio — Web Development & E-Commerce Projects | BeginTech',
     description:
-      'Case studies from BeginTech: food ordering platforms, fashion e-commerce, and trade services websites for clients across Pakistan, the US, France and Australia.',
+      'Websites and online stores built by BeginTech: food ordering, fashion e-commerce and trade services sites for clients in Pakistan, the US, France and Australia.',
     path: '/work',
   })
+
+  useJsonLd(
+    'breadcrumb-jsonld',
+    breadcrumbSchema([
+      { name: 'Home', path: '/' },
+      { name: 'Work', path: '/work' },
+    ]),
+  )
 
   const sectorCount = useMemo(() => new Set(projects.map((p) => p.sector)).size, [])
 

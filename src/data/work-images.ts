@@ -3,14 +3,14 @@
   these the same way it does the logo assets — a literal '/src/...' string
   only resolves in dev and silently 404s in the production build.
 */
-import brooklynBites from '../assets/img/work/brooklyn-bites.jpg'
-import siyaabLawnHub from '../assets/img/work/siyaab-lawn-hub.jpg'
-import dipNEat from '../assets/img/work/dip-n-eat.jpg'
-import cakeCraft from '../assets/img/work/cake-craft.jpg'
-import insightElectrical from '../assets/img/work/insight-electrical.jpg'
-import backflowTestingCo from '../assets/img/work/backflow-testing-co.jpg'
-import solidificationSolutions from '../assets/img/work/solidification-solutions.jpg'
-import signaturesPlus from '../assets/img/work/signatures-plus.jpg'
+import brooklynBites from '../assets/img/work/brooklyn-bites.webp'
+import siyaabLawnHub from '../assets/img/work/siyaab-lawn-hub.webp'
+import dipNEat from '../assets/img/work/dip-n-eat.webp'
+import cakeCraft from '../assets/img/work/cake-craft.webp'
+import insightElectrical from '../assets/img/work/insight-electrical.webp'
+import backflowTestingCo from '../assets/img/work/backflow-testing-co.webp'
+import solidificationSolutions from '../assets/img/work/solidification-solutions.webp'
+import signaturesPlus from '../assets/img/work/signatures-plus.webp'
 
 export const workImages = {
   'brooklyn-bites': brooklynBites,

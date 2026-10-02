@@ -8,6 +8,7 @@ export default function NotFound() {
   useSeo({
     title: 'Page not found — BeginTech',
     description: 'The page you were looking for does not exist.',
+    noindex: true,
   })
 
   return (

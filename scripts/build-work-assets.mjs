@@ -3,7 +3,7 @@
  * src/assets/img/. Sources run 200kB-3.2MB (some are full-page screenshots
  * thousands of pixels tall); this crops each to its top section — the
  * designed hero, which is what a card actually needs to show — and encodes
- * it as a compact progressive JPEG.
+ * it as a compact WebP (about 30% smaller than the equivalent JPEG).
  *
  * Run whenever a new screenshot is added: node scripts/build-work-assets.mjs
  */
@@ -44,11 +44,11 @@ for (const [slug, file] of Object.entries(SOURCES)) {
     height: cropHeight,
   })
 
-  const out = `${OUT_DIR}/${slug}.jpg`
+  const out = `${OUT_DIR}/${slug}.webp`
   await pipeline
     .resize({ width: Math.min(TARGET_WIDTH, meta.width) })
-    .flatten({ background: '#ffffff' }) // some sources carry alpha; JPEG has none
-    .jpeg({ quality: 80, mozjpeg: true, progressive: true })
+    .flatten({ background: '#ffffff' }) // drop alpha so screenshots never show through
+    .webp({ quality: 78, effort: 6 })
     .toFile(out)
 
   const before = statSync(src).size
