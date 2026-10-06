@@ -52,6 +52,7 @@ const ROUTES = [
   '/services/mobile-development',
   '/services/ui-ux-design',
   '/services/ai-development',
+  '/services/ai-chatbot-development',
   '/services/software-development',
   '/services/branding',
   '/services/ecommerce',

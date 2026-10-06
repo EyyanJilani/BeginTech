@@ -16,6 +16,7 @@ const art: Record<string, { pattern: ArtPattern; from: string; to: string; ink: 
   'mobile-development': { pattern: 'stack', from: '#0f2416', to: '#07120b', ink: brandOnDark.green },
   'ui-ux-design': { pattern: 'arc', from: '#2b1122', to: '#150810', ink: brandOnDark.magenta },
   'ai-development': { pattern: 'orbit', from: '#1d1030', to: '#0d0718', ink: brandOnDark.purple },
+  'ai-chatbot-development': { pattern: 'stack', from: '#1d1030', to: '#0d0718', ink: brandOnDark.blue },
   'software-development': { pattern: 'mesh', from: '#0d2440', to: '#07131f', ink: brandOnDark.blue },
   branding: { pattern: 'waves', from: '#2b1122', to: '#150810', ink: brandOnDark.magenta },
   ecommerce: { pattern: 'arc', from: '#2b2408', to: '#141105', ink: brandOnDark.yellow },
@@ -45,7 +46,7 @@ export function ServicesRows() {
           eyebrow="What we do"
           title={
             <span id="services-heading">
-              Eight disciplines, <span className="accent-em">one team.</span>
+              Nine disciplines, <span className="accent-em">one team.</span>
             </span>
           }
           description="We are deliberately full-stack as a studio: the people who define the strategy sit beside the people who ship the code. Nothing gets lost in a handover that never happens."

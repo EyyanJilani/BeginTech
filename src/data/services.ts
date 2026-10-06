@@ -10,6 +10,9 @@ export type ServiceDetail = {
   seoTitle: string
   /** Meta description — written for the search snippet, ~150–160 characters. */
   seoDescription: string
+  /** Plain-language overview: what the service is, for whom, where. Rendered under an H2. */
+  introHeading: string
+  intro: string[]
   /** Long-form positioning statement used on the service page hero. */
   statement: string
   capabilities: { title: string; body: string }[]
@@ -33,6 +36,11 @@ export const services: ServiceDetail[] = [
     seoTitle: 'Web Development Services in Karachi, Pakistan | BeginTech',
     seoDescription:
       'Custom website design and web development from a Karachi-based agency: fast React and Next.js sites, headless CMS, SEO-ready builds and code you own.',
+    introHeading: "Web development company in Karachi, Pakistan",
+    intro: [
+      "BeginTech is a web development agency based in Karachi. We design and build business websites, marketing sites, web applications and online stores for companies in Pakistan and abroad — from the first wireframe to launch and the support after it.",
+      "Every site is custom-built rather than adapted from a theme: responsive from mobile up, built to load quickly on mobile connections, structured for search engines from day one, and handed over with the code in your own repository. If you already have a website, we can redesign it, migrate it to a modern stack, or take over its development.",
+    ],
     statement:
       'A website is the first product most customers ever use. We treat it that way: design systems instead of page mockups, component libraries instead of templates, and performance budgets agreed before the first line of code.',
     capabilities: [
@@ -75,6 +83,18 @@ export const services: ServiceDetail[] = [
         q: 'Who owns the code?',
         a: 'You do, from day one. We work in your repository where possible, and everything ships with documentation written for the engineer who inherits it.',
       },
+      {
+        q: "How much does a website cost?",
+        a: "It depends on the number of pages, features and integrations involved. After a short discovery call we send a fixed quote and timeline, so you know the cost before any work starts.",
+      },
+      {
+        q: "Will my website be SEO-friendly?",
+        a: "Yes. Every build ships with clean URLs, page titles and meta descriptions, structured data, an XML sitemap, fast load times and mobile-friendly layouts — the technical foundation search engines need.",
+      },
+      {
+        q: "Can you redesign our existing website?",
+        a: "Yes. We review what works on the current site — content, rankings, conversion paths — keep it, and rebuild the rest, with redirects in place so search traffic is not lost.",
+      },
     ],
     related: ['ui-ux-design', 'ecommerce', 'branding'],
   },
@@ -90,6 +110,11 @@ export const services: ServiceDetail[] = [
     seoTitle: 'Mobile App Development Company in Pakistan | BeginTech',
     seoDescription:
       'iOS and Android app development from Karachi, Pakistan — React Native, Swift and Kotlin apps taken from prototype to App Store and Play Store release.',
+    introHeading: "Mobile app development company in Pakistan",
+    intro: [
+      "We design and develop iOS and Android apps from Karachi for startups and established businesses — customer-facing apps, ordering and booking apps, and internal tools for field teams.",
+      "Most apps are built with React Native, so one codebase serves both platforms, with native Swift or Kotlin where the product needs it. We handle App Store and Google Play submission and set up releases under your own accounts.",
+    ],
     statement:
       'Mobile punishes the unconsidered. Every extra tap, every dropped frame, every permission prompt asked too early costs retention. We design for the thumb, engineer for the network you actually have, and instrument everything so the second release is smarter than the first.',
     capabilities: [
@@ -132,6 +157,14 @@ export const services: ServiceDetail[] = [
         q: 'Do you handle store submission?',
         a: 'Yes, including review responses. We also set up the signing, provisioning and release pipeline under your organisation accounts so you are never locked to us.',
       },
+      {
+        q: "How much does it cost to build an app?",
+        a: "Cost depends on the platforms, features and integrations. We scope it in discovery and give you a fixed quote for the first release before development starts.",
+      },
+      {
+        q: "Can the app connect to our existing website or system?",
+        a: "Yes. The app can use your existing backend or APIs, or we build the API layer alongside it.",
+      },
     ],
     related: ['ui-ux-design', 'software-development', 'ai-development'],
   },
@@ -147,6 +180,11 @@ export const services: ServiceDetail[] = [
     seoTitle: 'UI/UX Design Services in Karachi, Pakistan | BeginTech',
     seoDescription:
       'Research-led UI/UX and product design from Karachi: user flows, high-fidelity interfaces, prototypes and design systems your engineers can build from.',
+    introHeading: "UI/UX design agency in Karachi",
+    intro: [
+      "BeginTech's design team works on websites, web apps and mobile apps — user research, user flows, wireframes, visual interface design and clickable prototypes in Figma.",
+      "We design with the build in mind, so the handover is a component system and annotated screens your developers (or ours) can implement directly, including accessibility notes.",
+    ],
     statement:
       'Good design is not decoration applied late. It is the argument about what the product should be, made visible early enough to change course cheaply. We work in the open — flows before pixels, prototypes before promises.',
     capabilities: [
@@ -189,6 +227,14 @@ export const services: ServiceDetail[] = [
         q: 'How do you handle accessibility?',
         a: 'It is scoped from the start — contrast, focus order, keyboard paths and screen-reader semantics are annotated in the handover rather than retrofitted after an audit.',
       },
+      {
+        q: "Do you redesign existing products?",
+        a: "Yes. Redesigns start with a review of where users struggle today, so changes are based on evidence rather than taste.",
+      },
+      {
+        q: "What tools do you use?",
+        a: "Figma for design and prototyping, with design tokens and a component library handed over for development.",
+      },
     ],
     related: ['web-development', 'mobile-development', 'branding'],
   },
@@ -204,6 +250,11 @@ export const services: ServiceDetail[] = [
     seoTitle: 'AI Development & Automation Services, Pakistan | BeginTech',
     seoDescription:
       'AI development from a Karachi software house: retrieval systems, AI agents, copilots and workflow automation — evaluated, monitored and costed for production.',
+    introHeading: "AI development company in Pakistan",
+    intro: [
+      "We build practical AI software for businesses: AI chatbots and assistants, document processing and data extraction, search over your own company knowledge, AI agents that work inside your existing tools, and automation of repetitive back-office work.",
+      "Our engineers work with models from Anthropic and OpenAI as well as open-weight models, and wrap them in the evaluation, monitoring and cost controls a production system needs. If your problem is better solved without AI, we will tell you.",
+    ],
     statement:
       'Most AI pilots fail for unglamorous reasons: no evaluation set, no guardrails, no cost ceiling, no owner. We build the boring infrastructure that makes the impressive part dependable, and we say no to the use cases that do not warrant a model at all.',
     capabilities: [
@@ -246,8 +297,16 @@ export const services: ServiceDetail[] = [
         q: 'What if AI is the wrong answer?',
         a: 'We will say so. A deterministic rules engine is cheaper, faster and easier to defend than a model, and a fair number of the briefs we receive are better served by one.',
       },
+      {
+        q: "What kinds of AI projects do you build?",
+        a: "AI chatbots and assistants, document and data extraction, search over company knowledge, AI agents that work inside existing tools, and workflow automation.",
+      },
+      {
+        q: "Do you build AI chatbots?",
+        a: "Yes — website, WhatsApp and internal knowledge-base chatbots are covered on our AI chatbot development page.",
+      },
     ],
-    related: ['software-development', 'web-development', 'mobile-development'],
+    related: ['ai-chatbot-development', 'software-development', 'web-development'],
   },
   {
     slug: 'software-development',
@@ -261,6 +320,11 @@ export const services: ServiceDetail[] = [
     seoTitle: 'Custom Software Development Company in Pakistan | BeginTech',
     seoDescription:
       'Custom software and SaaS development from a Karachi software house: multi-tenant platforms, internal tools, billing, permissions and legacy modernisation.',
+    introHeading: "Software house in Karachi, Pakistan",
+    intro: [
+      "As a software house, BeginTech builds the custom software that off-the-shelf tools do not cover: SaaS products, customer portals, internal dashboards, booking and order systems, ERP and CRM extensions, and APIs that connect the systems you already use.",
+      "Projects run in two-week cycles with a working release at the end of each, and finish with documentation, tests and runbooks so your own team can maintain the software — or so we can keep supporting it.",
+    ],
     statement:
       'The interesting problems in custom software are rarely the features. They are tenancy, permissions, migrations, audit trails and the second year of maintenance. We design for that year from the first sprint.',
     capabilities: [
@@ -303,6 +367,14 @@ export const services: ServiceDetail[] = [
         q: 'How do you handle scope change?',
         a: 'Two-week cycles with a re-prioritised backlog at each boundary. Scope moves; the budget ceiling does not without an explicit conversation.',
       },
+      {
+        q: "What kind of software do you build?",
+        a: "SaaS products, internal tools and dashboards, customer portals, booking and order systems, and integrations between existing platforms.",
+      },
+      {
+        q: "Do you provide support after launch?",
+        a: "Yes. We offer ongoing maintenance and development, and every project is documented so another team could take over if you prefer.",
+      },
     ],
     related: ['ai-development', 'ecommerce', 'web-development'],
   },
@@ -318,6 +390,11 @@ export const services: ServiceDetail[] = [
     seoTitle: 'Branding & Logo Design Agency in Karachi | BeginTech',
     seoDescription:
       'Brand identity and logo design from Karachi, Pakistan: positioning, logo systems, typography, colour, motion identity and practical brand guidelines.',
+    introHeading: "Branding and logo design agency in Karachi",
+    intro: [
+      "We create brand identities for new and growing businesses — logo design, colour and typography, brand guidelines, and the social media and web assets that carry the identity day to day.",
+      "Because we also build websites and apps, identities are designed for screens first: legible at small sizes, adaptable to dark mode, and supplied in the formats your developers and designers need.",
+    ],
     statement:
       'A brand that only works on a business card is a liability. We design identities that hold up at 16 pixels in a browser tab and at three metres on a conference wall, with motion and interface behaviour treated as part of the identity rather than an afterthought.',
     capabilities: [
@@ -360,6 +437,14 @@ export const services: ServiceDetail[] = [
         q: 'Can you refresh rather than replace?',
         a: 'Frequently the better call. We audit the equity in what exists and evolve it, so recognition survives the change.',
       },
+      {
+        q: "Do you offer logo design on its own?",
+        a: "Yes. Most clients pair it with colour, typography and basic guidelines so the logo is used consistently, but a standalone logo project is fine.",
+      },
+      {
+        q: "What files will we receive?",
+        a: "Logo files in vector and web formats (SVG, PDF and PNG), colour and font specifications, and guidelines on how to use them.",
+      },
     ],
     related: ['ui-ux-design', 'web-development', 'digital-marketing'],
   },
@@ -375,6 +460,11 @@ export const services: ServiceDetail[] = [
     seoTitle: 'E-Commerce Website Development in Pakistan | BeginTech',
     seoDescription:
       'E-commerce website development from Karachi: Shopify and custom online stores with fast product pages, optimised checkout and catalogue migration.',
+    introHeading: "E-commerce website development in Pakistan",
+    intro: [
+      "We build online stores for retail, fashion, food and manufacturing brands — on Shopify or as custom e-commerce websites — including product catalogues, cart and checkout, and payment and delivery integrations.",
+      "Our portfolio includes fashion and food-ordering stores for Pakistani brands as well as storefronts for clients in the US and France. If you are moving from another platform, we migrate products and URLs with redirects so existing search rankings carry over.",
+    ],
     statement:
       'Luxury and considered-purchase brands lose more revenue to a slow product page than to any pricing decision. We build storefronts where craft and conversion are the same conversation: art-directed merchandising on top of a checkout tuned to the millisecond.',
     capabilities: [
@@ -417,6 +507,14 @@ export const services: ServiceDetail[] = [
         q: 'Can you migrate an existing catalogue?',
         a: 'Yes, including redirects, structured data and SEO continuity — the part of a replatform that most often goes wrong.',
       },
+      {
+        q: "Shopify or a custom online store?",
+        a: "Shopify suits most stores that need to launch quickly and be run by a non-technical team. A custom build makes sense for unusual catalogues, complex pricing or deep integration with other systems. We recommend one after discovery.",
+      },
+      {
+        q: "Can you integrate local payment and delivery options?",
+        a: "Yes. We integrate the payment gateways and courier services your business already uses, provided they offer an API or plugin.",
+      },
     ],
     related: ['web-development', 'branding', 'digital-marketing'],
   },
@@ -432,6 +530,11 @@ export const services: ServiceDetail[] = [
     seoTitle: 'Digital & Social Media Marketing Agency, Karachi | BeginTech',
     seoDescription:
       'Social media marketing, SEO, paid media and lifecycle email from a Karachi agency — run as one measured system and reported against pipeline, not impressions.',
+    introHeading: "Digital marketing agency in Karachi",
+    intro: [
+      "BeginTech runs social media marketing, search engine optimisation (SEO), Google and Meta advertising, and email marketing for businesses in Pakistan and abroad.",
+      "Because we also design and build websites, campaigns and landing pages are planned together, tracking is set up properly, and results are reported against enquiries and sales rather than likes and impressions.",
+    ],
     statement:
       'Marketing that is disconnected from the product it sells generates traffic and little else. Because we build the product, we can close the loop: the landing page, the onboarding, the instrumentation and the campaign are designed together.',
     capabilities: [
@@ -474,8 +577,86 @@ export const services: ServiceDetail[] = [
         q: 'What do you report on?',
         a: 'Qualified pipeline, cost per acquisition and retention. Impressions and follower counts appear as context, never as the headline.',
       },
+      {
+        q: "Do you offer SEO services?",
+        a: "Yes — technical SEO, on-page optimisation, content planning and local SEO, reported against search traffic and enquiries.",
+      },
+      {
+        q: "Which platforms do you run ads on?",
+        a: "Meta (Facebook and Instagram), LinkedIn and Google Ads, with GA4 tracking so every channel is measured the same way.",
+      },
     ],
     related: ['branding', 'ecommerce', 'web-development'],
+  },
+  {
+    slug: 'ai-chatbot-development',
+    index: '09',
+    title: 'AI Chatbot Development',
+    navTitle: 'AI Chatbots',
+    category: 'Technology',
+    tagline: 'Chatbots that answer from your own content — on your website, WhatsApp and internal tools.',
+    summary:
+      'Custom AI chatbots and assistants built on large language models, grounded in your documents and data, with a handover to a person when the bot should not answer.',
+    seoTitle: 'AI Chatbot Development Company in Pakistan | BeginTech',
+    seoDescription:
+      'Custom AI chatbot development from Karachi: website, WhatsApp and customer support chatbots grounded in your own data, with human handover and analytics.',
+    introHeading: 'AI chatbot development in Pakistan',
+    intro: [
+      'BeginTech builds custom AI chatbots for businesses — customer support bots on your website, WhatsApp chatbots, lead qualification assistants and internal knowledge assistants for your team.',
+      'Unlike scripted, rule-based bots, these chatbots understand free-text questions and answer from your own content. We connect them to your systems where needed, add a clean handover to a human, and give you analytics on what customers are actually asking.',
+    ],
+    statement:
+      'A chatbot that makes things up is worse than no chatbot. We build assistants that answer from your own content, know when to hand over to a person, and are measured on whether they actually resolve questions — not on how clever they sound.',
+    capabilities: [
+      {
+        title: 'Customer support chatbots',
+        body: 'Website and in-app assistants that answer from your help centre, policies and product data, and pass the conversation to your team when they should.',
+      },
+      {
+        title: 'WhatsApp & messaging bots',
+        body: 'Assistants on WhatsApp Business and the other channels your customers already use, connected to orders, bookings or your CRM.',
+      },
+      {
+        title: 'Knowledge-base assistants',
+        body: 'Search-and-answer over internal documents, SOPs and wikis for your own staff, with access that respects who is asking.',
+      },
+      {
+        title: 'Evaluation & guardrails',
+        body: 'Test sets built from real questions, rules for what the bot must not answer, and conversation analytics so quality is measured before and after launch.',
+      },
+    ],
+    deliverables: [
+      'Use-case and conversation design',
+      'Chatbot grounded in your content',
+      'Website widget or messaging channel integration',
+      'Human handover and escalation flow',
+      'Evaluation set and conversation analytics',
+      'Guide for updating the knowledge base',
+    ],
+    stack: ['Claude', 'OpenAI', 'Python', 'Node.js', 'pgvector', 'WhatsApp Business API', 'LangGraph'],
+    engagement: [
+      { label: 'Typical timeline', value: '4 – 10 weeks' },
+      { label: 'Team', value: 'AI engineer, full-stack engineer, PM' },
+    ],
+    faqs: [
+      {
+        q: 'Will the chatbot make up answers?',
+        a: 'It is grounded in the content you provide and instructed to say it does not know rather than guess. We test it against real customer questions before launch and keep monitoring conversations afterwards.',
+      },
+      {
+        q: 'Can it reply in Urdu or Roman Urdu?',
+        a: 'Current language models handle Urdu and Roman Urdu reasonably well. We test against real messages in the languages your customers use before committing to it.',
+      },
+      {
+        q: 'Can it connect to our systems?',
+        a: 'Yes — order status, bookings, CRM or ticketing, through their APIs. Anything that changes data gets a confirmation step or a human check.',
+      },
+      {
+        q: 'What do we need to provide?',
+        a: 'The content the bot should answer from (FAQs, policies, product data, documents), real customer questions if you have them, and one person on your side who owns the answers.',
+      },
+    ],
+    related: ['ai-development', 'web-development', 'software-development'],
   },
 ]
 
@@ -512,6 +693,7 @@ export const serviceMenu: {
     blurb: 'Build the foundation',
     items: [
       { label: 'AI Development', to: '/services/ai-development', note: 'Agents & retrieval' },
+      { label: 'AI Chatbots', to: '/services/ai-chatbot-development', note: 'Website & WhatsApp bots' },
       { label: 'API Development', to: '/services/software-development', note: 'Typed contracts' },
       { label: 'Cloud & DevOps', to: '/services/software-development', note: 'Infrastructure' },
     ],

@@ -50,6 +50,12 @@
   </url>
 
   <url>
+    <loc>https://begintech.co/services/ai-chatbot-development</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://begintech.co/services/software-development</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

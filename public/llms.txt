@@ -16,6 +16,7 @@ BeginTech is a small, senior studio (operating since 2016) that designs, builds 
 - [Mobile App Development](https://begintech.co/services/mobile-development)
 - [UI/UX Design](https://begintech.co/services/ui-ux-design)
 - [AI Development](https://begintech.co/services/ai-development)
+- [AI Chatbot Development](https://begintech.co/services/ai-chatbot-development): website, WhatsApp and knowledge-base chatbots.
 - [Custom Software Development](https://begintech.co/services/software-development)
 - [Branding & Identity](https://begintech.co/services/branding)
 - [E-Commerce Development](https://begintech.co/services/ecommerce)

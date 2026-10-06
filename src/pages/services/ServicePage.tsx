@@ -24,6 +24,7 @@ const art: Record<string, { pattern: ArtPattern; from: string; to: string; ink: 
   'mobile-development': { pattern: 'stack', from: '#0f2416', to: '#07120b', ink: brandOnDark.green },
   'ui-ux-design': { pattern: 'arc', from: '#2b1122', to: '#150810', ink: brandOnDark.magenta },
   'ai-development': { pattern: 'orbit', from: '#1d1030', to: '#0d0718', ink: brandOnDark.purple },
+  'ai-chatbot-development': { pattern: 'stack', from: '#1d1030', to: '#0d0718', ink: brandOnDark.blue },
   'software-development': { pattern: 'mesh', from: '#0d2440', to: '#07131f', ink: brandOnDark.blue },
   branding: { pattern: 'waves', from: '#2b1122', to: '#150810', ink: brandOnDark.magenta },
   ecommerce: { pattern: 'arc', from: '#2b2408', to: '#141105', ink: brandOnDark.yellow },
@@ -100,7 +101,6 @@ export default function ServicePage() {
   const cases = projects
     .filter((p) => p.services.some((s) => service.title.toLowerCase().includes(s.toLowerCase().split(' ')[0])))
     .slice(0, 2)
-  const showcase = cases.length ? cases : projects.slice(0, 2)
 
   return (
     <>
@@ -147,6 +147,33 @@ export default function ServicePage() {
                 <ProjectVisual art={visual} label={service.title} />
               </div>
             </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Plain-language overview — what the service is, for whom and where.
+          The keyword-bearing H2 lives here rather than in the art-directed hero. */}
+      <section className="border-t border-line py-24 md:py-32" aria-labelledby="intro-heading">
+        <div className="shell">
+          <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-5">
+              <Reveal className="mb-6 flex items-center gap-3">
+                <span className="h-px w-8 bg-line-strong" />
+                <span className="eyebrow">Overview</span>
+              </Reveal>
+              <h2 id="intro-heading" className="display-md text-bone">
+                {service.introHeading}
+              </h2>
+            </div>
+            <div className="space-y-7 lg:col-span-6 lg:col-start-7">
+              {service.intro.map((para, i) => (
+                <Reveal key={i} delay={i * 0.06}>
+                  <p className={i === 0 ? 'lede' : 'text-[0.9375rem] leading-relaxed text-mute'}>
+                    {para}
+                  </p>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -235,7 +262,9 @@ export default function ServicePage() {
         </div>
       </section>
 
-      {/* Proof */}
+      {/* Proof — only when real portfolio work matches this discipline; unrelated
+          projects under "Recent work in this discipline" would be misleading. */}
+      {cases.length > 0 && (
       <section className="border-t border-line py-24 md:py-32" aria-labelledby="proof-heading">
         <div className="shell">
           <SectionHeading
@@ -243,7 +272,7 @@ export default function ServicePage() {
             title={<span id="proof-heading">Recent work in this discipline</span>}
           />
           <div className="mt-14 grid gap-x-8 gap-y-14 md:mt-20 md:grid-cols-2">
-            {showcase.map((p) => (
+            {cases.map((p) => (
               <Reveal key={p.slug}>
                 <Link to={`/work/${p.slug}`} className="group block" data-cursor="hover" data-cursor-label="View">
                   <div className="aspect-16/10 overflow-hidden rounded-lg border border-line">
@@ -264,6 +293,7 @@ export default function ServicePage() {
           </div>
         </div>
       </section>
+      )}
 
       {/* FAQs */}
       <section className="border-t border-line py-24 md:py-32" aria-labelledby="faq-heading">
