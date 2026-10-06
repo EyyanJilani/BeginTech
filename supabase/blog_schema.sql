@@ -1,5 +1,5 @@
 -- =====================================================================
--- BeginTech — blog schema
+-- BeginTech, blog schema
 --
 -- Run the whole file once in the Supabase SQL Editor. It is idempotent:
 -- running it again creates nothing twice and deletes no data.
@@ -11,7 +11,7 @@
 -- Security model
 --   * Every table has Row Level Security enabled.
 --   * Anonymous visitors can read categories and PUBLISHED posts whose
---     published_at is in the past — nothing else.
+--     published_at is in the past, nothing else.
 --   * Writes require public.is_admin(): an authenticated user whose row in
 --     public.profiles has role = 'admin'. Merely being signed in is not
 --     enough.

@@ -29,7 +29,7 @@ type Shard = {
   drift: number
 }
 
-/** Golden-angle spiral — even coverage with no clustering, computed once. */
+/** Golden-angle spiral, even coverage with no clustering, computed once. */
 const SHARDS: Shard[] = Array.from({ length: 26 }, (_, i) => {
   const angle = i * 137.508 * (Math.PI / 180)
   // Outward progression, eased so the centre stays denser than the rim.

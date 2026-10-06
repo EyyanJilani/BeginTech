@@ -20,7 +20,7 @@ export function TechEcosystem() {
     const ctx = gsap.context(() => {
       const items = gsap.utils.toArray<HTMLElement>('[data-tech]')
 
-      // Entry animates opacity/blur only — y and x belong to the drift below,
+      // Entry animates opacity/blur only, y and x belong to the drift below,
       // and two tweens fighting over the same transform reads as jitter.
       gsap.fromTo(
         items,
@@ -38,7 +38,7 @@ export function TechEcosystem() {
 
       /*
         Alternating drift. One scrubbed timeline drives all 24 names rather than
-        24 separate scrub ScrollTriggers — every scrub trigger is re-evaluated
+        24 separate scrub ScrollTriggers, every scrub trigger is re-evaluated
         on each scroll frame, so collapsing them to one is a straight saving.
       */
       const drift = gsap.timeline({
@@ -67,7 +67,7 @@ export function TechEcosystem() {
         <SectionHeading
           eyebrow="Technology"
           title={<span id="tech-heading">Tools we build with</span>}
-          description="We are not religious about tools. We are deliberate about them — chosen for the problem, the team who will maintain it, and the decade it has to survive."
+          description="We are not religious about tools. We are deliberate about them, chosen for the problem, the team who will maintain it, and the decade it has to survive."
         />
 
         <div className="mt-14 flex flex-wrap gap-2" role="group" aria-label="Filter technologies">

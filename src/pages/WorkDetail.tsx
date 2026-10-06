@@ -18,8 +18,8 @@ import NotFound from './NotFound'
 
 /** Keeps the title near Google's ~60-character display width. */
 function caseStudyTitle(name: string, discipline: string) {
-  const full = `${name} — ${discipline} Case Study | BeginTech`
-  return full.length <= 62 ? full : `${name} — ${discipline} | BeginTech`
+  const full = `${name}: ${discipline} Case Study | BeginTech`
+  return full.length <= 62 ? full : `${name}: ${discipline} | BeginTech`
 }
 
 export default function WorkDetail() {
@@ -28,7 +28,7 @@ export default function WorkDetail() {
   const frameRef = useRef<HTMLDivElement>(null)
 
   useSeo({
-    title: project ? caseStudyTitle(project.name, project.discipline) : 'Page not found — BeginTech',
+    title: project ? caseStudyTitle(project.name, project.discipline) : 'Page not found | BeginTech',
     description: project?.summary ?? 'The page you were looking for does not exist.',
     path: project ? `/work/${project.slug}` : undefined,
     type: project ? 'article' : 'website',
@@ -42,7 +42,7 @@ export default function WorkDetail() {
           '@context': 'https://schema.org',
           '@type': 'CreativeWork',
           '@id': `${ORIGIN}/work/${project.slug}#casestudy`,
-          name: `${project.name} — ${project.discipline}`,
+          name: `${project.name}: ${project.discipline}`,
           headline: project.headline,
           description: project.summary,
           url: `${ORIGIN}/work/${project.slug}`,
@@ -78,7 +78,7 @@ export default function WorkDetail() {
 
   if (!project) return <NotFound />
 
-  /* The next three projects, wrapping around — every case study is linked
+  /* The next three projects, wrapping around, every case study is linked
      from three others instead of all of them pointing at the first three. */
   const at = projects.findIndex((p) => p.slug === project.slug)
   const related = [1, 2, 3].map((n) => projects[(at + n) % projects.length])
@@ -182,7 +182,7 @@ export default function WorkDetail() {
                 {project.image ? (
                   <img
                     src={project.image}
-                    alt={`${project.name} website by BeginTech — ${project.discipline.toLowerCase()} page design`}
+                    alt={`${project.name} website by BeginTech, ${project.discipline.toLowerCase()} page design`}
                     loading="lazy"
                     decoding="async"
                     className="h-full w-full object-cover object-bottom"
@@ -190,7 +190,7 @@ export default function WorkDetail() {
                 ) : (
                   <ProjectVisual
                     art={{ ...project.art, pattern: project.art.pattern === 'grid' ? 'mesh' : 'grid' }}
-                    label={`${project.name} — system detail`}
+                    label={`${project.name}, system detail`}
                   />
                 )}
               </Reveal>

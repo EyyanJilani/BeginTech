@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 /* ------------------------------------------------------------------
-   BeginTech — design tokens
+   BeginTech, design tokens
 
    Palette sampled directly from the master logo artwork:
      primary   blue    #134E90   ·  magenta #AD215E
@@ -10,7 +10,7 @@
 
    Type per the identity guidelines: Spartan is the primary family (League
    Spartan is the same typeface, published on Google Fonts). Gotham and
-   Century Gothic are the secondary families — both are licensed fonts, so
+   Century Gothic are the secondary families, both are licensed fonts, so
    they are named first for anyone who has them and fall back to Montserrat,
    the closest freely available geometric sans.
 
@@ -59,7 +59,7 @@
   `html[data-theme='dark']` outranks the `:root` block Tailwind emits for
   @theme, so these win regardless of stylesheet order.
 
-  The brand primaries are mid-dark by design — on near-black #134E90 lands at
+  The brand primaries are mid-dark by design, on near-black #134E90 lands at
   about 2.2:1, which is unreadable. Dark mode therefore uses lightened tints of
   the same two hues rather than the literal brand values.
 */
@@ -94,7 +94,7 @@ html[data-theme='dark'] .brand-logo {
 }
 
 /*
-  Scoped dark section — the same token values as html[data-theme='dark'],
+  Scoped dark section, the same token values as html[data-theme='dark'],
   reapplied on a class instead of the root so one section can sit on a fixed
   black background regardless of which theme the visitor has chosen, while
   every token-based class inside it (text-bone, border-line, ...) still just
@@ -153,7 +153,7 @@ html[data-theme='dark'] .brand-logo {
   h3,
   h4 {
     /*
-      Explicit, not just inherited — a heading nested inside a scoped
+      Explicit, not just inherited, a heading nested inside a scoped
       re-theme (e.g. .force-dark) needs to re-read --color-bone locally
       rather than reuse body's already-resolved color.
     */
@@ -220,7 +220,7 @@ html[data-theme='dark'] .brand-logo {
     }
   }
 
-  /* Editorial display scale — fluid, tight, oversized */
+  /* Editorial display scale, fluid, tight, oversized */
   /*
     The hero headline is constrained by viewport HEIGHT as well as width, so
     the hero can be exactly one screen tall without the type overflowing on
@@ -258,7 +258,7 @@ html[data-theme='dark'] .brand-logo {
   /*
     Emphasis words. The guideline has no serif, so emphasis is carried by a
     light weight of the primary family plus the second brand colour. The colour
-    is a default here — a `text-*` utility at the usage site still overrides it,
+    is a default here, a `text-*` utility at the usage site still overrides it,
     because Tailwind's utilities layer outranks components.
   */
   .accent-em {
@@ -402,7 +402,7 @@ html[data-theme='dark'] .brand-logo {
 
 /*
   Hero element. transform/opacity only, so these run on the compositor and
-  cost the main thread nothing — which is the whole point of replacing the
+  cost the main thread nothing, which is the whole point of replacing the
   WebGL scene. The global prefers-reduced-motion rule already stops them.
 */
 .bt-shard {
@@ -465,8 +465,8 @@ html[data-theme='dark'] .brand-logo {
 
 /*
   Long-form article typography for blog posts (Markdown output). Built on the
-  same tokens as the rest of the site — display family for headings, the
-  light sans for body copy, accent for links — so an article reads as part of
+  same tokens as the rest of the site, display family for headings, the
+  light sans for body copy, accent for links, so an article reads as part of
   BeginTech rather than as an embedded document.
 */
 @layer components {

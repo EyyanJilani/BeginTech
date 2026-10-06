@@ -96,8 +96,8 @@ export default function Posts() {
                   <td className="px-4 py-3">
                     <StatusBadge status={p.status} />
                   </td>
-                  <td className="px-4 py-3 text-mute">{p.category?.name ?? '—'}</td>
-                  <td className="px-4 py-3 text-mute">{formatDate(p.published_at) || '—'}</td>
+                  <td className="px-4 py-3 text-mute">{p.category?.name ?? '-'}</td>
+                  <td className="px-4 py-3 text-mute">{formatDate(p.published_at) || '-'}</td>
                   <td className="px-4 py-3 text-mute">{formatDate(p.updated_at)}</td>
                   <td className="px-4 py-3">
                     <div className="flex justify-end gap-2">

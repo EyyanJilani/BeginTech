@@ -8,7 +8,7 @@ type Props = {
   reverse?: boolean
 }
 
-/** CSS-only infinite marquee — no GSAP ticker cost for a purely decorative loop. */
+/** CSS-only infinite marquee, no GSAP ticker cost for a purely decorative loop. */
 export function Marquee({ children, speed = 40, className, reverse = false }: Props) {
   return (
     <div

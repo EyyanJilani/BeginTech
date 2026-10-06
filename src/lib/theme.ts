@@ -13,7 +13,7 @@ function read(): Theme {
     const stored = localStorage.getItem(THEME_KEY)
     if (stored === 'light' || stored === 'dark') return stored
   } catch {
-    /* storage blocked — fall through to the default */
+    /* storage blocked, fall through to the default */
   }
   return DEFAULT_THEME
 }
@@ -52,7 +52,7 @@ export function setTheme(next: Theme) {
   try {
     localStorage.setItem(THEME_KEY, next)
   } catch {
-    /* storage blocked — the choice simply will not persist */
+    /* storage blocked, the choice simply will not persist */
   }
 
   const meta = document.head.querySelector<HTMLMetaElement>('meta[name="theme-color"]')

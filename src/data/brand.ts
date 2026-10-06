@@ -2,7 +2,7 @@
  * BeginTech palette, sampled from the master logo artwork
  * (src/assets/img/logo.png) rather than eyeballed from the guideline PDF.
  *
- * Yellow and red appear only as guideline swatches — they are not present in
+ * Yellow and red appear only as guideline swatches, they are not present in
  * the logo, so those two are read from the guideline sheet.
  *
  * The CSS custom properties in index.css are the source of truth for anything

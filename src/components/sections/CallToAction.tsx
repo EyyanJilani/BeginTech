@@ -49,7 +49,7 @@ export function CallToAction() {
           <Reveal className="mt-10 max-w-xl" delay={0.1}>
             <p className="lede">
               Tell us what you are building. We will help turn the idea into a digital product people
-              remember — starting with an honest conversation about whether we are the right studio
+              remember, starting with an honest conversation about whether we are the right studio
               for it.
             </p>
           </Reveal>

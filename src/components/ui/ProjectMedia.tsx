@@ -9,8 +9,8 @@ type Props = {
 
 /**
  * Renders a project's real screenshot when one exists, falling back to the
- * procedural SVG art otherwise. Centralised here so every surface — cards,
- * the case-study hero, the services showcase — treats the two sources the
+ * procedural SVG art otherwise. Centralised here so every surface, cards,
+ * the case-study hero, the services showcase, treats the two sources the
  * same way instead of branching in three places.
  */
 export function ProjectMedia({ project, label, className }: Props) {
@@ -18,7 +18,7 @@ export function ProjectMedia({ project, label, className }: Props) {
     return (
       <img
         src={project.image}
-        alt={`${label} — website screenshot`}
+        alt={`${label} website screenshot`}
         loading="lazy"
         decoding="async"
         className={`h-full w-full object-cover object-top ${className ?? ''}`}

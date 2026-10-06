@@ -1,5 +1,5 @@
 -- =====================================================================
--- BeginTech — SAMPLE blog data (development / testing only)
+-- BeginTech, SAMPLE blog data (development / testing only)
 --
 -- Run AFTER blog_schema.sql. Do NOT run this against production unless you
 -- want these sample posts live. Every sample post has a slug starting with
@@ -105,7 +105,7 @@ $md$,
   'sample-do-you-need-an-ai-chatbot',
   '[Sample] Three questions to answer before building an AI chatbot for your website or WhatsApp.',
   $md$
-AI chatbots can take real load off a support team — but only when the questions are repetitive and the answers are written down somewhere.
+AI chatbots can take real load off a support team, but only when the questions are repetitive and the answers are written down somewhere.
 
 ## Ask these three questions first
 
@@ -115,7 +115,7 @@ AI chatbots can take real load off a support team — but only when the question
 
 ## Measure resolution, not conversations
 
-The useful number is how many questions were *resolved* without a human — not how many chats were started.
+The useful number is how many questions were *resolved* without a human, not how many chats were started.
 
 Read more about our [AI chatbot development](https://begintech.co/services/ai-chatbot-development) service.
 $md$,
@@ -129,7 +129,7 @@ $md$,
 (
   'Draft: Mobile App Launch Checklist',
   'sample-mobile-app-launch-checklist',
-  '[Sample] DRAFT — this post must not appear on the public blog or in the sitemap.',
+  '[Sample] DRAFT, this post must not appear on the public blog or in the sitemap.',
   $md$
 ## Work in progress
 

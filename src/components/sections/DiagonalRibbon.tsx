@@ -3,7 +3,7 @@ import { Marquee } from '../ui/Marquee'
 import { services } from '../../data/services'
 
 /**
- * A brand-coloured band, tilted off the grid — the one deliberately loud
+ * A brand-coloured band, tilted off the grid, the one deliberately loud
  * moment on the page. It uses the brand gradient directly rather than theme
  * tokens, so it reads identically in light and dark: a fixed accent beat
  * between two neutral sections, not another surface that has to flip.
@@ -16,7 +16,7 @@ export function DiagonalRibbon() {
       className="relative my-4 h-[210px] overflow-hidden sm:h-[260px] md:h-[300px]"
       aria-hidden="true"
     >
-      {/* Two bands, opposite rotation, pivoting on the same centre — they
+      {/* Two bands, opposite rotation, pivoting on the same centre, they
           cross like an X instead of running parallel to one another. */}
       <div
         className="absolute inset-x-[-10vw] top-1/2 z-10 -translate-y-1/2 -rotate-6 py-3 shadow-[0_18px_46px_-18px_rgba(0,0,0,0.45)] sm:-rotate-[4deg] opacity-20"

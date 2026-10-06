@@ -27,7 +27,7 @@ export function ProjectVisual({ art, label, className }: Props) {
       viewBox="0 0 1000 1000"
       preserveAspectRatio="xMidYMid slice"
       role="img"
-      aria-label={`${label} — abstract project artwork`}
+      aria-label={`${label}, abstract project artwork`}
     >
       <defs>
         <linearGradient id={`bg-${uid}`} x1="0" y1="0" x2="1" y2="1">
@@ -215,7 +215,7 @@ function StackArt({ ink }: { ink: string }) {
 }
 
 function MeshArt({ ink }: { ink: string }) {
-  // Deterministic pseudo-random lattice — stable across renders, no seeds to store.
+  // Deterministic pseudo-random lattice, stable across renders, no seeds to store.
   const nodes = useMemo(() => {
     const out: { x: number; y: number }[] = []
     for (let r = 0; r < 7; r++) {

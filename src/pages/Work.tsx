@@ -15,7 +15,7 @@ export default function Work() {
   const gridRef = useRef<HTMLDivElement>(null)
 
   useSeo({
-    title: 'Portfolio — Web Development & E-Commerce Projects | BeginTech',
+    title: 'Portfolio: Web Development & E-Commerce Projects | BeginTech',
     description:
       'Websites and online stores built by BeginTech: food ordering, fashion e-commerce and trade services sites for clients in Pakistan, the US, France and Australia.',
     path: '/work',
@@ -76,7 +76,7 @@ export default function Work() {
             <span className="accent-em">proud</span> to sign.
           </>
         }
-        lede="Live sites for real clients across food, fashion, retail and trade services — shipped, in production, and doing the job they were built for."
+        lede="Live sites for real clients across food, fashion, retail and trade services: shipped, in production, and doing the job they were built for."
         meta={[
           { label: 'Case studies', value: String(projects.length) },
           { label: 'Sectors', value: String(sectorCount) },
@@ -88,7 +88,7 @@ export default function Work() {
       <section className="border-t border-line py-16 md:py-20" aria-labelledby="gallery-heading">
         <div className="shell">
           {/* The gallery has no visible title by design, but the project cards
-              are h3s — without this the outline jumps straight from h1 to h3. */}
+              are h3s, without this the outline jumps straight from h1 to h3. */}
           <h2 id="gallery-heading" className="sr-only">
             Project gallery
           </h2>
@@ -144,7 +144,7 @@ export default function Work() {
 
           {visible.length === 0 && (
             <p className="mt-20 text-center text-sm text-mute">
-              Nothing published in this discipline yet — ask us about it directly.
+              Nothing published in this discipline yet. Ask us about it directly.
             </p>
           )}
         </div>

@@ -15,7 +15,7 @@ import PostEditor from './pages/PostEditor'
 import Categories from './pages/Categories'
 
 export default function AdminApp() {
-  useSeo({ title: 'Admin — BeginTech', description: 'BeginTech admin.', noindex: true })
+  useSeo({ title: 'Admin | BeginTech', description: 'BeginTech admin.', noindex: true })
 
   return (
     <AdminAuthProvider>

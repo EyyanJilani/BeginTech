@@ -75,7 +75,7 @@ export function Hero() {
         playsInline
       />
 
-      {/* A fixed dark scrim, independent of the light/dark token — video
+      {/* A fixed dark scrim, independent of the light/dark token, video
           footage doesn't invert with the theme, so the overlay and hero type
           stay constant white-on-dark regardless of which theme is active. */}
       <div
@@ -92,10 +92,10 @@ export function Hero() {
             className="mb-5 flex items-center gap-3 text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-white/70"
           >
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
-            Web development company &amp; software house — Karachi, Pakistan
+            Web development company &amp; software house in Karachi, Pakistan
           </p>
 
-          {/* No inline opacity:0 here — the line-mask reveal in revealLines()
+          {/* No inline opacity:0 here, the line-mask reveal in revealLines()
               hides its own split lines, so the heading never depends on JS
               running successfully just to become visible in the first place. */}
           <h1
@@ -126,7 +126,7 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Base rail — the hero closes on real facts, not a scrolling buzzword ticker. */}
+      {/* Base rail, the hero closes on real facts, not a scrolling buzzword ticker. */}
       <div className="relative z-10 shrink-0 border-t border-white/15">
         <div className="shell">
           <div className="flex flex-col items-center gap-4 py-5 sm:flex-row sm:justify-center sm:gap-10 md:gap-14">

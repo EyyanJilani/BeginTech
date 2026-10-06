@@ -3,14 +3,14 @@
 // writes the fully-rendered DOM back to disk as that route's index.html.
 //
 // Why: the app is a 100% client-rendered SPA (createRoot, not hydrateRoot),
-// so every route's *raw* HTML — the only thing a crawler sees if it doesn't
-// execute JavaScript — was the same empty <div id="root"></div> shell, with
+// so every route's *raw* HTML, the only thing a crawler sees if it doesn't
+// execute JavaScript, was the same empty <div id="root"></div> shell, with
 // the homepage's canonical/title/meta regardless of which route it was.
 // A crawl audit confirmed this in production: 19 of 20 pages showed up as
 // orphaned, missing H1, and carrying the wrong canonical. This script makes
 // each route's on-disk HTML the real, rendered page instead.
 //
-// This list mirrors public/sitemap.xml — keep the two in sync when routes
+// This list mirrors public/sitemap.xml, keep the two in sync when routes
 // are added or removed.
 import { loadEnv, preview } from 'vite'
 import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises'
@@ -18,7 +18,7 @@ import path from 'node:path'
 
 /*
   Two different Chromiums, because "puppeteer" (which bundles a full desktop
-  Chrome build) can't launch on Vercel's build image — it's missing shared
+  Chrome build) can't launch on Vercel's build image, it's missing shared
   libraries (libnspr4.so and friends) that desktop Chrome expects and a
   minimal Linux build image doesn't ship. @sparticuz/chromium is a Chromium
   build compiled specifically for serverless/CI environments like this one,
@@ -74,7 +74,7 @@ const ORIGIN = 'https://begintech.co'
 /*
   Rendered from a path no route matches, then written to dist/404.html.
   vercel.json has no SPA catch-all rewrite, so Vercel serves this file with a
-  real 404 status for any unknown URL — instead of a 200 homepage shell that
+  real 404 status for any unknown URL, instead of a 200 homepage shell that
   Google would report as a soft 404.
 */
 const NOT_FOUND_PROBE = '/__prerender-404__'
@@ -82,7 +82,7 @@ const NOT_FOUND_PROBE = '/__prerender-404__'
 /*
   Blog posts live in Supabase, so their routes are discovered at build time.
   RLS limits the publishable key to published posts with a past publish
-  date — the same set the public site shows. If Supabase is unreachable the
+  date, the same set the public site shows. If Supabase is unreachable the
   build still succeeds (the site must stay deployable); those posts are then
   served client-side through the /_shell.html rewrite until the next build.
 */
@@ -91,7 +91,7 @@ async function fetchPublishedPosts() {
   const url = env.VITE_SUPABASE_URL
   const key = env.VITE_SUPABASE_PUBLISHABLE_KEY
   if (!url || !key) {
-    console.warn('[prerender] Supabase env vars missing — skipping blog posts.')
+    console.warn('[prerender] Supabase env vars missing, skipping blog posts.')
     return []
   }
   const query = new URLSearchParams({
@@ -106,7 +106,7 @@ async function fetchPublishedPosts() {
     const rows = await res.json()
     return rows.filter((r) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(r.slug))
   } catch (err) {
-    console.warn(`[prerender] Could not fetch blog posts (${err.message}) — skipping them.`)
+    console.warn(`[prerender] Could not fetch blog posts (${err.message}), skipping them.`)
     return []
   }
 }
@@ -182,7 +182,7 @@ async function main() {
         )
       }
       if (postRoutes.includes(route) && !(await page.$('article h1'))) {
-        console.warn(`[prerender] ${route} did not render an article — skipped.`)
+        console.warn(`[prerender] ${route} did not render an article, skipped.`)
         await page.close()
         continue
       }

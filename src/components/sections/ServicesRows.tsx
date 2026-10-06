@@ -29,7 +29,7 @@ const art: Record<string, { pattern: ArtPattern; from: string; to: string; ink: 
  *
  * The preview artwork lives *inside* the row it belongs to rather than
  * following the cursor. A cursor-tracked card either lags behind fast pointer
- * movement or covers the very title being pointed at — both of which read as
+ * movement or covers the very title being pointed at, both of which read as
  * broken. Anchoring it to the row keeps the reveal deterministic, gives touch
  * users the same content, and lets the row's own expand animation carry it.
  */
@@ -105,7 +105,7 @@ export function ServicesRows() {
                   </div>
 
                   {/*
-                    Expanding detail. Below md the detail is always open — there
+                    Expanding detail. Below md the detail is always open, there
                     is no hover on touch, so gating it would hide the copy
                     entirely. From md up the row drives it via --rows.
                   */}

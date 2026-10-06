@@ -42,7 +42,7 @@ const disciplines = [
 
 /*
   Grounded in the real portfolio (data/projects.ts) rather than an invented
-  growth story — each entry corresponds to work that actually shipped that
+  growth story, each entry corresponds to work that actually shipped that
   year, not a headcount or an office nobody can check.
 */
 const timeline = [
@@ -70,9 +70,9 @@ const timeline = [
 
 export default function About() {
   useSeo({
-    title: 'About BeginTech — Software House in Karachi, Pakistan',
+    title: 'About BeginTech | Software House in Karachi, Pakistan',
     description:
-      'BeginTech is a software house and web development agency founded in Karachi in 2016 — a small senior team of strategists, designers and engineers.',
+      'BeginTech is a software house and web development agency founded in Karachi in 2016: a small senior team of strategists, designers and engineers.',
     path: '/about',
   })
 
@@ -95,7 +95,7 @@ export default function About() {
             We <span className="accent-em">transform.</span>
           </>
         }
-        lede="BeginTech is a software house and creative technology studio based in Karachi. We combine strategy, design, engineering, AI and growth in one senior team — small enough to stay accountable, deep enough to ship serious systems."
+        lede="BeginTech is a software house and creative technology studio based in Karachi. We combine strategy, design, engineering, AI and growth in one senior team, small enough to stay accountable, deep enough to ship serious systems."
         meta={[
           { label: 'Founded', value: String(site.founded) },
           { label: 'Studio', value: 'Karachi, Pakistan' },
@@ -139,7 +139,7 @@ export default function About() {
               <Reveal delay={0.12}>
                 <p className="text-[0.9375rem] leading-relaxed text-mute">
                   We take on a limited number of clients at a time. That is a commercial constraint
-                  we accept deliberately — it is the only way we know to keep the quality bar where
+                  we accept deliberately. It is the only way we know to keep the quality bar where
                   we want it, and to say the honest thing when a brief needs rethinking rather than
                   building.
                 </p>
@@ -176,7 +176,7 @@ export default function About() {
           <SectionHeading
             eyebrow="Principles"
             title={<span id="principles-heading">Four things we do not compromise on</span>}
-            description="Every studio has values on a wall. These are the four that have actually cost us work — which is how we know they are real."
+            description="Every studio has values on a wall. These are the four that have actually cost us work, which is how we know they are real."
           />
 
           <div className="mt-14 grid gap-px border border-line bg-line md:mt-20 md:grid-cols-2">

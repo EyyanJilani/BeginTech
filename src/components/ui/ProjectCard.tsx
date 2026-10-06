@@ -50,7 +50,7 @@ export function ProjectCard({
         className="block"
         data-cursor="hover"
         data-cursor-label="View"
-        aria-label={`${project.name} — ${project.discipline}`}
+        aria-label={`${project.name}, ${project.discipline}`}
       >
         <div
           data-frame

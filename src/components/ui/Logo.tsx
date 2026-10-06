@@ -6,7 +6,7 @@ import { cn } from '../../lib/utils'
 /*
   Both assets are derived from src/assets/img/logo.png by
   scripts/build-brand-assets.mjs. The master is 8462x2555 (~350kB), which is
-  far more than a 40px navbar needs — these are quantised to 960w / 512² and
+  far more than a 40px navbar needs, these are quantised to 960w / 512² and
   land at ~20kB and ~52kB.
 
   Intrinsic width/height are declared so the browser reserves the right box
@@ -34,7 +34,7 @@ export function LogoMark({ className }: { className?: string }) {
   )
 }
 
-/** Full horizontal lockup — sprinter plus BEGINTECH wordmark. */
+/** Full horizontal lockup, sprinter plus BEGINTECH wordmark. */
 export function LogoLockup({ className }: { className?: string }) {
   return (
     <img
@@ -53,7 +53,7 @@ export function Logo({ className, to = '/' }: { className?: string; to?: string 
     <Link
       to={to}
       className={cn('group flex items-center', className)}
-      aria-label="BeginTech — home"
+      aria-label="BeginTech home"
       data-cursor="hover"
     >
       <LogoLockup className="h-11 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03] md:h-12" />

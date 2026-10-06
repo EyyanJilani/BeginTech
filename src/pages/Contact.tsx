@@ -46,7 +46,7 @@ function validate(values: Fields): Errors {
   if (!EMAIL.test(values.email.trim())) errors.email = 'A valid email address, so we can reply.'
   if (values.phone.trim() && !PHONE.test(values.phone.trim()))
     errors.phone = 'That phone number does not look right.'
-  if (!values.service) errors.service = 'Pick the closest match — we can refine it later.'
+  if (!values.service) errors.service = 'Pick the closest match. We can refine it later.'
   if (!values.budget) errors.budget = 'A rough range is enough.'
   if (values.details.trim().length < 24)
     errors.details = 'A couple of sentences about the project, please.'
@@ -62,9 +62,9 @@ export default function Contact() {
   const [sendError, setSendError] = useState<string | null>(null)
 
   useSeo({
-    title: 'Contact BeginTech — Web Development Agency, Karachi',
+    title: 'Contact BeginTech | Web Development Agency, Karachi',
     description:
-      "Start a web, mobile or software project with BeginTech in Karachi, Pakistan. Tell us what you're building — we reply within one business day.",
+      "Start a web, mobile or software project with BeginTech in Karachi, Pakistan. Tell us what you're building and we reply within one business day.",
     path: '/contact',
   })
 
@@ -107,7 +107,7 @@ export default function Contact() {
 
     const invalid = Object.keys(found) as (keyof Fields)[]
     if (invalid.length > 0) {
-      // Focus by id rather than by [aria-invalid] — that attribute only appears
+      // Focus by id rather than by [aria-invalid], that attribute only appears
       // after React re-renders, which has not happened yet inside this handler.
       const first = invalid[0]
       const target =
@@ -126,7 +126,7 @@ export default function Contact() {
     } catch (err) {
       console.error('Contact form send failed:', err)
       setSendError(
-        "That didn't go through. Please try again, or email us directly — the address is on the right.",
+        "That didn't go through. Please try again, or email us directly. The address is on the right.",
       )
       setStatus('error')
     }
@@ -149,7 +149,7 @@ export default function Contact() {
             <span className="accent-em">extraordinary.</span>
           </>
         }
-        lede="Tell us what you are working on. We read every enquiry ourselves and reply within one business day — including the ones we are not the right studio for."
+        lede="Tell us what you are working on. We read every enquiry ourselves and reply within one business day, including the ones we are not the right studio for."
         meta={[
           { label: 'Email', value: site.email },
           { label: 'Phone', value: site.phone },
@@ -183,7 +183,7 @@ export default function Contact() {
                   </h3>
                   <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-mute">
                     Your enquiry is with us. Expect a considered reply from a real person within one
-                    business day — usually with a question or two before any proposal.
+                    business day, usually with a question or two before any proposal.
                   </p>
                   <button
                     type="button"
@@ -457,7 +457,7 @@ export default function Contact() {
                     Prefer to talk it through?
                   </p>
                   <p className="mt-3 text-sm leading-relaxed text-mute">
-                    Book a 30-minute call. No pitch deck — just questions about what you are trying
+                    Book a 30-minute call. No pitch deck, just questions about what you are trying
                     to build and whether we can help.
                   </p>
                   <a

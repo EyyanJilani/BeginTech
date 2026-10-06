@@ -24,7 +24,7 @@ export const primaryNav = [
 
 /*
   Every number here has to be true and checkable against the real portfolio in
-  data/projects.ts — the brief this was written against is explicit that
+  data/projects.ts, the brief this was written against is explicit that
   invented stats are worse than no stats at all. If the portfolio grows, these
   should grow with it rather than being padded ahead of the evidence.
 */
@@ -40,7 +40,7 @@ export const process = [
     index: '01',
     title: 'Discover',
     duration: '1 – 2 weeks',
-    body: 'We interview the people who own the problem, read the data you already have, and write down what success would actually look like. Most engagements change shape here — that is the point of doing it first.',
+    body: 'We interview the people who own the problem, read the data you already have, and write down what success would actually look like. Most engagements change shape here. That is the point of doing it first.',
     outputs: ['Stakeholder interviews', 'Technical audit', 'Success metrics'],
   },
   {
@@ -109,13 +109,13 @@ export const technologies = [
 export const techGroups = ['Front-end', 'Back-end', 'Data', 'AI', 'Cloud'] as const
 
 /*
-  These are real end-customer reviews, left on the storefronts we built —
+  These are real end-customer reviews, left on the storefronts we built,
   not testimonials about BeginTech itself. We have not been given a testimonial
   from either business owner about the engagement, so it would be dishonest to
   present customer reviews of a burger or a dress as if they were client
   feedback on our design work. The section below is framed accordingly: proof
   the products work, not endorsements of the studio. Lightly cleaned for
-  spelling/punctuation only — meaning and attribution are unchanged.
+  spelling/punctuation only, meaning and attribution are unchanged.
 */
 export const testimonials = [
   {
@@ -127,7 +127,7 @@ export const testimonials = [
   },
   {
     quote:
-      'Good taste, loved the vibe, and the food hit the spot. Every bite of pizza was perfect — highly recommend.',
+      'Good taste, loved the vibe, and the food hit the spot. Every bite of pizza was perfect, highly recommend.',
     name: 'Aliya Amin',
     role: 'Verified buyer',
     company: 'Brooklyn Bites',

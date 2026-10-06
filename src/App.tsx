@@ -38,7 +38,7 @@ export default function App() {
   useSmoothScroll()
   const isAdmin = useLocation().pathname.startsWith('/admin')
 
-  /* Layout settles after fonts land — otherwise every trigger is measured
+  /* Layout settles after fonts land, otherwise every trigger is measured
      against fallback metrics and fires early. */
   useEffect(() => {
     document.fonts?.ready.then(() => ScrollTrigger.refresh())

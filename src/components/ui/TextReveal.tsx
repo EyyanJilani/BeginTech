@@ -35,10 +35,10 @@ export function TextReveal({
     return () => ctx.revert()
   }, [mode, delay, stagger, immediate])
 
-  // See Reveal — a concrete intrinsic keeps the polymorphic props resolvable.
+  // See Reveal, a concrete intrinsic keeps the polymorphic props resolvable.
   const Tag = asTag as 'p'
 
-  // No inline opacity:0 — revealLines()/revealWords() set opacity:1 on this
+  // No inline opacity:0, revealLines()/revealWords() set opacity:1 on this
   // element as their first synchronous action and hide the split lines/words
   // instead, so the text stays visible by default if the reveal animation
   // never runs (blocked script, thrown error upstream, ...) rather than

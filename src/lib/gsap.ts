@@ -5,7 +5,7 @@ import { CustomEase } from 'gsap/CustomEase'
 
 gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase)
 
-/** Signature BeginTech easing — long, cinematic settle. */
+/** Signature BeginTech easing, long, cinematic settle. */
 CustomEase.create('bt', '0.16, 1, 0.3, 1')
 CustomEase.create('bt-inout', '0.76, 0, 0.24, 1')
 

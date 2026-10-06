@@ -5,7 +5,7 @@ import { cn } from '../../lib/utils'
 
 /*
   Safe Markdown rendering. react-markdown builds React elements from a syntax
-  tree — it never uses innerHTML — and raw HTML inside the Markdown is not
+  tree (it never uses innerHTML) and raw HTML inside the Markdown is not
   rendered (no rehype-raw). Its default urlTransform strips javascript:/data:
   style URLs from links and images. So content written in the admin can format
   text but cannot inject script. `skipHtml` drops raw HTML instead of showing

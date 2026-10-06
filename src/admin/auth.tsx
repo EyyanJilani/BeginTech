@@ -14,7 +14,7 @@ import type { AuthState, AuthCtx } from './authContext'
 
   The user is re-validated against the Auth server (getUser) rather than
   trusting the locally cached session, and the role is read from the
-  profiles table — never from user-editable metadata.
+  profiles table, never from user-editable metadata.
 */
 
 async function resolve(): Promise<AuthState> {

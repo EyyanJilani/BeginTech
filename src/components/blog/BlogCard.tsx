@@ -6,7 +6,7 @@ import { formatDate } from '../../lib/blog'
 import type { PostSummary } from '../../lib/blog'
 import { cn } from '../../lib/utils'
 
-/** Fallback artwork for posts without a featured image — same system as the portfolio cards. */
+/** Fallback artwork for posts without a featured image, same system as the portfolio cards. */
 const fallbackArt = { pattern: 'grid' as const, from: '#0d2440', to: '#07131f', ink: brandOnDark.blue }
 
 type Props = {

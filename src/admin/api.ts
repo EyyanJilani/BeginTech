@@ -34,13 +34,13 @@ export type PostInput = Omit<
 >
 
 /*
-  RLS doesn't raise on UPDATE/DELETE it filters out — it just affects zero
+  RLS doesn't raise on UPDATE/DELETE it filters out, it just affects zero
   rows. Asking for the affected ids back turns that silent no-op into an
   explicit permission error.
 */
 function ensureAffected(rows: unknown[] | null) {
   if (!rows || rows.length === 0)
-    throw new FriendlyError('Nothing was changed — you may not have permission, or the item no longer exists.')
+    throw new FriendlyError('Nothing was changed. You may not have permission, or the item no longer exists.')
 }
 
 /* ---------------------------------- posts --------------------------------- */
@@ -144,7 +144,7 @@ export async function saveCategory(
 }
 
 export async function deleteCategory(id: string) {
-  // Posts keep existing — the FK is ON DELETE SET NULL.
+  // Posts keep existing, the FK is ON DELETE SET NULL.
   const { data, error } = await db().from('categories').delete().eq('id', id).select('id')
   if (error) throw error
   ensureAffected(data)

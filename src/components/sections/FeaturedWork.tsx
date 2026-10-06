@@ -17,7 +17,7 @@ export function FeaturedWork() {
         <SectionHeading
           eyebrow="Selected work"
           title={<span id="work-heading">Selected work</span>}
-          description="Six live builds that show the range — food ordering, fashion e-commerce, a manufacturer's storefront, an electrical contractor, a French street-food kitchen and a backflow testing service."
+          description="Six live builds that show the range: food ordering, fashion e-commerce, a manufacturer's storefront, an electrical contractor, a French street-food kitchen and a backflow testing service."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-16 md:mt-24 md:grid-cols-12 md:gap-y-24">

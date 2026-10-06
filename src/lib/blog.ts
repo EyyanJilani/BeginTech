@@ -35,7 +35,7 @@ const SUMMARY_COLUMNS =
 /*
   Public queries. RLS already limits anonymous reads to published posts, but
   the filters are repeated here so that a signed-in admin browsing the public
-  blog sees exactly what visitors see — never their own drafts.
+  blog sees exactly what visitors see, never their own drafts.
 */
 function publishedPosts(columns: string) {
   return db()

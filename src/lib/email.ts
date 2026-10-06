@@ -3,7 +3,7 @@ import emailjs from '@emailjs/browser'
 /*
   EmailJS keeps these three IDs client-side by design (its "public key" is
   meant to be exposed in a browser bundle, gated by domain allow-listing and
-  rate limits configured in the EmailJS dashboard — not by keeping the IDs
+  rate limits configured in the EmailJS dashboard, not by keeping the IDs
   secret). Still pulled from env vars rather than hard-coded so the actual
   values live in .env.local / Vercel project settings, not in git history.
 */
@@ -26,7 +26,7 @@ export type EnquiryEmail = {
 }
 
 /**
- * Sends the contact form straight from the browser via EmailJS — no backend
+ * Sends the contact form straight from the browser via EmailJS, no backend
  * of our own to run or pay for. The destination inbox is configured inside
  * the EmailJS template itself (its "To email" field), not passed from here,
  * so the client can't redirect mail to an arbitrary address.
@@ -45,8 +45,8 @@ export async function sendEnquiryEmail(fields: EnquiryEmail): Promise<void> {
       from_name: fields.name,
       from_email: fields.email,
       reply_to: fields.email,
-      company: fields.company || '—',
-      phone: fields.phone || '—',
+      company: fields.company || '-',
+      phone: fields.phone || '-',
       service: fields.service,
       budget: fields.budget,
       message: fields.details,

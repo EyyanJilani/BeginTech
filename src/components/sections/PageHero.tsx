@@ -41,7 +41,7 @@ export function PageHero({ eyebrow, title, lede, meta, breadcrumb, children }: P
   return (
     <section ref={root} className="relative overflow-hidden pb-16 pt-36 md:pb-24 md:pt-48">
       {/*
-        No accent-glow blob here on purpose — Hero already owns that motif on
+        No accent-glow blob here on purpose, Hero already owns that motif on
         the homepage. Repeating it identically behind every inner page (About,
         Work, Contact, all 8 service pages, every case study) is exactly the
         kind of sameness that makes a site feel templated rather than designed.

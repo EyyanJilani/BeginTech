@@ -1,6 +1,6 @@
 /*
   Explicit imports rather than string paths, so Vite fingerprints and bundles
-  these the same way it does the logo assets — a literal '/src/...' string
+  these the same way it does the logo assets, a literal '/src/...' string
   only resolves in dev and silently 404s in the production build.
 */
 import brooklynBites from '../assets/img/work/brooklyn-bites.webp'

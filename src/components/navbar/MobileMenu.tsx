@@ -63,7 +63,7 @@ export function MobileMenu({ open, onClose }: Props) {
   }, [open])
 
   /* Collapse the services accordion whenever the sheet closes. Adjusting
-     state during render on a prop change is the sanctioned pattern here — an
+     state during render on a prop change is the sanctioned pattern here, an
      effect would schedule a second render pass mid-transition. */
   const [wasOpen, setWasOpen] = useState(open)
   if (wasOpen !== open) {

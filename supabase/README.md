@@ -1,9 +1,9 @@
-# BeginTech blog — Supabase setup
+# BeginTech blog, Supabase setup
 
 The blog and admin dashboard use Supabase for the database, authentication
 and image storage. The website itself is a static Vite app, so **all security
 is enforced inside Supabase** by Row Level Security (RLS) and the
-`public.is_admin()` function — not by the browser.
+`public.is_admin()` function, not by the browser.
 
 | File | Purpose |
 |---|---|
@@ -22,7 +22,7 @@ The script is safe to run again later: it never drops tables or deletes rows.
 
 ## 2. (Optional) Load sample data
 
-Only for testing — the sample posts are live on `/blog` once loaded.
+Only for testing, the sample posts are live on `/blog` once loaded.
 
 1. SQL Editor → New query → paste `supabase/seed.sql` → **Run**.
 2. Remove the sample posts when you're done:
@@ -36,7 +36,7 @@ Only for testing — the sample posts are live on `/blog` once loaded.
 Only you should have accounts. In **Authentication → Sign In / Providers**
 (called *Providers → Email* in some dashboard versions), turn **off** "Allow
 new users to sign up". Even if someone did sign up, they would get
-`role = 'user'` and no access — but there is no reason to allow it.
+`role = 'user'` and no access, but there is no reason to allow it.
 
 ## 4. Create the first admin
 
@@ -83,14 +83,14 @@ the next deploy. To make that automatic:
    - Type: **HTTP Request**, method **POST**, URL: the Vercel deploy hook URL.
 
 Every create/edit/publish/delete then triggers a rebuild (about 1–2 minutes).
-Keep the deploy hook URL private — anyone with it can trigger builds.
+Keep the deploy hook URL private, anyone with it can trigger builds.
 
 ## Security summary
 
 - RLS is enabled on `profiles`, `categories` and `posts`.
 - Visitors (`anon`) can read categories, **published** posts whose
-  `published_at` is in the past, and the display name of their authors — nothing else.
-- Every insert/update/delete — and reading drafts — requires
+  `published_at` is in the past, and the display name of their authors, nothing else.
+- Every insert/update/delete (and reading drafts) requires
   `public.is_admin()`: a signed-in user whose profile has `role = 'admin'`.
 - Clients cannot change `profiles` at all, so nobody can promote themselves.
 - Storage: `blog-images` is publicly readable; only admins can upload,

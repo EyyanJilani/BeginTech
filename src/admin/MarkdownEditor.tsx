@@ -21,7 +21,7 @@ import { cn } from '../lib/utils'
 /*
   A small Markdown editor: textarea + formatting toolbar + live preview that
   uses the exact renderer the public blog uses, so what you preview is what
-  gets published. Markdown keeps the stored content portable and safe — no
+  gets published. Markdown keeps the stored content portable and safe, no
   HTML is ever stored or rendered.
 */
 

@@ -38,7 +38,7 @@ export function Statement() {
           <span className="eyebrow">Our position</span>
         </div>
 
-        {/* This oversized line is the section's heading, not decoration —
+        {/* This oversized line is the section's heading, not decoration,
             keeping it an h2 preserves the document outline. */}
         <h2 id="statement-heading" data-statement className="display-lg max-w-[22ch] text-bone">
           Technology should not only work. It should make people{' '}
@@ -48,7 +48,7 @@ export function Statement() {
         <Reveal className="mt-14 max-w-2xl md:mt-20" delay={0.1}>
           <p className="lede">
             Anyone can ship features. The difference between software people tolerate and software
-            people choose is a hundred decisions most teams never make consciously — how fast the
+            people choose is a hundred decisions most teams never make consciously: how fast the
             first screen paints, what happens when the network drops, whether an error message
             respects the person reading it. We are unusually interested in those decisions.
           </p>

@@ -38,7 +38,7 @@ export default function ServicePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0)
 
   useSeo({
-    title: service?.seoTitle ?? 'Page not found — BeginTech',
+    title: service?.seoTitle ?? 'Page not found | BeginTech',
     description: service?.seoDescription ?? 'The page you were looking for does not exist.',
     path: service ? `/services/${service.slug}` : undefined,
     noindex: !service,
@@ -75,7 +75,7 @@ export default function ServicePage() {
       : null,
   )
 
-  /* The FAQ accordion below is real, unique per-service content — FAQPage
+  /* The FAQ accordion below is real, unique per-service content, FAQPage
      schema makes it eligible for rich results / People Also Ask and gives
      AI answer engines a structured, directly-citable Q&A pair. */
   useJsonLd(
@@ -107,7 +107,7 @@ export default function ServicePage() {
   return (
     <>
       <PageHero
-        eyebrow={`${service.index} — ${service.category}`}
+        eyebrow={`${service.index} / ${service.category}`}
         breadcrumb={[
           { label: 'Home', to: '/' },
           { label: service.navTitle, to: `/services/${service.slug}` },
@@ -166,7 +166,7 @@ export default function ServicePage() {
         </div>
       </section>
 
-      {/* Plain-language overview — what the service is, for whom and where.
+      {/* Plain-language overview, what the service is, for whom and where.
           The keyword-bearing H2 lives here rather than in the art-directed hero. */}
       <section className="border-t border-line py-24 md:py-32" aria-labelledby="intro-heading">
         <div className="shell">
@@ -277,7 +277,7 @@ export default function ServicePage() {
         </div>
       </section>
 
-      {/* Proof — only when real portfolio work matches this discipline; unrelated
+      {/* Proof, only when real portfolio work matches this discipline; unrelated
           projects under "Recent work in this discipline" would be misleading. */}
       {cases.length > 0 && (
       <section className="border-t border-line py-24 md:py-32" aria-labelledby="proof-heading">

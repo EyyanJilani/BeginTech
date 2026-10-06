@@ -87,7 +87,7 @@ export default function PostEditor() {
 
   useEffect(() => {
     if (!id) return
-    // An existing post's slug is never auto-rewritten from its title — this
+    // An existing post's slug is never auto-rewritten from its title, this
     // also covers the hop from /new to /:id/edit, which reuses this instance.
     slugTouched.current = true
     getPost(id)

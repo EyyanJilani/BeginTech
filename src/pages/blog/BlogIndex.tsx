@@ -14,7 +14,7 @@ import { friendlyMessage } from '../../lib/supabase'
 import { cn } from '../../lib/utils'
 
 type Feed = {
-  /** The filter this result belongs to — see `key` below. */
+  /** The filter this result belongs to, see `key` below. */
   key: string
   status: 'ready' | 'error'
   posts: PostSummary[]
@@ -35,7 +35,7 @@ export default function BlogIndex() {
   const [draft, setDraft] = useState(search)
 
   useSeo({
-    title: 'Blog — Web Development, AI & Software Insights | BeginTech',
+    title: 'Blog: Web Development, AI & Software Insights | BeginTech',
     description:
       'Articles from BeginTech, a web development and software company in Karachi, on building websites, apps, AI chatbots and digital products.',
     path: '/blog',
@@ -146,7 +146,7 @@ export default function BlogIndex() {
             BeginTech <span className="accent-em">Blog</span>
           </>
         }
-        lede="Notes from our team in Karachi on web development, mobile apps, AI and the business side of building digital products — written from the work, not for the algorithm."
+        lede="Notes from our team in Karachi on web development, mobile apps, AI and the business side of building digital products, written from the work, not for the algorithm."
       />
 
       <section className="border-t border-line py-14 md:py-20" aria-labelledby="articles-heading">

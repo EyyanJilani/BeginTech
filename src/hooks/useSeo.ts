@@ -38,7 +38,7 @@ function setMeta(selector: string, attr: 'name' | 'property', key: string, conte
   tag.setAttribute('content', content)
 }
 
-/** Per-route document metadata — title, description, canonical, robots, OG and Twitter tags. */
+/** Per-route document metadata, title, description, canonical, robots, OG and Twitter tags. */
 export function useSeo({
   title,
   description,

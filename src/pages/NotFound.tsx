@@ -6,7 +6,7 @@ import { useSeo } from '../hooks/useSeo'
 
 export default function NotFound() {
   useSeo({
-    title: 'Page not found — BeginTech',
+    title: 'Page not found | BeginTech',
     description: 'The page you were looking for does not exist.',
     noindex: true,
   })

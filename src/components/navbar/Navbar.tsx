@@ -77,8 +77,8 @@ export function Navbar() {
   const onServices = location.pathname.startsWith('/services')
 
   /* The homepage hero is a fixed dark video regardless of theme (see Hero.tsx),
-     so while the bar floats transparently over it — not yet scrolled, no glass
-     panel behind it — nav text has to stay light-on-dark even in light theme.
+     so while the bar floats transparently over it, not yet scrolled, no glass
+     panel behind it, nav text has to stay light-on-dark even in light theme.
      Once scrolled (or a panel opens) the bar gets its own glass background and
      can go back to the normal theme-reactive tokens. Inner pages don't force a
      dark hero, so they never need this override. */

@@ -1,7 +1,7 @@
 /**
  * Derives the web logo + favicon set from the master artwork.
  *
- * The master is 8462x2555 (~350kB) — fine as a source of truth, far too heavy
+ * The master is 8462x2555 (~350kB), fine as a source of truth, far too heavy
  * for a 40px navbar. Run this whenever src/assets/img/logo.png changes:
  *   node scripts/build-brand-assets.mjs
  */
@@ -10,7 +10,7 @@ import sharp from 'sharp'
 const SRC = 'src/assets/img/logo.png'
 const IMG = 'src/assets/img'
 
-/** Columns that contain no opaque pixels — used to find the gap before the wordmark. */
+/** Columns that contain no opaque pixels, used to find the gap before the wordmark. */
 async function emptyColumns(buf, from, to) {
   const { data, info } = await sharp(buf).raw().toBuffer({ resolveWithObject: true })
   const { width, height, channels } = info
@@ -31,7 +31,7 @@ const trimmed = await sharp(SRC).trim({ threshold: 8 }).png().toBuffer()
 const tm = await sharp(trimmed).metadata()
 console.log(`trimmed lockup: ${tm.width}x${tm.height} (ratio ${(tm.width / tm.height).toFixed(2)})`)
 
-// 2. Full lockup for the site — 960w covers a 48px render at 3x DPR.
+// 2. Full lockup for the site, 960w covers a 48px render at 3x DPR.
 // Flat-colour art quantises extremely well, so a palette PNG beats WebP here.
 await sharp(trimmed)
   .resize({ width: 960 })
@@ -66,7 +66,7 @@ const squared = await sharp({
 await sharp(squared).resize(512, 512).png({ compressionLevel: 9 }).toFile(`${IMG}/logo-mark.png`)
 
 // 5. Favicons. The mark's own colours are mid-dark, so it needs a light
-//    ground — on near-black the navy torso disappears.
+//    ground, on near-black the navy torso disappears.
 //    composite() only accepts buffers/paths, never a Sharp instance.
 async function tile(size, out) {
   const inner = await sharp(squared)

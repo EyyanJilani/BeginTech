@@ -4,7 +4,7 @@ import { countTo } from '../../animations/presets'
 import { stats } from '../../data/site'
 import { cn } from '../../lib/utils'
 
-/** Elegant, restrained counters — one animated pass, no looping. */
+/** Elegant, restrained counters, one animated pass, no looping. */
 export function Stats({ className, bordered = true }: { className?: string; bordered?: boolean }) {
   const root = useRef<HTMLDivElement>(null)
 

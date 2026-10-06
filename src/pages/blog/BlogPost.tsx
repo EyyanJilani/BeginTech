@@ -63,7 +63,7 @@ export default function BlogPost() {
     title: post
       ? post.seo_title || `${post.title} | BeginTech Blog`
       : state.status === 'missing'
-        ? 'Page not found — BeginTech'
+        ? 'Page not found | BeginTech'
         : 'BeginTech Blog',
     description: post ? description : 'Articles from BeginTech on web development, apps and AI.',
     path: state.status === 'missing' || state.status === 'error' ? undefined : `/blog/${slug}`,

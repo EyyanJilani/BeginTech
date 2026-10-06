@@ -32,7 +32,7 @@ const navColumns = [
 export function Footer() {
   const [clock, setClock] = useState('')
 
-  /* Karachi time — a small live detail that signals a real studio. */
+  /* Karachi time, a small live detail that signals a real studio. */
   useEffect(() => {
     const tick = () => {
       setClock(
@@ -60,7 +60,7 @@ export function Footer() {
 
       <Link
         to="/contact"
-        aria-label="Start a project — go to contact"
+        aria-label="Start a project, go to contact"
         className="group block border-b border-line py-10 transition-colors duration-500 hover:bg-surface md:py-14"
       >
         <Marquee speed={42}>
@@ -84,7 +84,7 @@ export function Footer() {
       <div className="shell py-16 md:py-20">
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Link to="/" className="inline-flex items-center" aria-label="BeginTech — home">
+            <Link to="/" className="inline-flex items-center" aria-label="BeginTech home">
               <LogoLockup className="h-14" />
             </Link>
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-mute">

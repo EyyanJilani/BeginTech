@@ -11,8 +11,8 @@ export const reduced = prefersReducedMotion
  * Every entrance below uses fromTo(), never from().
  *
  * from() infers the destination from whatever is on the element when the tween
- * is built. If a stale inline style survives — a StrictMode effect remount, an
- * interrupted context revert — it records the *hidden* state as the
+ * is built. If a stale inline style survives, a StrictMode effect remount, an
+ * interrupted context revert, it records the *hidden* state as the
  * destination, animates 0 → 0, and the content is invisible forever with no
  * error anywhere. fromTo() states the visible end explicitly, so that failure
  * mode cannot happen.
@@ -49,7 +49,7 @@ export function fadeUpOnScroll(target: El, trigger: Element, vars: gsap.TweenVar
 
 /**
  * Line-by-line masked headline reveal. Returns the SplitText so callers can
- * revert it — leaving splits in place breaks text selection and screen readers.
+ * revert it, leaving splits in place breaks text selection and screen readers.
  * `autoSplit` re-splits (and replays the tween) when fonts load or the box
  * resizes, so line breaks never end up stale.
  */
@@ -88,7 +88,7 @@ export function revealLines(
   })
 }
 
-/** Word-level scrub reveal with blur — used for oversized editorial statements. */
+/** Word-level scrub reveal with blur, used for oversized editorial statements. */
 export function revealWords(el: Element, opts: { trigger?: Element; stagger?: number } = {}) {
   if (reduced()) {
     gsap.set(el, { opacity: 1 })

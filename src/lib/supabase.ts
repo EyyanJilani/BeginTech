@@ -8,7 +8,7 @@ import type { SupabaseClient } from '@supabase/supabase-js'
 
   The publishable key is designed to ship to the browser. What a request can
   actually do is decided in Postgres by Row Level Security and
-  public.is_admin() (supabase/blog_schema.sql) — never by this file. The
+  public.is_admin() (supabase/blog_schema.sql), never by this file. The
   service-role key must never be referenced anywhere in src/.
 */
 const URL = import.meta.env.VITE_SUPABASE_URL
