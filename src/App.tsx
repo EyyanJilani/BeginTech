@@ -1,5 +1,5 @@
 import { Suspense, lazy, useEffect } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import { ScrollTrigger } from './lib/gsap'
 import { Navbar } from './components/navbar/Navbar'
 import { Footer } from './components/footer/Footer'
@@ -16,6 +16,11 @@ const WorkDetail = lazy(() => import('./pages/WorkDetail'))
 const Contact = lazy(() => import('./pages/Contact'))
 const ServicePage = lazy(() => import('./pages/services/ServicePage'))
 const NotFound = lazy(() => import('./pages/NotFound'))
+const BlogIndex = lazy(() => import('./pages/blog/BlogIndex'))
+const BlogPost = lazy(() => import('./pages/blog/BlogPost'))
+/* The admin is a separate shell (no marketing chrome) in its own chunk, so
+   visitors never download it. */
+const AdminApp = lazy(() => import('./admin/AdminApp'))
 
 function RouteFallback() {
   return (
@@ -31,12 +36,21 @@ function RouteFallback() {
 
 export default function App() {
   useSmoothScroll()
+  const isAdmin = useLocation().pathname.startsWith('/admin')
 
   /* Layout settles after fonts land — otherwise every trigger is measured
      against fallback metrics and fires early. */
   useEffect(() => {
     document.fonts?.ready.then(() => ScrollTrigger.refresh())
   }, [])
+
+  if (isAdmin) {
+    return (
+      <Suspense fallback={<RouteFallback />}>
+        <AdminApp />
+      </Suspense>
+    )
+  }
 
   return (
     <>
@@ -55,6 +69,8 @@ export default function App() {
                 <Route path="/work" element={<Work />} />
                 <Route path="/work/:slug" element={<WorkDetail />} />
                 <Route path="/services/:slug" element={<ServicePage />} />
+                <Route path="/blog" element={<BlogIndex />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>

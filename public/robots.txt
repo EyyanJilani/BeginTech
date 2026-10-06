@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /_shell.html
 
 Sitemap: https://begintech.co/sitemap.xml

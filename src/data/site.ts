@@ -18,6 +18,7 @@ export const site = {
 export const primaryNav = [
   { label: 'About', to: '/about' },
   { label: 'Work', to: '/work' },
+  { label: 'Blog', to: '/blog' },
   { label: 'Contact', to: '/contact' },
 ]
 

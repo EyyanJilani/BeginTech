@@ -7,6 +7,7 @@ import { SectionHeading } from '../../components/ui/SectionHeading'
 import { Reveal } from '../../components/ui/Reveal'
 import { TextReveal } from '../../components/ui/TextReveal'
 import { ProjectVisual } from '../../components/ui/ProjectVisual'
+import { serviceImages } from '../../data/service-images'
 import { ProjectMedia } from '../../components/ui/ProjectMedia'
 import { ButtonLink } from '../../components/ui/Button'
 import { serviceBySlug, services } from '../../data/services'
@@ -95,6 +96,7 @@ export default function ServicePage() {
   if (!service) return <NotFound />
 
   const visual = art[service.slug] ?? art['web-development']
+  const image = serviceImages[service.slug]
   const related = service.related
     .map((r) => serviceBySlug(r))
     .filter((s): s is NonNullable<typeof s> => Boolean(s))
@@ -143,9 +145,22 @@ export default function ServicePage() {
             </div>
 
             <Reveal className="lg:col-span-5" delay={0.1}>
-              <div className="aspect-4/5 overflow-hidden rounded-xl border border-line">
-                <ProjectVisual art={visual} label={service.title} />
-              </div>
+              {image ? (
+                <div className="aspect-16/10 overflow-hidden rounded-xl border border-line">
+                  <img
+                    src={image}
+                    alt={`${service.title} services by BeginTech, Karachi`}
+                    width={336}
+                    height={210}
+                    decoding="async"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              ) : (
+                <div className="aspect-4/5 overflow-hidden rounded-xl border border-line">
+                  <ProjectVisual art={visual} label={service.title} />
+                </div>
+              )}
             </Reveal>
           </div>
         </div>

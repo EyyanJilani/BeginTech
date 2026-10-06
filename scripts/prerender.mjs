@@ -12,8 +12,8 @@
 //
 // This list mirrors public/sitemap.xml — keep the two in sync when routes
 // are added or removed.
-import { preview } from 'vite'
-import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { loadEnv, preview } from 'vite'
+import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 
 /*
@@ -65,6 +65,7 @@ const ROUTES = [
   '/work/backflow-testing-co',
   '/work/solidification-solutions',
   '/work/signatures-plus',
+  '/blog',
 ]
 
 const OUT_DIR = path.resolve(import.meta.dirname, '..', 'dist')
@@ -77,6 +78,54 @@ const ORIGIN = 'https://begintech.co'
   Google would report as a soft 404.
 */
 const NOT_FOUND_PROBE = '/__prerender-404__'
+
+/*
+  Blog posts live in Supabase, so their routes are discovered at build time.
+  RLS limits the publishable key to published posts with a past publish
+  date — the same set the public site shows. If Supabase is unreachable the
+  build still succeeds (the site must stay deployable); those posts are then
+  served client-side through the /_shell.html rewrite until the next build.
+*/
+async function fetchPublishedPosts() {
+  const env = loadEnv('production', path.resolve(import.meta.dirname, '..'), 'VITE_')
+  const url = env.VITE_SUPABASE_URL
+  const key = env.VITE_SUPABASE_PUBLISHABLE_KEY
+  if (!url || !key) {
+    console.warn('[prerender] Supabase env vars missing — skipping blog posts.')
+    return []
+  }
+  const query = new URLSearchParams({
+    select: 'slug,updated_at',
+    status: 'eq.published',
+    published_at: `lte.${new Date().toISOString()}`,
+    order: 'published_at.desc',
+  })
+  try {
+    const res = await fetch(`${url}/rest/v1/posts?${query}`, { headers: { apikey: key } })
+    if (!res.ok) throw new Error(`HTTP ${res.status}`)
+    const rows = await res.json()
+    return rows.filter((r) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(r.slug))
+  } catch (err) {
+    console.warn(`[prerender] Could not fetch blog posts (${err.message}) — skipping them.`)
+    return []
+  }
+}
+
+/** public/sitemap.xml plus one <url> per published post, written to dist/. */
+async function writeSitemap(posts) {
+  const file = path.join(OUT_DIR, 'sitemap.xml')
+  const xml = await readFile(file, 'utf8')
+  const entries = posts
+    .map(
+      (p) =>
+        `  <url>\n    <loc>${ORIGIN}/blog/${p.slug}</loc>\n` +
+        `    <lastmod>${new Date(p.updated_at).toISOString()}</lastmod>\n  </url>\n`,
+    )
+    .join('\n')
+  const out = entries ? xml.replace(/\s*<\/urlset>\s*$/, `\n\n${entries}</urlset>\n`) : xml
+  await writeFile(file, out, 'utf8')
+  console.log(`sitemap.xml: ${posts.length} blog post(s) added`)
+}
 
 /** Fails the build if public/sitemap.xml and ROUTES drift apart. */
 async function checkSitemap() {
@@ -97,13 +146,25 @@ async function checkSitemap() {
 async function main() {
   await checkSitemap()
 
+  // The untouched SPA shell, kept before index.html is overwritten by the
+  // prerendered homepage. vercel.json rewrites /admin/* and not-yet-built
+  // /blog/* URLs to it. The homepage canonical/og:url are removed so the
+  // shell never claims to be the homepage; the app sets the right ones.
+  const shell = (await readFile(path.join(OUT_DIR, 'index.html'), 'utf8'))
+    .replace(/\s*<link rel="canonical"[^>]*>/, '')
+    .replace(/\s*<meta property="og:url"[^>]*>/, '')
+  await writeFile(path.join(OUT_DIR, '_shell.html'), shell, 'utf8')
+
+  const posts = await fetchPublishedPosts()
+  const postRoutes = posts.map((p) => `/blog/${p.slug}`)
+
   const server = await preview({ preview: { port: 4173, strictPort: false } })
   const base = server.resolvedUrls.local[0].replace(/\/$/, '')
 
   const browser = await launchBrowser()
 
   try {
-    for (const route of [...ROUTES, NOT_FOUND_PROBE]) {
+    for (const route of [...ROUTES, ...postRoutes, NOT_FOUND_PROBE]) {
       const page = await browser.newPage()
       await page.goto(base + route, { waitUntil: 'networkidle0', timeout: 30_000 })
 
@@ -111,6 +172,20 @@ async function main() {
       // all settle within a frame or two of network-idle; this just gives
       // React one more tick to flush before we snapshot the DOM.
       await new Promise((resolve) => setTimeout(resolve, 300))
+
+      // Never bake a loading/error state into a post's static HTML. If the
+      // article didn't render, leave it to the client-side fallback.
+      if (route === '/blog' && (await page.$('[role="alert"]'))) {
+        console.warn(
+          '[prerender] /blog rendered an error (is supabase/blog_schema.sql applied?). ' +
+            'Visitors still get live posts client-side; redeploy once Supabase is set up.',
+        )
+      }
+      if (postRoutes.includes(route) && !(await page.$('article h1'))) {
+        console.warn(`[prerender] ${route} did not render an article — skipped.`)
+        await page.close()
+        continue
+      }
 
       const html = await page.evaluate(() => '<!doctype html>\n' + document.documentElement.outerHTML)
       await page.close()
@@ -126,6 +201,7 @@ async function main() {
       await writeFile(outPath, html, 'utf8')
       console.log(`prerendered ${route} -> ${path.relative(OUT_DIR, outPath)}`)
     }
+    await writeSitemap(posts)
   } finally {
     await browser.close()
     await new Promise((resolve, reject) =>

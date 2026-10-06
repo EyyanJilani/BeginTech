@@ -9,6 +9,7 @@ BeginTech is a small, senior studio (operating since 2016) that designs, builds 
 - [Homepage](https://begintech.co/): overview, services and featured work.
 - [About](https://begintech.co/about): who BeginTech is, principles and history.
 - [Contact](https://begintech.co/contact): get in touch, based in Karachi, Pakistan.
+- [Blog](https://begintech.co/blog): articles on web development, mobile apps, AI and running digital projects.
 
 ## Services
 

@@ -462,3 +462,132 @@ html[data-theme='dark'] .brand-logo {
     scroll-behavior: auto !important;
   }
 }
+
+/*
+  Long-form article typography for blog posts (Markdown output). Built on the
+  same tokens as the rest of the site — display family for headings, the
+  light sans for body copy, accent for links — so an article reads as part of
+  BeginTech rather than as an embedded document.
+*/
+@layer components {
+  .prose-bt {
+    color: var(--color-mute);
+    font-size: clamp(1rem, 1.1vw, 1.0625rem);
+    line-height: 1.8;
+    overflow-wrap: break-word;
+  }
+  .prose-bt > * + * {
+    margin-top: 1.4em;
+  }
+  .prose-bt h2,
+  .prose-bt h3,
+  .prose-bt h4 {
+    font-family: var(--font-display);
+    color: var(--color-bone);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    font-weight: 500;
+    scroll-margin-top: 7rem;
+  }
+  .prose-bt h2 {
+    font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+    margin-top: 2.2em;
+  }
+  .prose-bt h3 {
+    font-size: clamp(1.3rem, 2vw, 1.55rem);
+    margin-top: 1.9em;
+  }
+  .prose-bt h4 {
+    font-size: 1.15rem;
+    margin-top: 1.6em;
+  }
+  .prose-bt strong {
+    color: var(--color-bone);
+    font-weight: 600;
+  }
+  .prose-bt a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+  .prose-bt a:hover {
+    color: var(--color-bone);
+  }
+  .prose-bt ul,
+  .prose-bt ol {
+    padding-left: 1.4em;
+  }
+  .prose-bt ul {
+    list-style: disc;
+  }
+  .prose-bt ol {
+    list-style: decimal;
+  }
+  .prose-bt li + li {
+    margin-top: 0.5em;
+  }
+  .prose-bt li::marker {
+    color: var(--color-accent);
+  }
+  .prose-bt blockquote {
+    border-left: 2px solid var(--color-accent);
+    padding-left: 1.25em;
+    font-family: var(--font-display);
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: var(--color-bone);
+  }
+  .prose-bt code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.875em;
+    background: var(--color-surface-2);
+    border: 1px solid var(--color-line);
+    border-radius: 0.35rem;
+    padding: 0.1em 0.4em;
+    color: var(--color-bone);
+  }
+  .prose-bt pre {
+    background: var(--color-surface-2);
+    border: 1px solid var(--color-line);
+    border-radius: 0.75rem;
+    padding: 1.1em 1.25em;
+    overflow-x: auto;
+    line-height: 1.6;
+  }
+  .prose-bt pre code {
+    background: none;
+    border: 0;
+    padding: 0;
+    font-size: 0.85em;
+  }
+  .prose-bt img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-line);
+  }
+  .prose-bt hr {
+    border: 0;
+    height: 1px;
+    background: var(--color-line);
+    margin: 2.5em 0;
+  }
+  .prose-bt table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    display: block;
+    overflow-x: auto;
+  }
+  .prose-bt th,
+  .prose-bt td {
+    border: 1px solid var(--color-line);
+    padding: 0.55em 0.8em;
+    text-align: left;
+  }
+  .prose-bt th {
+    color: var(--color-bone);
+    background: var(--color-surface-2);
+  }
+}

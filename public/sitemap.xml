@@ -127,4 +127,10 @@
     <priority>0.6</priority>
   </url>
 
+  <url>
+    <loc>https://begintech.co/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>

@@ -6,6 +6,7 @@ import { SectionHeading } from '../ui/SectionHeading'
 import { ProjectVisual } from '../ui/ProjectVisual'
 import { ButtonLink } from '../ui/Button'
 import { services } from '../../data/services'
+import { serviceImages } from '../../data/service-images'
 import type { ArtPattern } from '../../data/projects'
 import { brandOnDark } from '../../data/brand'
 import { cn } from '../../lib/utils'
@@ -57,6 +58,7 @@ export function ServicesRows() {
             const isActive = active === service.slug
             const dimmed = active !== null && !isActive
             const visual = art[service.slug]
+            const image = serviceImages[service.slug]
 
             return (
               <li key={service.slug} className="border-t border-line last:border-b">
@@ -129,7 +131,7 @@ export function ServicesRows() {
                           </ul>
                         </div>
 
-                        {visual && (
+                        {(image || visual) && (
                           <div
                             className={cn(
                               'hidden w-[15rem] shrink-0 overflow-hidden rounded-lg border border-line md:block lg:w-[19rem]',
@@ -138,7 +140,19 @@ export function ServicesRows() {
                             )}
                           >
                             <div className="aspect-16/10">
-                              <ProjectVisual art={visual} label={service.title} />
+                              {image ? (
+                                <img
+                                  src={image}
+                                  alt={`${service.title} services by BeginTech`}
+                                  width={336}
+                                  height={210}
+                                  loading="lazy"
+                                  decoding="async"
+                                  className="h-full w-full object-cover"
+                                />
+                              ) : (
+                                <ProjectVisual art={visual} label={service.title} />
+                              )}
                             </div>
                           </div>
                         )}

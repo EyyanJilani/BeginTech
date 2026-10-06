@@ -10,9 +10,23 @@ type Seo = {
   type?: 'website' | 'article'
   /** Keeps the page out of the index (404s, thin utility pages). */
   noindex?: boolean
+  /** Comma-separated; only set on pages that define them (blog posts). */
+  keywords?: string
+  /** ISO dates for article pages (article:published_time / modified_time). */
+  publishedTime?: string
+  modifiedTime?: string
 }
 
 const DEFAULT_IMAGE = `${ORIGIN}/og.png`
+
+function removeMeta(selector: string) {
+  document.head.querySelector(selector)?.remove()
+}
+
+function setOrRemove(selector: string, attr: 'name' | 'property', key: string, content?: string) {
+  if (content) setMeta(selector, attr, key, content)
+  else removeMeta(selector)
+}
 
 function setMeta(selector: string, attr: 'name' | 'property', key: string, content: string) {
   let tag = document.head.querySelector<HTMLMetaElement>(selector)
@@ -25,7 +39,17 @@ function setMeta(selector: string, attr: 'name' | 'property', key: string, conte
 }
 
 /** Per-route document metadata — title, description, canonical, robots, OG and Twitter tags. */
-export function useSeo({ title, description, path, image, type = 'website', noindex }: Seo) {
+export function useSeo({
+  title,
+  description,
+  path,
+  image,
+  type = 'website',
+  noindex,
+  keywords,
+  publishedTime,
+  modifiedTime,
+}: Seo) {
   useEffect(() => {
     document.title = title
     const shareImage = image ?? DEFAULT_IMAGE
@@ -44,6 +68,19 @@ export function useSeo({ title, description, path, image, type = 'website', noin
     setMeta('meta[name="twitter:title"]', 'name', 'twitter:title', title)
     setMeta('meta[name="twitter:description"]', 'name', 'twitter:description', description)
     setMeta('meta[name="twitter:image"]', 'name', 'twitter:image', shareImage)
+    setOrRemove('meta[name="keywords"]', 'name', 'keywords', keywords)
+    setOrRemove(
+      'meta[property="article:published_time"]',
+      'property',
+      'article:published_time',
+      type === 'article' ? publishedTime : undefined,
+    )
+    setOrRemove(
+      'meta[property="article:modified_time"]',
+      'property',
+      'article:modified_time',
+      type === 'article' ? modifiedTime : undefined,
+    )
 
     const url = `${ORIGIN}${path ?? window.location.pathname}`
     setMeta('meta[property="og:url"]', 'property', 'og:url', url)
@@ -60,5 +97,5 @@ export function useSeo({ title, description, path, image, type = 'website', noin
       document.head.appendChild(link)
     }
     link.href = url
-  }, [title, description, path, image, type, noindex])
+  }, [title, description, path, image, type, noindex, keywords, publishedTime, modifiedTime])
 }

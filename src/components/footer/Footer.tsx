@@ -15,6 +15,7 @@ const navColumns = [
       { label: 'Home', to: '/' },
       { label: 'About', to: '/about' },
       { label: 'Work', to: '/work' },
+      { label: 'Blog', to: '/blog' },
       { label: 'Contact', to: '/contact' },
     ],
   },
